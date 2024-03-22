@@ -1,0 +1,31 @@
+# Module 2: Geavanceerde R Programmering
+
+## Doelstellingen
+
+Deze module is gericht op het verdiepen van uw kennis in geavanceerde R-programmeertechnieken, met een bijzondere focus op:
+
+- Het begrijpen en toepassen van functioneel programmeren met \`purrr\`.
+- Het beheersen van namespaces en het correct laden van externe packages.
+- Het verkennen van de basisprincipes van R package ontwikkeling en beheer.
+
+## Functioneel Programmeren
+
+Functioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.
+
+Het \`purrr\` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.
+
+#### Kernconcept: \`map\` Functies in \`purrr\`
+
+De \`map\` functies zijn essentieel binnen \`purrr\` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.
+
+##### Voorbeeld: Toepassen van \`map\` Functies
+
+Stel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:
+
+```r
+library(purrr) nummeriekeLijst \<- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s
+```
+
+gemiddelden \<- map_dbl(nummeriekeLijst, mean)
+
+print(gemiddelden)

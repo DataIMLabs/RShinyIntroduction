@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "module1.html",
+    "href": "module1.html",
+    "title": "2  Module 1: Introductie in R",
+    "section": "",
+    "text": "R and Shiny Course Creator\n\n2.0.1 Basisprogrammeerconcepten\nIn deze les verkennen we de kernconcepten van het programmeren in R die essentieel zijn voor data-analyse en -manipulatie. We zullen ons concentreren op het werken met variabelen, basis datatypes, vectoren, en lijsten. Deze concepten vormen de basis voor het werken met complexere datastructuren en het uitvoeren van geavanceerde data-analyse.\n\n2.0.1.1 Variabelen en Toewijzing\nIn R is een variabele een opslaglocatie die een waarde bevat. Variabelen worden gebruikt om data op te slaan die we in onze analyse willen gebruiken of manipuleren. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator <- om waarden toe te wijzen aan variabelen. Bijvoorbeeld:\nmijnNummer <- 5\nmijnTekst <- \"Hallo, wereld!\""
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "RShinyIntroduction",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "module2.html#doelstellingen",
+    "href": "module2.html#doelstellingen",
+    "title": "3  Module 2: Geavanceerde R Programmering",
+    "section": "3.1 Doelstellingen",
+    "text": "3.1 Doelstellingen\nDeze module is gericht op het verdiepen van uw kennis in geavanceerde R-programmeertechnieken, met een bijzondere focus op:\n\nHet begrijpen en toepassen van functioneel programmeren met `purrr`.\nHet beheersen van namespaces en het correct laden van externe packages.\nHet verkennen van de basisprincipes van R package ontwikkeling en beheer."
+  },
+  {
+    "objectID": "module2.html#lesplan",
+    "href": "module2.html#lesplan",
+    "title": "3  Module 2: Geavanceerde R Programmering",
+    "section": "3.2 Lesplan",
+    "text": "3.2 Lesplan\n\n3.2.1 Les 1: Functioneel Programmeren met `purrr`\nFunctioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nDe `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n3.2.1.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n3.2.1.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\<- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden <- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
+  },
+  {
+    "objectID": "module2.html#functioneel-programmeren",
+    "href": "module2.html#functioneel-programmeren",
+    "title": "3  Module 2: Geavanceerde R Programmering",
+    "section": "3.2 Functioneel Programmeren",
+    "text": "3.2 Functioneel Programmeren\nFunctioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nHet `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n3.2.0.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n3.2.0.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\<- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden <- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
+  },
+  {
+    "objectID": "module1.html#basisprogrammeerconcepten",
+    "href": "module1.html#basisprogrammeerconcepten",
+    "title": "2  Module 1: Introductie in R",
+    "section": "2.1 Basisprogrammeerconcepten",
+    "text": "2.1 Basisprogrammeerconcepten\nIn deze les verkennen we de kernconcepten van het programmeren in R die essentieel zijn voor data-analyse en -manipulatie. We zullen ons concentreren op het werken met variabelen, basis datatypes, vectoren, en lijsten. Deze concepten vormen de basis voor het werken met complexere datastructuren en het uitvoeren van geavanceerde data-analyse.\n\n2.1.0.1 Variabelen en Toewijzing\nIn R is een variabele een opslaglocatie die een waarde bevat. Variabelen worden gebruikt om data op te slaan die we in onze analyse willen gebruiken of manipuleren. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator <- om waarden toe te wijzen aan variabelen. Bijvoorbeeld:\nmijnNummer <- 5\nmijnTekst <- \"Hallo, wereld!\""
+  }
+]
