@@ -1,0 +1,54 @@
+### Data types
+
+## Vectoren
+
+In R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.  
+
+
+Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen. 
+
+In JavaScript vereist dat een `for`-loop over de elementen van een array: 
+
+<div class="row">
+
+<div class="col-6">
+```js 
+let x = [1, 2, 3, 4, 5];
+
+for(i = 0; i < x.length; i++) {
+   x[i] += 1;
+}
+
+console.log(x);
+
+```
+</div>
+<div class="col-6">
+```R
+let x = [1, 2, 3, 4, 5];
+
+for(i = 0; i < x.length; i++) {
+   x[i] += 1;
+}
+
+console.log(x);
+
+```
+</div>
+
+## Atomische datastructuren
+
+```{mermaid}
+ flowchart TD
+        B[Atomic] --> L[Logical]
+        B --> N[Numerical]
+        N --> I[Integer]
+        N --> D[Double]
+        B --> Z[Complex]
+        B --> R[Raw]
+        NA[Non-atomic]
+        NA -->  L2[List]
+        L2 --> DF[data.frame]
+        L2 --> DT[data.table]
+
+```

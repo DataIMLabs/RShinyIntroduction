@@ -1,0 +1,10 @@
+### Variablen
+
+Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator **`<-`** om waarden toe te wijzen aan variabelen.
+
+``` r 
+x <- 5
+x <- x + 1
+print(x)
+```
+

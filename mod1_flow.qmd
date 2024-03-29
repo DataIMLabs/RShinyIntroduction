@@ -1,0 +1,83 @@
+# Flow  
+
+Flow-control in R is een essentieel concept dat je helpt om beslissingen te nemen in je code, herhaalde taken uit te voeren, en door datastructuren te itereren. We zullen kijken naar de meest voorkomende flow-control structuren in R: conditionele statements (if, else if, else), loops (for, while), en de repeat loop. We zullen ook kort de break en next statements aanraken.
+
+## Voorwaardelijke uitvoer 
+Conditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.
+
+### if / else 
+
+<div class='panel-tabset'> 
+## R
+```R
+x <- 5
+
+if (x > 0) {
+  print("x is positief")
+} else if (x < 0) {
+  print("x is negatief")
+} else {
+  print("x is nul")
+} 
+```   
+</div>
+
+### switch
+
+
+
+
+## Loops
+Loops maken het mogelijk om code meerdere keren uit te voeren.
+
+### For Loops
+Een `for`-loop werkt als volgt: 
+
+<div class='panel-tabset'> 
+## R
+```R
+# Initialiseer een vector
+vect <- 1:5
+
+for (i in vect) {
+  print(i^2)  # Kwadrateer elk element en geef de output weer 
+}
+```   
+</div>
+
+### While-loop
+
+<div class='panel-tabset'> 
+## R
+```R
+count <- 1
+
+while(count <= 5) {
+    print(count)
+    count <- count + 1
+}
+
+```
+
+## R2
+test
+</div>
+
+### Repeat Loops
+
+De repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.
+
+<div class='panel-tabset'> 
+## R
+```R
+count <- 1
+
+repeat {
+    print(count)
+    if(count >= 5) {
+        break  # Verlaat de loop als count groter of gelijk aan 5 is
+    }
+    count <- count + 1
+}
+```
+</div>

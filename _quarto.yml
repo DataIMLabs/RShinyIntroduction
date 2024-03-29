@@ -1,24 +1,34 @@
 project:
-  type: book
-
+  type: book  
 book:
-  title: "RShinyIntroduction"
-  author: "David"
-  date: "22-3-2024"
-  chapters:
+  title: "Introductie R en Shiny"
+  author: "David Macro"
+  date: "2024 03 03"
+  chapters: 
     - index.qmd
-    - intro.qmd
-    - module1.qmd
-    - module2.qmd
-    - references.qmd
-
-bibliography: references.bib
-
-format:
+    - part: intro.qmd 
+    - part: mod1_basis.qmd
+      chapters: 
+        - mod1_variables.qmd  
+        - mod1_datatypes.qmd  
+        - mod1_flow.qmd
+    - part: mod2_advanced.qmd
+      chapters:
+        - mode2_fp.qmd
+    - part: "Charts met Plotly" 
+    - references.qmd 
+bibliography: references.bib 
+sidebar: 
+    search: true
+format:  
   html:
-    theme: cosmo
-  pdf:
-    documentclass: scrreprt
-
-editor: visual
+    page-layout: full
+    toc-depth: 4
+    grid: 
+      content-mode: full
+    theme:  yeti 
+    code-block-bg: true
+    code-block-border-left: true
+    css: stylesheet.css 
+editor: source
 

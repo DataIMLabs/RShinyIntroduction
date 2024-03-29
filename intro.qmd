@@ -1,9 +1,9 @@
-# Introduction
+# Introductie
 
-This is a book created from markdown and executable code.
+Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken. 
 
-See @knuth84 for additional discussion of literate programming.
+Gedurende deze cursus zullen we geavanceerde R-technieken en hun toepassing binnen Shiny uitgebreid behandelen. U leert hoe u solide, gebruiksvriendelijke web-applicaties creëert die uw onderzoek onderscheiden en de impact ervan versterken. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.
 
-```{r}
-1 + 1
-```
+De cursus is opgedeeld in verschillende modules:
+
+Module 1 geeft een introductie 

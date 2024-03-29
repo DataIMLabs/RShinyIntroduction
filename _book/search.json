@@ -9,9 +9,9 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "2  Introductie",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.\nGedurende deze cursus zullen we geavanceerde R-technieken en hun toepassing binnen Shiny uitgebreid behandelen. U leert hoe u solide, gebruiksvriendelijke web-applicaties creëert die uw onderzoek onderscheiden en de impact ervan versterken. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.\nDe cursus is opgedeeld in verschillende modules:\nModule 1 geeft een introductie"
   },
   {
     "objectID": "references.html",
@@ -23,9 +23,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "RShinyIntroduction",
+    "title": "Introductie R en Shiny",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "1 Index"
   },
   {
     "objectID": "module2.html#doelstellingen",
@@ -46,13 +46,160 @@
     "href": "module2.html#functioneel-programmeren",
     "title": "3  Module 2: Geavanceerde R Programmering",
     "section": "3.2 Functioneel Programmeren",
-    "text": "3.2 Functioneel Programmeren\nFunctioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nHet `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n3.2.0.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n3.2.0.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\<- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden <- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
+    "text": "3.2 Functioneel Programmeren\nFunctioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nHet `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n3.2.0.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n3.2.0.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden &lt;- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
   },
   {
     "objectID": "module1.html#basisprogrammeerconcepten",
     "href": "module1.html#basisprogrammeerconcepten",
     "title": "2  Module 1: Introductie in R",
     "section": "2.1 Basisprogrammeerconcepten",
-    "text": "2.1 Basisprogrammeerconcepten\nIn deze les verkennen we de kernconcepten van het programmeren in R die essentieel zijn voor data-analyse en -manipulatie. We zullen ons concentreren op het werken met variabelen, basis datatypes, vectoren, en lijsten. Deze concepten vormen de basis voor het werken met complexere datastructuren en het uitvoeren van geavanceerde data-analyse.\n\n2.1.0.1 Variabelen en Toewijzing\nIn R is een variabele een opslaglocatie die een waarde bevat. Variabelen worden gebruikt om data op te slaan die we in onze analyse willen gebruiken of manipuleren. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator <- om waarden toe te wijzen aan variabelen. Bijvoorbeeld:\nmijnNummer <- 5\nmijnTekst <- \"Hallo, wereld!\""
+    "text": "2.1 Basisprogrammeerconcepten\nIn deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de basis datatypes in R, vectoren, en lijsten.\n\n2.1.1 Variabelen\nEen variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator &lt;- om waarden toe te wijzen aan variabelen.\nBijvoorbeeld:\nx &lt;- 5\n\nprint(x + 5)\n\n\n2.1.2 Basis datatypes\n\n\n\n\n flowchart TD\n        V[Vector] --&gt; B\n        V --&gt; NA[Non-atomic]\n        B[Atomic] --&gt; L[Logical]\n    \n\n\n\n\n\n\n\n\n\n    flowchart TD\n    B[Atomic]\n    B --&gt; N[Numerical]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; R[Raw]\n      \n\n\n\n\n\n\n\n\n\n\n  NA --&gt;  L2[List]\n        L2 --&gt; DF[data.frame]\n        L2 --&gt; DT[data.table]"
+  },
+  {
+    "objectID": "mod1-basis.html#basisprogrammeerconcepten",
+    "href": "mod1-basis.html#basisprogrammeerconcepten",
+    "title": "2  Module 1: Introductie in R",
+    "section": "2.1 Basisprogrammeerconcepten",
+    "text": "2.1 Basisprogrammeerconcepten\nIn deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de basis datatypes in R, vectoren, en lijsten.\n\n2.1.1 Variabelen\nEen variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator &lt;- om waarden toe te wijzen aan variabelen.\nBijvoorbeeld:\nx &lt;- 5\n\nprint(x + 5)\n\n\n2.1.2 Basis datatypes\n\n\n\n\n flowchart TD\n        V[Vector] --&gt; B\n        V --&gt; NA[Non-atomic]\n        B[Atomic] --&gt; L[Logical]\n    \n\n\n\n\n\n\n\n\n\n    flowchart TD\n    B[Atomic]\n    B --&gt; N[Numerical]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; R[Raw]\n      \n\n\n\n\n\n\n\n\n\n\n  NA --&gt;  L2[List]\n        L2 --&gt; DF[data.frame]\n        L2 --&gt; DT[data.table]"
+  },
+  {
+    "objectID": "mod1-basis.html",
+    "href": "mod1-basis.html",
+    "title": "2  Basisprogrammeerconcepten",
+    "section": "",
+    "text": "In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de basis datatypes in R, vectoren, en lijsten."
+  },
+  {
+    "objectID": "mod2-advanced.html#doelstellingen",
+    "href": "mod2-advanced.html#doelstellingen",
+    "title": "3  Module 2: Geavanceerde R Programmering",
+    "section": "3.1 Doelstellingen",
+    "text": "3.1 Doelstellingen\nDeze module is gericht op het verdiepen van uw kennis in geavanceerde R-programmeertechnieken, met een bijzondere focus op:\n\nHet begrijpen en toepassen van functioneel programmeren met `purrr`.\nHet beheersen van namespaces en het correct laden van externe packages.\nHet verkennen van de basisprincipes van R package ontwikkeling en beheer."
+  },
+  {
+    "objectID": "mod2-advanced.html#functioneel-programmeren",
+    "href": "mod2-advanced.html#functioneel-programmeren",
+    "title": "4  Doelstellingen",
+    "section": "4.1 Functioneel Programmeren",
+    "text": "4.1 Functioneel Programmeren\nFunctioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nHet `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n4.1.0.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n4.1.0.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden &lt;- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
+  },
+  {
+    "objectID": "mod1_basis.html",
+    "href": "mod1_basis.html",
+    "title": "Basis R",
+    "section": "",
+    "text": "In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de verschillende datatypes in R, en eenvoudige operaties"
+  },
+  {
+    "objectID": "mod1_variables.html",
+    "href": "mod1_variables.html",
+    "title": "2  Variablen",
+    "section": "",
+    "text": "Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator &lt;- om waarden toe te wijzen aan variabelen.\nx &lt;- 5\nx &lt;- x + 1\nprint(x)"
+  },
+  {
+    "objectID": "mod1_datatypes.html",
+    "href": "mod1_datatypes.html",
+    "title": "3  Data types",
+    "section": "",
+    "text": "flowchart TD\n        B[Atomic] --&gt; L[Logical]\n        B --&gt; N[Numerical]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; R[Raw]\n        NA[Non-atomic]\n        NA --&gt;  L2[List]\n        L2 --&gt; DF[data.frame]\n        L2 --&gt; DT[data.table]"
+  },
+  {
+    "objectID": "mod1_datatypes.html#vectoren",
+    "href": "mod1_datatypes.html#vectoren",
+    "title": "3  Data types",
+    "section": "3.1 Vectoren",
+    "text": "3.1 Vectoren\nIn R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.\nZie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen.\nIn JavaScript vereist dat een for-loop over de elementen van een array:\n\n\n\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);\n\n\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);"
+  },
+  {
+    "objectID": "mod1_datatypes.html#atomische-datastructuren",
+    "href": "mod1_datatypes.html#atomische-datastructuren",
+    "title": "3  Data types",
+    "section": "3.2 Atomische datastructuren",
+    "text": "3.2 Atomische datastructuren\n\n\n\n\n\n flowchart TD\n        B[Atomic] --&gt; L[Logical]\n        B --&gt; N[Numerical]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; R[Raw]\n        NA[Non-atomic]\n        NA --&gt;  L2[List]\n        L2 --&gt; DF[data.frame]\n        L2 --&gt; DT[data.table]"
+  },
+  {
+    "objectID": "mod2-advanced.html",
+    "href": "mod2-advanced.html",
+    "title": "5  Functioneel Programmeren",
+    "section": "",
+    "text": "Functioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nHet `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n5.0.0.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n5.0.0.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden &lt;- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
+  },
+  {
+    "objectID": "mode2_fp.html",
+    "href": "mode2_fp.html",
+    "title": "5  Functioneel Programmeren",
+    "section": "",
+    "text": "Functioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.\nHet `purrr` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.\n\n5.0.0.1 Kernconcept: `map` Functies in `purrr`\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\n\n5.0.0.1.1 Voorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\ngemiddelden &lt;- map_dbl(nummeriekeLijst, mean)\nprint(gemiddelden)"
+  },
+  {
+    "objectID": "mod1_flow.html#conditionele-statements",
+    "href": "mod1_flow.html#conditionele-statements",
+    "title": "4  Flow",
+    "section": "4.1 Conditionele Statements",
+    "text": "4.1 Conditionele Statements\nConditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.\n\nR\n\n\nx &lt;- 5\n\nif (x &gt; 0) {\n  print(\"x is positief\")\n} else if (x &lt; 0) {\n  print(\"x is negatief\")\n} else {\n  print(\"x is nul\")\n}"
+  },
+  {
+    "objectID": "mod1_flow.html#r2",
+    "href": "mod1_flow.html#r2",
+    "title": "4  Flow",
+    "section": "4.2 R2",
+    "text": "4.2 R2\nx &lt;- 5\n\nif (x &gt; 0) {\n  print(\"x is positief\")\n} else if (x &lt; 0) {\n  print(\"x is negatief\")\n} else {\n  print(\"x is nul\")\n}"
+  },
+  {
+    "objectID": "mod1_flow.html#for-loops",
+    "href": "mod1_flow.html#for-loops",
+    "title": "4  Flow",
+    "section": "4.2 For Loops",
+    "text": "4.2 For Loops\nEen for-loop wordt gebruikt om een blok code meerdere keren uit te voeren, met een variabele die over een reeks of vector loopt.\n\nR\n\n\n# Initialiseer een vector\nvect &lt;- 1:5\n\nfor (i in vect) {\n  print(i^2)  # Kwadrateer elk element en geef de output weer \n}"
+  },
+  {
+    "objectID": "mod1_flow.html#while",
+    "href": "mod1_flow.html#while",
+    "title": "4  Flow",
+    "section": "4.3 While",
+    "text": "4.3 While"
+  },
+  {
+    "objectID": "mod1_flow.html#while-lops",
+    "href": "mod1_flow.html#while-lops",
+    "title": "4  Flow",
+    "section": "4.3 While Lops",
+    "text": "4.3 While Lops\ncount &lt;- 1\n\nwhile(count &lt;= 5) {\n    print(count)\n    count &lt;- count + 1\n}\n\n4.3.1 Repeat Loops\nDe repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.\ncount &lt;- 1\n\nrepeat {\n    print(count)\n    if(count &gt;= 5) {\n        break  # Verlaat de loop als count groter of gelijk aan 5 is\n    }\n    count &lt;- count + 1\n}"
+  },
+  {
+    "objectID": "mod1_flow.html#loops-for-loops",
+    "href": "mod1_flow.html#loops-for-loops",
+    "title": "4  Flow",
+    "section": "4.2 Loops For Loops",
+    "text": "4.2 Loops For Loops\nEen for-loop wordt gebruikt om een blok code meerdere keren uit te voeren, met een variabele die over een reeks of vector loopt.\n\nR\n\n\n# Initialiseer een vector\nvect &lt;- 1:5\n\nfor (i in vect) {\n  print(i^2)  # Kwadrateer elk element en geef de output weer \n}"
+  },
+  {
+    "objectID": "mod1_flow.html#loops",
+    "href": "mod1_flow.html#loops",
+    "title": "4  Flow",
+    "section": "4.2 Loops",
+    "text": "4.2 Loops\nLoops maken het mogelijk om code meerdere keren uit te voeren.\n\n4.2.1 For Loops\nEen for-loop werkt als volgt:\n\nR\n\n\n# Initialiseer een vector\nvect &lt;- 1:5\n\nfor (i in vect) {\n  print(i^2)  # Kwadrateer elk element en geef de output weer \n}\n\n\n\n\n\n4.2.2 While-loop\n\nRR2\n\n\ncount &lt;- 1\n\nwhile(count &lt;= 5) {\n    print(count)\n    count &lt;- count + 1\n}\n\n\ntest\n\n\n\n\n\n4.2.3 Repeat Loops\nDe repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.\n\nR\n\n\ncount &lt;- 1\n\nrepeat {\n    print(count)\n    if(count &gt;= 5) {\n        break  # Verlaat de loop als count groter of gelijk aan 5 is\n    }\n    count &lt;- count + 1\n}"
+  },
+  {
+    "objectID": "mod1_flow.html#voorwaardelijke-uitvoer",
+    "href": "mod1_flow.html#voorwaardelijke-uitvoer",
+    "title": "4  Flow",
+    "section": "4.1 Voorwaardelijke uitvoer",
+    "text": "4.1 Voorwaardelijke uitvoer\nConditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.\n\n4.1.1 if / else\n\nR\n\n\nx &lt;- 5\n\nif (x &gt; 0) {\n  print(\"x is positief\")\n} else if (x &lt; 0) {\n  print(\"x is negatief\")\n} else {\n  print(\"x is nul\")\n} \n\n\n\n\n\n4.1.2 switch"
+  },
+  {
+    "objectID": "mod1_flow.html#r-3",
+    "href": "mod1_flow.html#r-3",
+    "title": "4  Flow",
+    "section": "4.3 R",
+    "text": "4.3 R\ncount &lt;- 1\n\nrepeat {\n    print(count)\n    if(count &gt;= 5) {\n        break  # Verlaat de loop als count groter of gelijk aan 5 is\n    }\n    count &lt;- count + 1\n}"
+  },
+  {
+    "objectID": "index.html#index",
+    "href": "index.html#index",
+    "title": "Introductie R en Shiny",
+    "section": "Index",
+    "text": "Index"
   }
 ]
