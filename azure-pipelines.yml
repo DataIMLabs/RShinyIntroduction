@@ -10,9 +10,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '_book'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    CleanTargetFolder: false
+steps:
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '_book'
+      Contents: '**'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      CleanTargetFolder: false
