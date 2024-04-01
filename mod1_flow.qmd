@@ -24,6 +24,8 @@ if (x > 0) {
 
 ### switch
 
+In R kan een switch-statement gebruikt worden om één van vele codeblokken te selecteren die uitgevoerd moeten worden. Een belangrijk kenmerk van het switch-statement is dat het direct het resultaat van de overeenkomende case teruggeeft. Dit betekent dat je het resultaat van een switch-statement direct kunt toewijzen aan een variabele. 
+
 <div class='panel-tabset'> 
 ## R
 ```r
