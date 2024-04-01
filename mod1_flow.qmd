@@ -24,8 +24,29 @@ if (x > 0) {
 
 ### switch
 
+<div class='panel-tabset'> 
+## R
+```r
+# Definieer de variabele
+dag <- 4
 
+# Gebruik switch om de waarde van de variabele te vergelijken met verschillende gevallen
+resultaat <- switch(dag,
+  "1" = "Maandag",
+  "2" = "Dinsdag",
+  "3" = "Woensdag",
+  "4" = "Donderdag",
+  "5" = "Vrijdag",
+  "6" = "Zaterdag",
+  "7" = "Zondag",
+  "Onbekende dag"
+)
 
+# Print het resultaat
+print(resultaat)
+
+```
+</div>
 
 ## Loops
 Loops maken het mogelijk om code meerdere keren uit te voeren.
