@@ -6,4 +6,4 @@ Gedurende deze cursus zullen we geavanceerde R-technieken en hun toepassing binn
 
 De cursus is opgedeeld in verschillende modules:
 
-Module 1 geeft een introductie 
+Module 1 geeft een introductie  

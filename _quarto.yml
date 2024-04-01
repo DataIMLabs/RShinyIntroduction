@@ -6,7 +6,7 @@ book:
   date: "2024 03 03"
   chapters: 
     - index.qmd
-    - part: intro.qmd 
+    - intro.qmd 
     - part: mod1_basis.qmd
       chapters: 
         - mod1_variables.qmd  
