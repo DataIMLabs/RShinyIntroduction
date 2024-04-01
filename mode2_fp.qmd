@@ -5,7 +5,7 @@
 
 Functioneel programmeren is een paradigma dat benadrukt dat de output van een functie uitsluitend afhankelijk is van de input, zonder bijeffecten. Dit paradigma helpt om code te versimpelen en versnellen, vooral bij data manipulatie en analyse taken in R.
 
-Het \`purrr\` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt.
+Het \`purrr\` package biedt een consistente en complete set gereedschappen voor functioneel programmeren in R, waardoor het werken met functies en vectoren intuïtiever en minder foutgevoelig wordt vergeleken met de basis R tools.
 
 #### Kernconcept: \`map\` Functies in \`purrr\`
 
@@ -17,8 +17,9 @@ Stel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van el
 
 ``` r
 library(purrr) nummeriekeLijst \<- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s
-```
+
 
 gemiddelden \<- map_dbl(nummeriekeLijst, mean)
 
 print(gemiddelden)
+```
