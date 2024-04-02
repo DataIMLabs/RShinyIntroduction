@@ -1,4 +1,4 @@
 # Basis R 
 
 In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de verschillende datatypes in R, en eenvoudige operaties
-   
+    
