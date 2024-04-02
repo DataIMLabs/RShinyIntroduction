@@ -8,23 +8,32 @@ book:
     - index.qmd
     - intro.qmd 
     - part: mod1_basis.qmd
-      chapters: 
+      chapters:  
         - mod1_variables.qmd  
         - mod1_datatypes.qmd  
         - mod1_flow.qmd
-    - part: mod2_advanced.qmd
+    - part: mod2_datatableintro.qmd
+      chapters: 
+        - mod2_datatableijby.qmd
+    - part: mod3_plotlyintro.qmd 
+      chapters:  
+        - mod3_plotlybarchart.qmd  
+    - part: mod4_advancedintro.qmd
       chapters:
-        - mode2_fp.qmd
-    - part: "Charts met Plotly" 
+        - mod4_fp.qmd
+    - part: mod5_basicshinyintro.qmd
     - references.qmd 
-bibliography: references.bib 
+bibliography: references.bib  
 sidebar: 
     search: true
 format:  
   html:
     page-layout: full
     toc-depth: 4
-    grid: 
+    grid:  
+      body-width: 900px
+      sidebar-width: 350px
+      margin-width:	150px
       content-mode: full
     theme:  yeti 
     code-block-bg: true

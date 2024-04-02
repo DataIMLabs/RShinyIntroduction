@@ -1,0 +1,23 @@
+# Basisbewerkingen
+
+Voorbeeld aanmaken data.table: 
+```r
+library(data.table)
+dt <- data.table(
+  col1 = 1:26, 
+  col2 = letters[1:2]
+)
+```
+
+Een `data.table` object is van de vorm `dt[i, j, ...]`. Hierbij is `i`
+
+## Subsetting
+
+
+## Samenvatten
+
+
+## Aanmaken of wijzigen variabelen
+
+
+## Groeperen

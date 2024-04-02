@@ -1,0 +1,4 @@
+# Module 2 - Data.table 
+
+`data.table` is een krachtig package waarmee snel databewerkingen kunnen worden uitgevoerd op grote datasets. 
+

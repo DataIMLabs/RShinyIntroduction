@@ -1,9 +1,45 @@
-### Variablen en operatoren
+# Variablen, operatoren en functies. 
 
-Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. 
+## Variabelen
 
-Een operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen.
+Een variabele is een verwijzing naar een waarde in het geheugden van de computer. We gebruiken de (binaire) toewijzingsoperator **`<-`** of **`->`** om waarden toe te wijzen aan variabelen.
 
+### Mutabiliteit
+Variabelen in R zijn _mutabel_. In R betekent dit dat gedurende de uitvoer van een programma zowel de waarde als het type van de variabele kan veranderen.  
+
+
+``` r 
+# Voorbeeld mutabiliteit 
+x <- 5
+x <- x + 1
+print(x)
+
+# Voorbeeld type-conversie
+y <- 1
+typeof(y)
+y <- "test"
+typeof(y)
+
+```
+
+### Copy-on-modify
+
+Zie verder onderstaande voorbeelden: 
+
+```r
+5 -> x
+x -> y
+z <- x
+
+print(z)
+
+```
+
+## Operatoren
+
+Een operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen. Operatoren kunne worden ingedeeld in _unaire_ operatoren (één input) en _binaire_ operatoren (twee inputs).
+ 
+ 
 ```{mermaid}
 flowchart TD
    X[Operators] --> |<small>Eén input</small>| U[Unair]
@@ -16,13 +52,64 @@ flowchart TD
    B --> LO["&, &&, |, ||"]
 ```
 
+```r
+x <- 1 # Toewijzen label 'x' aan waarde '1' in het geheugen 
+y <- 2 # idem. 
 
-We gebruiken de toewijzingsoperator **`<-`** om waarden toe te wijzen aan variabelen.
+# Binaire operatoren: 
+z <- x + y # Optellen
+d <- x * y # Vermenigvuldigen
 
-``` r 
-x <- 5
-x <- x + 1
-print(x)
 ```
 
-in 
+## Functies
+
+Een functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn fundamenteel voor het structureren van code: ze maken het mogelijk complexe problemen op te delen in kleinere taken. Een functie kan nul of meer parameters (ook bekend als argumenten) als input aannemen. Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten _side-effect_), of beide. 
+
+
+### Voorbeeld
+
+```r
+f <- function(x,y){
+    return(x+1)
+}
+
+f(1) 
+
+```
+
+De expressie `f(1)` retourneert `2`. Merk op dat het argumen `y` niet is gespecificeerd. Dit is echter geen probleem, zolang de functie `f` dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation). 
+
+### Defaults
+Het is mogelijk om in R een standaardwaarde mee te geven aan een functie: 
+
+```r
+f <- function(x,y = 1){
+    return(x+y)
+}
+
+f(1)
+
+```
+
+Een veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden:
+```r 
+f <- function(x, y = c(1,2,3)){
+    y <- match.arg(y)
+    print(y)
+}
+```
+Bovenstaande zorgt ervoor dat het argument `y` altijd een waarde van `1`, `2`, of `3` heeft. 
+
+### Operatoren als functie
+
+In R hebben alle operatoren ook een functionele-vorm. De binaire `+`-operator is in weze niks anders dan een functie met twee argumenten. De functionele vorm van de `+`-operator is ``  `+`(x,y)  ``. 
+
+Zie onderstaande voorbeelden: 
+
+```r
+
+
+```
+
+
