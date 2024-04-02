@@ -1,18 +1,28 @@
 ### Data types
 
+Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt.
+
 ## Vectoren
 
 In R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.  
 
 
-Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen. 
+Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen `(1,2,3,4,5)` het getal `1` willen optellen. 
 
-In JavaScript vereist dat een `for`-loop over de elementen van een array: 
+In JavaScript los je een dergelijk probleem op door een `for`-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:
 
-<div class="row">
+```{r}
+#| echo: false
+tt <- function(x, y) {
+    paste0('<a href="#" data-toggle="tooltip" title="',y,'">',x,'</a>')
+}
+```
 
-<div class="col-6">
+<div class="row" style='clear: both;'>
+
+<div  style="width: 49%; float:left;">
 ```js 
+// Javascript
 let x = [1, 2, 3, 4, 5];
 
 for(i = 0; i < x.length; i++) {
@@ -23,32 +33,68 @@ console.log(x);
 
 ```
 </div>
-<div class="col-6">
+<div  style="width: 49%; float:left;">
 ```R
-let x = [1, 2, 3, 4, 5];
+# R
+x <- c(1,2,3,4,5)
 
-for(i = 0; i < x.length; i++) {
-   x[i] += 1;
-}
+x <- x + 1
 
-console.log(x);
+
+
+print(x);
+
 
 ```
 </div>
+</div>
 
-## Atomische datastructuren
+
+Om bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals `c(1,2,3,4,5) + 1`. Conceptueel kun je je het als volgt voorstellen:
+
+
+```{mermaid}
+flowchart TD
+    A["c(1, 2, 3, 4, 5) + <b>1</b>"] --> |Recycle 1 om te conformeren aan de linkervector|B["c(1, 2, 3, 4, 5) + c(<b>1</b> ,<b>1</b> ,<b>1</b> ,<b>1</b> ,<b>1</b>)"]
+    B --> |Tel de vectoren elementsgewijs op|C["c(1+<b>1</b>, 2+<b>1</b>, 3+<b>1</b>, 4+<b>1</b>, 5+<b>1</b>)"]
+        
+```     
+        
+Merk op dat het getal `1` in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector 'past'. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden. 
+
+Probeer zelf eens uit wat er gebeurt bij de volgende voorbeelden: 
+
+```r
+c(1,2,3) + c(1,2)
+
+```
+
+## Atomische vectoren
+
+Atomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).
 
 ```{mermaid}
  flowchart TD
-        B[Atomic] --> L[Logical]
-        B --> N[Numerical]
+        B[Atomische vector] --> L[Logisch]
+        B --> N[Numeriek]
         N --> I[Integer]
         N --> D[Double]
         B --> Z[Complex]
+        B --> C[Character]
         B --> R[Raw]
-        NA[Non-atomic]
-        NA -->  L2[List]
-        L2 --> DF[data.frame]
-        L2 --> DT[data.table]
+       
+```
+
+Er zijn verschillende manieren om een vector aan te maken. 
+Een expliciete (en niet veel gebruikte) methode is via de `vector()` functie. 
 
 ```
+
+```
+
+vector maak je aan door de elementen van de vector te combineren met het commando `c()`. Bij het combineren van elementen van verschillende types worden de 
+
+
+
+
+

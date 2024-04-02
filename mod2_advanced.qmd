@@ -1,2 +1,1 @@
-# Module 2 - Data handling met data.table 
-   
+# Module 2 - Data handling met data.table

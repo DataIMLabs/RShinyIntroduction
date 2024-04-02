@@ -1,6 +1,23 @@
-### Variablen
+### Variablen en operatoren
 
-Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator **`<-`** om waarden toe te wijzen aan variabelen.
+Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. 
+
+Een operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen.
+
+```{mermaid}
+flowchart TD
+   X[Operators] --> |<small>Eén input</small>| U[Unair]
+   X --> |<small>Twee inputs</small>|B[Binair]
+   U --> A["<-"]
+   U --> H["?"]
+   U --> N["!"]
+   U --> S["..."]
+   B --> AR["+, -, /, ^"]
+   B --> LO["&, &&, |, ||"]
+```
+
+
+We gebruiken de toewijzingsoperator **`<-`** om waarden toe te wijzen aan variabelen.
 
 ``` r 
 x <- 5
@@ -8,3 +25,4 @@ x <- x + 1
 print(x)
 ```
 
+in 

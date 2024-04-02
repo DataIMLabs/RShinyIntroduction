@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introductie R en Shiny - 2&nbsp; Variablen</title>
+<title>Introductie R en Shiny - 2&nbsp; Variablen en operatoren</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,6 +102,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="stylesheet.css">
@@ -116,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen en operatoren</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -165,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod1_variables.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen en operatoren</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,9 +223,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen en operatoren</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen en operatoren</span></h1>
 </div>
 
 
@@ -239,10 +242,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator <strong><code>&lt;-</code></strong> om waarden toe te wijzen aan variabelen.</p>
+<p>Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen.</p>
+<p>Een operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+   X[Operators] --&gt; |&lt;small&gt;Eén input&lt;/small&gt;| U[Unair]
+   X --&gt; |&lt;small&gt;Twee inputs&lt;/small&gt;|B[Binair]
+   U --&gt; A["&lt;-"]
+   U --&gt; H["?"]
+   U --&gt; N["!"]
+   U --&gt; S["..."]
+   B --&gt; AR["+, -, /, ^"]
+   B --&gt; LO["&amp;, &amp;&amp;, |, ||"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>We gebruiken de toewijzingsoperator <strong><code>&lt;-</code></strong> om waarden toe te wijzen aan variabelen.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>in</p>
 
 
 

@@ -24,7 +24,7 @@
     "href": "mod1_basis.html",
     "title": "Basis R",
     "section": "",
-    "text": "In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de verschillende datatypes in R, en eenvoudige operaties",
+    "text": "In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, de verschillende datatypes in R, en eenvoudige operaties om elementen uit een collectie op te halen (subsetting)",
     "crumbs": [
       "Basis R"
     ]
@@ -32,12 +32,12 @@
   {
     "objectID": "mod1_variables.html",
     "href": "mod1_variables.html",
-    "title": "2  Variablen",
+    "title": "2  Variablen en operatoren",
     "section": "",
-    "text": "Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen. We gebruiken de toewijzingsoperator &lt;- om waarden toe te wijzen aan variabelen.\nx &lt;- 5\nx &lt;- x + 1\nprint(x)",
+    "text": "Een variabele is een verwijzing naar een waarde in het geheugde nvan de computer. De waarde van een variabele kan tijdens de uitvoering van het programma veranderen.\nEen operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen.\n\n\n\n\n\nflowchart TD\n   X[Operators] --&gt; |&lt;small&gt;Eén input&lt;/small&gt;| U[Unair]\n   X --&gt; |&lt;small&gt;Twee inputs&lt;/small&gt;|B[Binair]\n   U --&gt; A[\"&lt;-\"]\n   U --&gt; H[\"?\"]\n   U --&gt; N[\"!\"]\n   U --&gt; S[\"...\"]\n   B --&gt; AR[\"+, -, /, ^\"]\n   B --&gt; LO[\"&, &&, |, ||\"]\n\n\n\n\n\n\nWe gebruiken de toewijzingsoperator &lt;- om waarden toe te wijzen aan variabelen.\nx &lt;- 5\nx &lt;- x + 1\nprint(x)\nin",
     "crumbs": [
       "Basis R",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen en operatoren</span>"
     ]
   },
   {
@@ -45,7 +45,7 @@
     "href": "mod1_datatypes.html",
     "title": "3  Data types",
     "section": "",
-    "text": "3.1 Vectoren\nIn R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.\nZie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen.\nIn JavaScript vereist dat een for-loop over de elementen van een array:",
+    "text": "3.1 Vectoren\nIn R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.\nZie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen.\nIn JavaScript los je een dergelijk probleem op door een for-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:\nOm bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals c(1,2,3,4,5) + 1. Conceptueel kun je je het als volgt voorstellen:\nflowchart TD\n    A[\"c(1, 2, 3, 4, 5) + &lt;b&gt;1&lt;/b&gt;\"] --&gt; |Recycle 1 om te conformeren aan de linkervector|B[\"c(1, 2, 3, 4, 5) + c(&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt;)\"]\n    B --&gt; |Tel de vectoren elementsgewijs op|C[\"c(1+&lt;b&gt;1&lt;/b&gt;, 2+&lt;b&gt;1&lt;/b&gt;, 3+&lt;b&gt;1&lt;/b&gt;, 4+&lt;b&gt;1&lt;/b&gt;, 5+&lt;b&gt;1&lt;/b&gt;)\"]\nMerk op dat het getal 1 in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden.\nProbeer zelf eens uit wat er gebeurt bij de volgende voorbeelden:",
     "crumbs": [
       "Basis R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
@@ -56,18 +56,18 @@
     "href": "mod1_datatypes.html#vectoren",
     "title": "3  Data types",
     "section": "",
-    "text": "let x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);\n\n\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);",
+    "text": "// Javascript\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);\n\n\n# R\nx &lt;- c(1,2,3,4,5)\n\nx &lt;- x + 1\n\n\n\nprint(x);\n\n\n\n\n\n\n\nc(1,2,3) + c(1,2)",
     "crumbs": [
       "Basis R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
     ]
   },
   {
-    "objectID": "mod1_datatypes.html#atomische-datastructuren",
-    "href": "mod1_datatypes.html#atomische-datastructuren",
+    "objectID": "mod1_datatypes.html#atomische-vectoren",
+    "href": "mod1_datatypes.html#atomische-vectoren",
     "title": "3  Data types",
-    "section": "3.2 Atomische datastructuren",
-    "text": "3.2 Atomische datastructuren\n\n\n\n\n\n flowchart TD\n        B[Atomic] --&gt; L[Logical]\n        B --&gt; N[Numerical]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; R[Raw]\n        NA[Non-atomic]\n        NA --&gt;  L2[List]\n        L2 --&gt; DF[data.frame]\n        L2 --&gt; DT[data.table]",
+    "section": "3.2 Atomische vectoren",
+    "text": "3.2 Atomische vectoren\nAtomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).\n\n\n\n\n\n flowchart TD\n        B[Atomische vector] --&gt; L[Logisch]\n        B --&gt; N[Numeriek]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; C[Character]\n        B --&gt; R[Raw]\n       \n\n\n\n\n\n\nEr zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de vector() functie.\n\nvector maak je aan door de elementen van de vector te combineren met het commando c(). Bij het combineren van elementen van verschillende types worden de",
     "crumbs": [
       "Basis R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"

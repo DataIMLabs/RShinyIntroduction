@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod1_variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen en operatoren</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#vectoren" id="toc-vectoren" class="nav-link active" data-scroll-target="#vectoren"><span class="header-section-number">3.1</span> Vectoren</a></li>
-  <li><a href="#atomische-datastructuren" id="toc-atomische-datastructuren" class="nav-link" data-scroll-target="#atomische-datastructuren"><span class="header-section-number">3.2</span> Atomische datastructuren</a></li>
+  <li><a href="#atomische-vectoren" id="toc-atomische-vectoren" class="nav-link" data-scroll-target="#atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</a></li>
   </ul>
 </nav>
     </div>
@@ -249,57 +249,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt.</p>
 <section id="vectoren" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="vectoren"><span class="header-section-number">3.1</span> Vectoren</h2>
 <p>In R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.</p>
-<p>Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen.</p>
-<p>In JavaScript vereist dat een <code>for</code>-loop over de elementen van een array:</p>
-<div class="row">
-
-<div class="col-6">
-<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> x<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   x[i] <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen <code>(1,2,3,4,5)</code> het getal <code>1</code> willen optellen.</p>
+<p>In JavaScript los je een dergelijk probleem op door een <code>for</code>-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:</p>
+<div class="row" style="clear: both;">
+<div style="width: 49%; float:left;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Javascript</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> x<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   x[i] <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="col-6">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>let x <span class="ot">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>];</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(<span class="at">i =</span> <span class="dv">0</span>; i <span class="sc">&lt;</span> x.length; i<span class="sc">++</span>) {</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   x[i] <span class="sc">+</span><span class="er">=</span> <span class="dv">1</span>;</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<div style="width: 49%; float:left;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">console.log</span>(x);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x);</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div></section>
-<section id="atomische-datastructuren" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="atomische-datastructuren"><span class="header-section-number">3.2</span> Atomische datastructuren</h2>
+</div>
+<p>Om bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals <code>c(1,2,3,4,5) + 1</code>. Conceptueel kun je je het als volgt voorstellen:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js"> flowchart TD
-        B[Atomic] --&gt; L[Logical]
-        B --&gt; N[Numerical]
-        N --&gt; I[Integer]
-        N --&gt; D[Double]
-        B --&gt; Z[Complex]
-        B --&gt; R[Raw]
-        NA[Non-atomic]
-        NA --&gt;  L2[List]
-        L2 --&gt; DF[data.frame]
-        L2 --&gt; DT[data.table]
-
+<pre class="mermaid mermaid-js">flowchart TD
+    A["c(1, 2, 3, 4, 5) + &lt;b&gt;1&lt;/b&gt;"] --&gt; |Recycle 1 om te conformeren aan de linkervector|B["c(1, 2, 3, 4, 5) + c(&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt;)"]
+    B --&gt; |Tel de vectoren elementsgewijs op|C["c(1+&lt;b&gt;1&lt;/b&gt;, 2+&lt;b&gt;1&lt;/b&gt;, 3+&lt;b&gt;1&lt;/b&gt;, 4+&lt;b&gt;1&lt;/b&gt;, 5+&lt;b&gt;1&lt;/b&gt;)"]
+        
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
+<p>Merk op dat het getal <code>1</code> in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden.</p>
+<p>Probeer zelf eens uit wat er gebeurt bij de volgende voorbeelden:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="atomische-vectoren" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</h2>
+<p>Atomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js"> flowchart TD
+        B[Atomische vector] --&gt; L[Logisch]
+        B --&gt; N[Numeriek]
+        N --&gt; I[Integer]
+        N --&gt; D[Double]
+        B --&gt; Z[Complex]
+        B --&gt; C[Character]
+        B --&gt; R[Raw]
+       
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Er zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de <code>vector()</code> functie.</p>
+<pre><code></code></pre>
+<p>vector maak je aan door de elementen van de vector te combineren met het commando <code>c()</code>. Bij het combineren van elementen van verschillende types worden de</p>
 
 
 </section>
@@ -716,8 +740,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./mod1_variables.html" class="pagination-link" aria-label="Variablen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen</span></span>
+      <a href="./mod1_variables.html" class="pagination-link" aria-label="Variablen en operatoren">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen en operatoren</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
