@@ -1,98 +1,22 @@
 [
   {
-    "objectID": "mod2_datatableijby.html",
-    "href": "mod2_datatableijby.html",
-    "title": "5  Basisbewerkingen",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introductie R en Shiny",
     "section": "",
-    "text": "5.1 Subsetting",
+    "text": "Index",
     "crumbs": [
-      "Module 2 - Data.table",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+      "Index"
     ]
   },
   {
-    "objectID": "mod2_datatableijby.html#samenvatten",
-    "href": "mod2_datatableijby.html#samenvatten",
-    "title": "5  Basisbewerkingen",
-    "section": "5.2 Samenvatten",
-    "text": "5.2 Samenvatten",
-    "crumbs": [
-      "Module 2 - Data.table",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
-    ]
-  },
-  {
-    "objectID": "mod2_datatableijby.html#aanmaken-of-wijzigen-variabelen",
-    "href": "mod2_datatableijby.html#aanmaken-of-wijzigen-variabelen",
-    "title": "5  Basisbewerkingen",
-    "section": "5.3 Aanmaken of wijzigen variabelen",
-    "text": "5.3 Aanmaken of wijzigen variabelen",
-    "crumbs": [
-      "Module 2 - Data.table",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
-    ]
-  },
-  {
-    "objectID": "mod2_datatableijby.html#groeperen",
-    "href": "mod2_datatableijby.html#groeperen",
-    "title": "5  Basisbewerkingen",
-    "section": "5.4 Groeperen",
-    "text": "5.4 Groeperen",
-    "crumbs": [
-      "Module 2 - Data.table",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
-    ]
-  },
-  {
-    "objectID": "mod4_fp.html",
-    "href": "mod4_fp.html",
-    "title": "7  Functioneel Programmeren",
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introductie",
     "section": "",
-    "text": "7.1 apply Functies in base R",
+    "text": "Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.\nGedurende deze cursus zullen we eenvoudige en meer geavanceerde R-technieken behandelen, evenals hun toepassing bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.\nDe cursus is opgedeeld in verschillende modules:\n\nModule 1 geeft een introductie in de basisprincipes van R. Onze ervaring is dat veel van wat hier besproken wordt de meeste datawetenschappers bekend in de oren zal klinken. Evenwel raden wij aan deze module met zorg door te werken.\nModule 2 gaat in op databewerking met het data.table package. Degenen die al enige ervaring met R hebben, zullen merken dat de wijze waarop wij data handling uitvoeren afwijkt van de gangbare praktijk (i.e., tidyverse). Kort gezegd: wij kiezen er bewust voor alle data handling met het data.table package uit te voeren, omdat dit package voor het bouwen van Shiny dashboards superieure performance levert.\nModule 3 gaat in op het maken van grafieken met het plotly package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die R biedt.\nModule 4 behandelt enkele meer geavanceerde R technieken die wij gebruiken bij het opstellen van Shiny dashboards.\nModule 5 behandelt de basisprincipes van Shiny\nModule 6 gaat in op het modulair opzetten van een Shiny dashboard",
     "crumbs": [
-      "Module 4 - Gevanceerd R-gebruik",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
-    ]
-  },
-  {
-    "objectID": "mod4_fp.html#map-functies-in-purrr",
-    "href": "mod4_fp.html#map-functies-in-purrr",
-    "title": "7  Functioneel Programmeren",
-    "section": "7.2 map Functies in purrr",
-    "text": "7.2 map Functies in purrr\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\nVoorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\n\ngemiddelden \\&lt;- map_dbl(nummeriekeLijst, mean)\n\nprint(gemiddelden)",
-    "crumbs": [
-      "Module 4 - Gevanceerd R-gebruik",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
-    ]
-  },
-  {
-    "objectID": "mod5_basicshinyintro.html",
-    "href": "mod5_basicshinyintro.html",
-    "title": "Module 5 - Shiny (basis)",
-    "section": "",
-    "text": "Server vs UI",
-    "crumbs": [
-      "Module 5 - Shiny (basis)"
-    ]
-  },
-  {
-    "objectID": "mod5_basicshinyintro.html#reactivute",
-    "href": "mod5_basicshinyintro.html#reactivute",
-    "title": "Module 5 - Basis Shiny",
-    "section": "Reactivute",
-    "text": "Reactivute",
-    "crumbs": [
-      "Module 5 - Basis Shiny"
-    ]
-  },
-  {
-    "objectID": "mod3_plotlyintro.html",
-    "href": "mod3_plotlyintro.html",
-    "title": "Module 3 - Charts met Plotly",
-    "section": "",
-    "text": "Data visualisatie is een essentiële vaardigheid binnen data-analyse en wetenschappelijke communicatie. Het stelt ons in staat om complexe informatie en relaties tussen variabelen op een intuïtieve en toegankelijke manier over te brengen. Door data visueel weer te geven, kunnen we patronen, trends en outliers in datasets identificeren die mogelijk niet onmiddellijk duidelijk zijn uit ruwe data of statistische analyses. Visualisaties faciliteren ook de communicatie van bevindingen naar een breed publiek, inclusief diegenen zonder technische achtergrond.\nOverzicht van grafiektypen en hun toepassingen Er zijn verschillende soorten grafieken die gebruikt kunnen worden afhankelijk van het type data en de boodschap die je wilt overbrengen.\nEnkele van de meest gebruikte grafieken zijn:\n\nStaafdiagrammen: Geschikt voor het vergelijken van hoeveelheden tussen verschillende categorieën.\nLijndiagrammen: Ideaal voor het tonen van trends over tijd.\nScatterplots: Nuttig voor het weergeven van de relatie tussen twee kwantitatieve variabelen.\nBox-plots: Bieden een visuele samenvatting van de verdeling van een dataset, inclusief medianen, kwartielen en outliers.\n\n\nlibrary(plotly)\n\n# Voorbeeld dataset\nset.seed(123)\nxData &lt;- rnorm(100)\nyData &lt;- rnorm(100, mean = xData)\n\n# Scatterplot maken met Plotly\nplot_ly(x = ~xData, y = ~yData, type = 'scatter', mode = 'markers')",
-    "crumbs": [
-      "Module 3 - Charts met Plotly"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introductie</span>"
     ]
   },
   {
@@ -103,16 +27,6 @@
     "text": "In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, operatoren en functies, de verschillende datatypes in R, het ophalen van elementen uit collecties (subsetting) en voorwaardelijke- en herhaalde uitvoer van code (flow-control).\nOnze ervaring is dat de gemiddelde datawetenschapper een zekere ervaring zal hebben met bovengenoemde concepten. Voor een goed begrip van de hiernavolgende modules is het evenwel van belang dat de hier beschreven zaken met zorg worden besturdeerd: bij het opzetten van geavanceerde Shiny dashboards zullen we veel vuldig teruggrijpen om de hier omschreven basisprincipes.",
     "crumbs": [
       "Module 1 - Basis R"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introductie R en Shiny",
-    "section": "",
-    "text": "Index",
-    "crumbs": [
-      "Index"
     ]
   },
   {
@@ -160,23 +74,36 @@
     ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introductie",
+    "objectID": "mod1_datatypes.html",
+    "href": "mod1_datatypes.html",
+    "title": "3  Data types",
     "section": "",
-    "text": "Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.\nGedurende deze cursus zullen we eenvoudige en meer geavanceerde R-technieken behandelen, evenals hun toepassing bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.\nDe cursus is opgedeeld in verschillende modules:\n\nModule 1 geeft een introductie in de basisprincipes van R. Onze ervaring is dat veel van wat hier besproken wordt de meeste datawetenschappers bekend in de oren zal klinken. Evenwel raden wij aan deze module met zorg door te werken.\nModule 2 gaat in op databewerking met het data.table package. Degenen die al enige ervaring met R hebben, zullen merken dat de wijze waarop wij data handling uitvoeren afwijkt van de gangbare praktijk (i.e., tidyverse). Kort gezegd: wij kiezen er bewust voor alle data handling met het data.table package uit te voeren, omdat dit package voor het bouwen van Shiny dashboards superieure performance levert.\nModule 3 gaat in op het maken van grafieken met het plotly package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die R biedt.\nModule 4 behandelt enkele meer geavanceerde R technieken die wij gebruiken bij het opstellen van Shiny dashboards.\nModule 5 behandelt de basisprincipes van Shiny\nModule 6 gaat in op het modulair opzetten van een Shiny dashboard",
+    "text": "3.1 Vectoren\nIn R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.\nZie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen.\nIn JavaScript los je een dergelijk probleem op door een for-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:\nOm bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals c(1,2,3,4,5) + 1. Conceptueel kun je je het als volgt voorstellen:\nflowchart TD\n    A[\"c(1, 2, 3, 4, 5) + &lt;b&gt;1&lt;/b&gt;\"] --&gt; |Recycle 1 om te conformeren aan de linkervector|B[\"c(1, 2, 3, 4, 5) + c(&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt;)\"]\n    B --&gt; |Tel de vectoren elementsgewijs op|C[\"c(1+&lt;b&gt;1&lt;/b&gt;, 2+&lt;b&gt;1&lt;/b&gt;, 3+&lt;b&gt;1&lt;/b&gt;, 4+&lt;b&gt;1&lt;/b&gt;, 5+&lt;b&gt;1&lt;/b&gt;)\"]\nMerk op dat het getal 1 in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden.\nProbeer zelf eens uit wat er gebeurt bij de volgende voorbeelden:",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introductie</span>"
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
     ]
   },
   {
-    "objectID": "mod2_datatableintro.html",
-    "href": "mod2_datatableintro.html",
-    "title": "Module 2 - Databewerking",
+    "objectID": "mod1_datatypes.html#vectoren",
+    "href": "mod1_datatypes.html#vectoren",
+    "title": "3  Data types",
     "section": "",
-    "text": "Deze module bespreekt enkele krachtige packages die nuttig zijn voor het bewerken van data.\n\nHet data.table-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets. In vergelijking met andere databewerkingsmethoden blinkt data.table uit in snelheid en efficiënt geheugengebruik.\nHet haven-package wordt gebruik voor het importeren en exporteren van SPSS-, SAS- of Stata-gegevensbestanden.\nHet labelled-package vereenvoudigt het werken met gelabelde data.",
+    "text": "// Javascript\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);\n\n\n# R\nx &lt;- c(1,2,3,4,5)\n\nx &lt;- x + 1\n\n\n\nprint(x);\n\n\n\n\n\n\n\nc(1,2,3) + c(1,2)",
     "crumbs": [
-      "Module 2 - Databewerking"
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_datatypes.html#atomische-vectoren",
+    "href": "mod1_datatypes.html#atomische-vectoren",
+    "title": "3  Data types",
+    "section": "3.2 Atomische vectoren",
+    "text": "3.2 Atomische vectoren\nAtomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).\n\n\n\n\n\n flowchart TD\n        B[Atomische vector] --&gt; L[Logisch]\n        B --&gt; N[Numeriek]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; C[Character]\n        B --&gt; R[Raw]\n       \n\n\n\n\n\n\nEr zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de vector() functie.\n\nvector maak je aan door de elementen van de vector te combineren met het commando c(). Bij het combineren van elementen van verschillende types worden de",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
     ]
   },
   {
@@ -210,6 +137,102 @@
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatableintro.html",
+    "href": "mod2_datatableintro.html",
+    "title": "Module 2 - Databewerking",
+    "section": "",
+    "text": "Deze module bespreekt enkele krachtige packages die nuttig zijn voor het bewerken van data.\n\nHet data.table-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets. In vergelijking met andere databewerkingsmethoden blinkt data.table uit in snelheid en efficiënt geheugengebruik.\nHet haven-package wordt gebruik voor het importeren en exporteren van SPSS-, SAS- of Stata-gegevensbestanden.\nHet labelled-package vereenvoudigt het werken met gelabelde data.",
+    "crumbs": [
+      "Module 2 - Databewerking"
+    ]
+  },
+  {
+    "objectID": "mod2_datatableijby.html",
+    "href": "mod2_datatableijby.html",
+    "title": "5  Basisbewerkingen",
+    "section": "",
+    "text": "5.1 Subsetting",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatableijby.html#samenvatten",
+    "href": "mod2_datatableijby.html#samenvatten",
+    "title": "5  Basisbewerkingen",
+    "section": "5.2 Samenvatten",
+    "text": "5.2 Samenvatten",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatableijby.html#aanmaken-of-wijzigen-variabelen",
+    "href": "mod2_datatableijby.html#aanmaken-of-wijzigen-variabelen",
+    "title": "5  Basisbewerkingen",
+    "section": "5.3 Aanmaken of wijzigen variabelen",
+    "text": "5.3 Aanmaken of wijzigen variabelen",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatableijby.html#groeperen",
+    "href": "mod2_datatableijby.html#groeperen",
+    "title": "5  Basisbewerkingen",
+    "section": "5.4 Groeperen",
+    "text": "5.4 Groeperen",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+    ]
+  },
+  {
+    "objectID": "mod3_plotlyintro.html",
+    "href": "mod3_plotlyintro.html",
+    "title": "Module 3 - Charts met Plotly",
+    "section": "",
+    "text": "Data visualisatie is een essentiële vaardigheid binnen data-analyse en wetenschappelijke communicatie. Het stelt ons in staat om complexe informatie en relaties tussen variabelen op een intuïtieve en toegankelijke manier over te brengen. Door data visueel weer te geven, kunnen we patronen, trends en outliers in datasets identificeren die mogelijk niet onmiddellijk duidelijk zijn uit ruwe data of statistische analyses. Visualisaties faciliteren ook de communicatie van bevindingen naar een breed publiek, inclusief diegenen zonder technische achtergrond.\nOverzicht van grafiektypen en hun toepassingen Er zijn verschillende soorten grafieken die gebruikt kunnen worden afhankelijk van het type data en de boodschap die je wilt overbrengen.\nEnkele van de meest gebruikte grafieken zijn:\n\nStaafdiagrammen: Geschikt voor het vergelijken van hoeveelheden tussen verschillende categorieën.\nLijndiagrammen: Ideaal voor het tonen van trends over tijd.\nScatterplots: Nuttig voor het weergeven van de relatie tussen twee kwantitatieve variabelen.\nBox-plots: Bieden een visuele samenvatting van de verdeling van een dataset, inclusief medianen, kwartielen en outliers.\n\n\nlibrary(plotly)\n\n# Voorbeeld dataset\nset.seed(123)\nxData &lt;- rnorm(100)\nyData &lt;- rnorm(100, mean = xData)\n\n# Scatterplot maken met Plotly\nplot_ly(x = ~xData, y = ~yData, type = 'scatter', mode = 'markers')",
+    "crumbs": [
+      "Module 3 - Charts met Plotly"
+    ]
+  },
+  {
+    "objectID": "mod4_fp.html",
+    "href": "mod4_fp.html",
+    "title": "7  Functioneel Programmeren",
+    "section": "",
+    "text": "7.1 apply Functies in base R",
+    "crumbs": [
+      "Module 4 - Gevanceerd R-gebruik",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
+    ]
+  },
+  {
+    "objectID": "mod4_fp.html#map-functies-in-purrr",
+    "href": "mod4_fp.html#map-functies-in-purrr",
+    "title": "7  Functioneel Programmeren",
+    "section": "7.2 map Functies in purrr",
+    "text": "7.2 map Functies in purrr\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\nVoorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\n\ngemiddelden \\&lt;- map_dbl(nummeriekeLijst, mean)\n\nprint(gemiddelden)",
+    "crumbs": [
+      "Module 4 - Gevanceerd R-gebruik",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
+    ]
+  },
+  {
+    "objectID": "mod5_basicshinyintro.html",
+    "href": "mod5_basicshinyintro.html",
+    "title": "Module 5 - Shiny (basis)",
+    "section": "",
+    "text": "Server vs UI",
+    "crumbs": [
+      "Module 5 - Shiny (basis)"
     ]
   },
   {
