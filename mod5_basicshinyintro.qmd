@@ -1,5 +1,37 @@
-# Module 5 - Basis Shiny 
+# Module 5 - Shiny (basis) 
+
+Shiny maakt het mogelijk om analyses en visualisaties tot leven te brengen, waardoor anderen de kans krijgen om zelf met de data te experimenteren en nieuwe inzichten te verkrijgen. 
+
+Onderwerpen: 
+
+-  Basisprincipes van Shiny (server vs UI, reactiviteit, etc.)
+-  Het ontwerpen van gebruikersinterfaces met behulp van `shinyWidgets` en `bslib`.
+-  Shiny modules
+
+
+```{r, echo=FALSE}
+library(shiny)
+shinyApp(
+
+  ui = fluidPage(
+    selectInput("region", "Region:",
+                choices = colnames(WorldPhones)),
+    plotOutput("phonePlot")
+  ),
+
+  server = function(input, output) {
+    output$phonePlot = renderPlot({
+      barplot(WorldPhones[,input$region]*1000,
+              ylab = "Number of Telephones", xlab = "Year")
+    })
+  },
+
+  options = list(height = 500)
+)
+```
+
 
 ## Server vs UI
 
-## Reactivute
+
+## Reactiviteit

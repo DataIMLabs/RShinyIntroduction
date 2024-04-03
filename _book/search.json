@@ -68,11 +68,11 @@
   {
     "objectID": "mod5_basicshinyintro.html",
     "href": "mod5_basicshinyintro.html",
-    "title": "Module 5 - Basis Shiny",
+    "title": "Module 5 - Shiny (basis)",
     "section": "",
     "text": "Server vs UI",
     "crumbs": [
-      "Module 5 - Basis Shiny"
+      "Module 5 - Shiny (basis)"
     ]
   },
   {
@@ -167,6 +167,59 @@
     "text": "Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.\nGedurende deze cursus zullen we eenvoudige en meer geavanceerde R-technieken behandelen, evenals hun toepassing bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.\nDe cursus is opgedeeld in verschillende modules:\n\nModule 1 geeft een introductie in de basisprincipes van R. Onze ervaring is dat veel van wat hier besproken wordt de meeste datawetenschappers bekend in de oren zal klinken. Evenwel raden wij aan deze module met zorg door te werken.\nModule 2 gaat in op databewerking met het data.table package. Degenen die al enige ervaring met R hebben, zullen merken dat de wijze waarop wij data handling uitvoeren afwijkt van de gangbare praktijk (i.e., tidyverse). Kort gezegd: wij kiezen er bewust voor alle data handling met het data.table package uit te voeren, omdat dit package voor het bouwen van Shiny dashboards superieure performance levert.\nModule 3 gaat in op het maken van grafieken met het plotly package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die R biedt.\nModule 4 behandelt enkele meer geavanceerde R technieken die wij gebruiken bij het opstellen van Shiny dashboards.\nModule 5 behandelt de basisprincipes van Shiny\nModule 6 gaat in op het modulair opzetten van een Shiny dashboard",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introductie</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatableintro.html",
+    "href": "mod2_datatableintro.html",
+    "title": "Module 2 - Databewerking",
+    "section": "",
+    "text": "Deze module bespreekt enkele krachtige packages die nuttig zijn voor het bewerken van data.\n\nHet data.table-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets. In vergelijking met andere databewerkingsmethoden blinkt data.table uit in snelheid en efficiënt geheugengebruik.\nHet haven-package wordt gebruik voor het importeren en exporteren van SPSS-, SAS- of Stata-gegevensbestanden.\nHet labelled-package vereenvoudigt het werken met gelabelde data.",
+    "crumbs": [
+      "Module 2 - Databewerking"
+    ]
+  },
+  {
+    "objectID": "mod1_flow.html",
+    "href": "mod1_flow.html",
+    "title": "4  Flow",
+    "section": "",
+    "text": "4.1 Voorwaardelijke uitvoer\nConditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_flow.html#voorwaardelijke-uitvoer",
+    "href": "mod1_flow.html#voorwaardelijke-uitvoer",
+    "title": "4  Flow",
+    "section": "",
+    "text": "4.1.1 if / else\n\nR\n\n\nx &lt;- 5\n\nif (x &gt; 0) {\n  print(\"x is positief\")\n} else if (x &lt; 0) {\n  print(\"x is negatief\")\n} else {\n  print(\"x is nul\")\n} \n\n\n\n\n\n4.1.2 switch\nIn R kan een switch-statement gebruikt worden om één van vele codeblokken te selecteren die uitgevoerd moeten worden. Een belangrijk kenmerk van het switch-statement is dat het direct het resultaat van de overeenkomende case teruggeeft. Dit betekent dat je het resultaat van een switch-statement direct kunt toewijzen aan een variabele.\n\nR\n\n\n# Definieer de variabele\ndag &lt;- 4\n\n# Gebruik switch om de waarde van de variabele te vergelijken met verschillende gevallen\nresultaat &lt;- switch(dag,\n  \"1\" = \"Maandag\",\n  \"2\" = \"Dinsdag\",\n  \"3\" = \"Woensdag\",\n  \"4\" = \"Donderdag\",\n  \"5\" = \"Vrijdag\",\n  \"6\" = \"Zaterdag\",\n  \"7\" = \"Zondag\",\n  \"Onbekende dag\"\n)\n\n# Print het resultaat\nprint(resultaat)",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_flow.html#loops",
+    "href": "mod1_flow.html#loops",
+    "title": "4  Flow",
+    "section": "4.2 Loops",
+    "text": "4.2 Loops\nLoops maken het mogelijk om code meerdere keren uit te voeren.\n\n4.2.1 For Loops\nEen for-loop werkt als volgt:\n\nR\n\n\n# Initialiseer een vector\nvect &lt;- 1:5\n\nfor (i in vect) {\n  print(i^2)  # Kwadrateer elk element en geef de output weer \n}\n\n\n\n\n\n4.2.2 While-loop\n\nRR2\n\n\ncount &lt;- 1\n\nwhile(count &lt;= 5) {\n    print(count)\n    count &lt;- count + 1\n}\n\n\ntest\n\n\n\n\n\n4.2.3 Repeat Loops\nDe repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.\n\nR\n\n\ncount &lt;- 1\n\nrepeat {\n    print(count)\n    if(count &gt;= 5) {\n        break  # Verlaat de loop als count groter of gelijk aan 5 is\n    }\n    count &lt;- count + 1\n}",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+    ]
+  },
+  {
+    "objectID": "mod5_basicshinyintro.html#reactiviteit",
+    "href": "mod5_basicshinyintro.html#reactiviteit",
+    "title": "Module 5 - Shiny (basis)",
+    "section": "Reactiviteit",
+    "text": "Reactiviteit",
+    "crumbs": [
+      "Module 5 - Shiny (basis)"
     ]
   }
 ]

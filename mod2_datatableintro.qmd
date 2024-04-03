@@ -1,4 +1,12 @@
-# Module 2 - Data.table 
+# Module 2 - Databewerking
 
-`data.table` is een krachtig package waarmee snel databewerkingen kunnen worden uitgevoerd op grote datasets. 
+Deze module bespreekt enkele krachtige packages die nuttig zijn voor het bewerken van data. 
 
+-  Het `data.table`-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets.
+In vergelijking met andere databewerkingsmethoden blinkt `data.table` uit in snelheid en efficiënt geheugengebruik. 
+
+-  Het `haven`-package wordt gebruik voor het importeren en exporteren van SPSS-, SAS- of Stata-gegevensbestanden. 
+
+-  Het `labelled`-package vereenvoudigt het werken met gelabelde data. 
+
+ 
