@@ -2,7 +2,7 @@
 
 Data visualisatie is een essentiële vaardigheid binnen data-analyse en wetenschappelijke communicatie. Het stelt ons in staat om complexe informatie en relaties tussen variabelen op een intuïtieve en toegankelijke manier over te brengen. Door data visueel weer te geven, kunnen we patronen, trends en outliers in datasets identificeren die mogelijk niet onmiddellijk duidelijk zijn uit ruwe data of statistische analyses. Visualisaties faciliteren ook de communicatie van bevindingen naar een breed publiek, inclusief diegenen zonder technische achtergrond.
 
-Overzicht van grafiektypen en hun toepassingen
+Overzicht van grafiektypen en hun toepassingen 
 Er zijn verschillende soorten grafieken die gebruikt kunnen worden afhankelijk van het type data en de boodschap die je wilt overbrengen. 
 
 Enkele van de meest gebruikte grafieken zijn:
@@ -12,7 +12,9 @@ Enkele van de meest gebruikte grafieken zijn:
 - Scatterplots: Nuttig voor het weergeven van de relatie tussen twee kwantitatieve variabelen.
 - Box-plots: Bieden een visuele samenvatting van de verdeling van een dataset, inclusief medianen, kwartielen en outliers.
 
-```r
+```{r}
+#| echo: true
+#| warning: false
 
 library(plotly)
 

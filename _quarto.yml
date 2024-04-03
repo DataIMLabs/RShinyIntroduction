@@ -22,11 +22,13 @@ book:
       chapters:
         - mod4_fp.qmd
     - part: mod5_basicshinyintro.qmd
+      chapters:
+        - mod5_basicshinycomponents.qmd
     - references.qmd 
 bibliography: references.bib  
 sidebar: 
     search: true
-format:  
+format:   
   html:
     page-layout: full
     toc-depth: 4

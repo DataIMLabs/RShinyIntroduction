@@ -1,6 +1,6 @@
 # Basisbewerkingen
 
-Voorbeeld aanmaken data.table: 
+Voorbeeld aanmaken data.table:  
 ```r
 library(data.table)
 dt <- data.table(
