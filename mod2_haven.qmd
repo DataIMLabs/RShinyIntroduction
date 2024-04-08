@@ -1,0 +1,8 @@
+# Inlezen SPSS, SAS en Stata 
+
+Veel onderzoekers werken met gegevensbestanden die zijn opgeslagen als SPSS-, SAS-, of Stata-bestand. 
+Vergeleken met `.csv` of `.xlsx` bieden dergelijke binaire bestandsformaten meer meta-informatie over de data, zoals bijvoorbeeld de variabele labels en de waarde-labels en het meetniveau van de variabele. 
+
+Bij het uitvoeren van complexe analyses of het opstellen van (interactieve) grafieken is het nuttig deze meta-informatie direct vanuit het databestand te kunnen gebruiken. 
+
+Het `haven`-package biedt een manier om binaire bestanden in te lezen op een wijze die de meest belangrijke meta-informatie van de brondata behoudt. 

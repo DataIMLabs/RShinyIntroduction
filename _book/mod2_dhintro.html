@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="David Macro">
-<meta name="dcterms.date" content="2024-03-03">
 
-<title>Introductie R en Shiny</title>
+<title>Introductie R en Shiny - Module 2 - Databewerking</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./mod2_excel.html" rel="next">
+<link href="./mod1_flow.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Index</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod2_dhintro.html">Module 2 - Databewerking</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Index</span></a>
   </div>
 </li>
@@ -157,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mod2_dhintro.html" class="sidebar-item-text sidebar-link">
+            <a href="./mod2_dhintro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Module 2 - Databewerking</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -252,40 +251,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#index" id="toc-index" class="nav-link active" data-scroll-target="#index">Index</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introductie R en Shiny</h1>
+<h1 class="title">Module 2 - Databewerking</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>David Macro </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 3, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -295,11 +276,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="index" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="index">Index</h2>
+<p>Deze module bespreekt enkele krachtige technieken en bijbehorende packages die nuttig zijn voor het bewerken van data. We beperken ons in deze module tot de kennis en vaardigheden die van pas komen bij het maken van Shiny dashboards.</p>
+<p>We gaan er vanuit dat de meeste onderzoekers zullen werken met (gelabelde) survey-data, veelal afkomstig vanuit secundaire bronbestanden (bijv. <code>.sav</code> of <code>.dta</code>). Kenmerkend voor deze bestandsformaten is dat deze niet alleen de onderzoeksdata opslaan, maar ook beschrijvende gegevens (i.e., meta-data) waaronder eventuele variabele- of waardelabels. Naar onze mening zijn dergelijke binaire bestandsformaten te verkiezen boven Excel- en CSV-bestanden (waar je dan vaak zelf een codeboek bij moet definiëren).</p>
+<p>De module gaat achtereenvolgens in op de volgende onderwerpen:</p>
+<ul>
+<li><p>Het inlezen van <code>Excel</code>- en <code>.csv</code>-bestanden</p></li>
+<li><p>Het inlezen van gegevensbestanden vanuit SPSS, Stata of SAS via het <code>haven</code>-package</p></li>
+<li><p>Het werken met gelabelde data (o.a. <code>factor</code>, het <code>labelled</code>-package en het <code>sjlabelled</code>-package)</p></li>
+<li><p>Het <code>data.table</code>-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets. In vergelijking met andere databewerkingsmethoden blinkt <code>data.table</code> uit in snelheid en efficiënt geheugengebruik.</p></li>
+</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -711,12 +698,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
+      <a href="./mod1_flow.html" class="pagination-link" aria-label="Control flow">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Control flow</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introductie">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductie</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./mod2_excel.html" class="pagination-link" aria-label="Excel- en CSV-bestanden">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Excel- en CSV-bestanden</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

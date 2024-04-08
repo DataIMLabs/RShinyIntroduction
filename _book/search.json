@@ -14,7 +14,7 @@
     "href": "intro.html",
     "title": "1  Introductie",
     "section": "",
-    "text": "Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.\nGedurende deze cursus zullen we eenvoudige en meer geavanceerde R-technieken behandelen, evenals hun toepassing bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.\nDe cursus is opgedeeld in verschillende modules:\n\nModule 1 geeft een introductie in de basisprincipes van R. Onze ervaring is dat veel van wat hier besproken wordt de meeste datawetenschappers bekend in de oren zal klinken. Evenwel raden wij aan deze module met zorg door te werken.\nModule 2 gaat in op databewerking met het data.table package. Degenen die al enige ervaring met R hebben, zullen merken dat de wijze waarop wij data handling uitvoeren afwijkt van de gangbare praktijk (i.e., tidyverse). Kort gezegd: wij kiezen er bewust voor alle data handling met het data.table package uit te voeren, omdat dit package voor het bouwen van Shiny dashboards superieure performance levert.\nModule 3 gaat in op het maken van grafieken met het plotly package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die R biedt.\nModule 4 behandelt enkele meer geavanceerde R technieken die wij gebruiken bij het opstellen van Shiny dashboards.\nModule 5 behandelt de basisprincipes van Shiny\nModule 6 gaat in op het modulair opzetten van een Shiny dashboard",
+    "text": "Welkom bij de introductiecursus R en Shiny. Doel van de cursus is om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.\nWe zullen eenvoudige en meer geavanceerde R-technieken behandelen, steeds in de context van wat nuttig en nodig is bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en case-studies begeleiden we je bij het ontwikkelen van eigen projecten in R, variërend van eenvoudige statische apps die data visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.\nDe cursus bestaat uit vijf modules:\n\nModule 1 geeft een introductie in de basisprincipes van R. Veel van wat hier besproken wordt zal voor de meeste datawetenschappers bekend zijn. Toch raden wij aan deze module met zorg door te werken.\nModule 2 bespreekt beknopt hoe wij werken met data bij het opzetten van dashboards. We richten ons (enkel) op de technieken en packages die voor het bouwen van productiedashboards nuttig zijn. Zo verkiezen we het data.table package boven tidyverse vanwege de superieure performance van data.table.\nModule 3 gaat in op het maken van grafieken met het plotly package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die in het R ecosysteem geboden worden. Degenen met ervaring ggplot2 kunnen deze kennis blijven inzetten: plotly biedt de mogelijkheid om de meeste (statische) ggplot2-grafieken te converteren naar plotly-charts.\nModule 4 behandelt enkele meer geavanceerde R technieken die later zullen terugkomen bij het opstellen van Shiny dashboards. Ingegaan wordt op het gebruik van R6-classes en objecten, het gebruik van iteratoren\nModule 5 behandelt de basisprincipes van Shiny\nModule 6 gaat in op het modulair opzetten van een Shiny dashboard",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introductie</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "mod1_basis.html",
     "title": "Module 1 - Basis R",
     "section": "",
-    "text": "In deze les verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het opzetten van dashboards in Shiny. We behandelen het werken met variabelen, operatoren en functies, de verschillende datatypes in R, het ophalen van elementen uit collecties (subsetting) en voorwaardelijke- en herhaalde uitvoer van code (flow-control).\nOnze ervaring is dat de gemiddelde datawetenschapper een zekere ervaring zal hebben met bovengenoemde concepten. Voor een goed begrip van de hiernavolgende modules is het evenwel van belang dat de hier beschreven zaken met zorg worden besturdeerd: bij het opzetten van geavanceerde Shiny dashboards zullen we veel vuldig teruggrijpen om de hier omschreven basisprincipes.",
+    "text": "In deze module verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het maken van dashboards in Shiny. We behandelen achtereenvolgens:\n\nhet werken met variabelen, operatoren en functies\nde verschillende datatypes in R\nhet ophalen van elementen uit collecties (subsetting)\nvoorwaardelijke- en herhaalde uitvoer van code (flow-control).\n\nOok voor degenen die al enige ervaring hebben met R kan het geen kwaad deze onderwerpen nog eens door te nemen. Bij de hiernavolgende modules veronderstellen we bekendheid met bovengenoemde thema’s.",
     "crumbs": [
       "Module 1 - Basis R"
     ]
@@ -34,7 +34,7 @@
     "href": "mod1_variables.html",
     "title": "2  Variablen, operatoren en functies.",
     "section": "",
-    "text": "2.1 Variabelen\nEen variabele is een verwijzing naar een waarde in het geheugden van de computer. We gebruiken de (binaire) toewijzingsoperator &lt;- of -&gt; om waarden toe te wijzen aan variabelen.",
+    "text": "2.1 Variabelen\nEen variabele is een verwijzing naar een waarde in het geheugden van de computer. Een variabele in R bestaat uit twee onderdelen, namelijk de naam van de variabele en de waarde van de variabele. De (binaire) operatoren &lt;-, &lt;&lt;-, -&gt; en -&gt;&gt; creëren variabelen door een naam toe te kennen aan een waarde.\nVoorbeelden:\nHet ls()-commando geeft weer welke variabelen gedefiniëerd zijn in de huidige werkomgeving.\nIn de hiernavolgende paragrafen gaan we nader in op enkele meer geavanceerde onderwerpen die betrekking hebben op het werken met variabelen in R, te weten scopes en environments, mutabiliteit (*), dynamische types (*) en copy-on-modify semantiek (*). Dit zijn geen eenvoudige onderwerpen, maar voor een goed begrip van de werking van complexe R Scripts en Shiny-dashboards is het van belang op enige wijze bekend te geraken met hetgeen hier is besproken. We raden de lezer aan de onderdelen met een asterisk op een later moment nog eens te bezien.",
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen, operatoren en functies.</span>"
@@ -45,18 +45,7 @@
     "href": "mod1_variables.html#variabelen",
     "title": "2  Variablen, operatoren en functies.",
     "section": "",
-    "text": "2.1.1 Mutabiliteit\nVariabelen in R zijn mutabel. In R betekent dit dat gedurende de uitvoer van een programma zowel de waarde als het type van de variabele kan veranderen.\n# Voorbeeld mutabiliteit \nx &lt;- 5\nx &lt;- x + 1\nprint(x)\n\n# Voorbeeld type-conversie\ny &lt;- 1\ntypeof(y)\ny &lt;- \"test\"\ntypeof(y)\n\n\n2.1.2 Copy-on-modify\nZie verder onderstaande voorbeelden:\n5 -&gt; x\nx -&gt; y\nz &lt;- x\n\nprint(z)",
-    "crumbs": [
-      "Module 1 - Basis R",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen, operatoren en functies.</span>"
-    ]
-  },
-  {
-    "objectID": "mod1_variables.html#operatoren",
-    "href": "mod1_variables.html#operatoren",
-    "title": "2  Variablen, operatoren en functies.",
-    "section": "2.2 Operatoren",
-    "text": "2.2 Operatoren\nEen operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen. Operatoren kunne worden ingedeeld in unaire operatoren (één input) en binaire operatoren (twee inputs).\n\n\n\n\n\nflowchart TD\n   X[Operators] --&gt; |&lt;small&gt;Eén input&lt;/small&gt;| U[Unair]\n   X --&gt; |&lt;small&gt;Twee inputs&lt;/small&gt;|B[Binair]\n   U --&gt; A[\"&lt;-\"]\n   U --&gt; H[\"?\"]\n   U --&gt; N[\"!\"]\n   U --&gt; S[\"...\"]\n   B --&gt; AR[\"+, -, /, ^\"]\n   B --&gt; LO[\"&, &&, |, ||\"]\n\n\n\n\n\n\nx &lt;- 1 # Toewijzen label 'x' aan waarde '1' in het geheugen \ny &lt;- 2 # idem. \n\n# Binaire operatoren: \nz &lt;- x + y # Optellen\nd &lt;- x * y # Vermenigvuldigen",
+    "text": "x1 &lt;- 5\nx2 &lt;- c(1,2,3)\nx3 &lt;- list(\"a\", \"b\", \"c\")\nx4 &lt;- function(x){\n    print(x)\n}\n\n\n\n2.1.1 Scopes en environments\nDe scope van een variabele geeft aan in welke context de variabele betekenis heeft. In R heet een dergelijke context ook wel een environment. Dit hoofdstuk beperkt zich tot de meest gangbare betekenis van het begrip environment, namelijk als de omgeving waarin een variabelen is gedefinieerd. Later zullen we zien dat een environment niet enkel een abstract concept is, maar (ook) een datatype waar binnen het R-ecosysteem handig gebruik van gemaakt wordt.\nWe beseffen dat deze paragraaf een tamelijk technisch karakter heeft. Kennis van environments is echter essentieel voor een goed begrip van de werking van zogeheten R6-reference klasses en Shiny reactives.\nHieronder vatten we de hoofdpunten samen:\n\nDe belangrijkste scope is de zogeheten globale environment. Dit is de omgeving waarin men werkt gedurende een interactieve R sessie; ook een R script of Shiny-sessie wordt uitgevoerd in deze scope. De globale environment kan worden benaderd via het keyword .GlobalEnv of via de functie globalenv().\nFuncties creëren hun eigen lokale omgeving—een zogeheten execution-environment—met daarin de variabelen die (enkel) binnen de context van de functie betekenis hebben.\nZodra een functie wordt uitgevoerd ontstaat een koppeling tussen de execution-environment van de functie en de omgeving waar de functie werd aangeroepen—de zogeheten calling-environment.\nDe plek waar een functie is aangemaakt is de zogeheten enclosing-environment van de functie.\n\nEnkele nuttige functies voor het doorzoeken van een omgeving:\n\n\n\n\n\n\n\nSyntax\nOmschrijving\n\n\n\n\nassign()\nWijs een waarde toe aan een naam in een environment\n\n\nget()\nHaal de waarde van een bepaalde naam op uit een environment\n\n\nls()\nGeef de objecten weer in de huidige scope. Door het argument envir aan te passen kan de scope waarin gezocht wordt worden aangepasrt.\n\n\nrm(list=ls())\nMaak de huidige scope leeg\n\n\n.GlobalEnv\nDe globale omgeving als ‘object’\n\n\n\n\n\nQuizAntwoord\n\n\nZie de functie f in onderstaande codevoorbeeld. Wat zou je op de ... in f kunnen invullen zodat de variabele x uit de bovenliggende omgeving wordt opgezocht en niet de variabele x in de functieomgeving?\nx &lt;- 2\n\nf &lt;- function(){\n    x &lt;- 10\n    print(...) \n}\n\nf()\n\n\nDoor op de ... het commando get() te gebruiken in combinatie met het envir-argument kun je bepalen in welke omgeving x opgezocht moet worden. In dit geval volstaat het om als envir de waarde .GlobalEnv te nemen. Noot: we hadden ook de functie rlang::env_parent() kunnen gebruiken.\nx &lt;- 2\n\nf &lt;- function(){\n    x &lt;- 10\n    print(get(\"x\", envir = .GlobalEnv)) \n}\n\nf()\n\n\n\nElke programmeertaal heeft zogeheten scoping rules die bepalen vanuit welke scope men toegang heeft tot variabelen in andere scopes. In R gelden zogeheten lexicale scoping regels. Het voert te ver om deze in detail uit te werken, maar samengevat komt het erop neer dat een variabele eerst wordt opgezocht in de scope van waaruit de variabele wordt opgevraagd en vervolgens in de scope van waaruit betreffende code is gedefinieerd. Kan de variabele daar niet worden gevonden, dan wordt deze opgezocht in de naasthogere scope., etc. Als de variabele nergens gevonden kan worden geeft R een foutmelding.\nZie onderstaande voorbeeld:\n# Maak de omgeving leeg\nrm(list=ls())\n\n# Definieer een variabele 'x' en wijs de waarde 1 toe. \nx &lt;- 1\n\n# x bestaat niet in deze scope, maar wel in de bovenliggende scope waar de functie is aangemaakt:\nf &lt;- function(){ \n    print(x) \n}\n\nf()\nEen interessante vraag is wat er gebeurt wanneer een variabele niet bestaat in de functie-environment, maar wel in de enclosing-environment (de omgeving waar de functie is aangemaakt) én in de calling-environment (de omgeving van waaruit de functie wordt aangeroepen).\n\nx &lt;- 10 # We definieren x in de enclosing-environment van f1 (de globale environment)\n\nf1 &lt;- function(){\n    print(x)\n}\n\nf2 &lt;- function(){  \n    x &lt;- 20 # We herdefinieren x in de calling-environment van f1\n    f1()\n}\n\nf1() # geeft de waarde 10\nf2() # geeft de waarde 10 en _niet_ 100 (!)\n\n# Verwijder de variabele x uit de globale environment\nrm(\"x\")\n\nf1() # Deze functie geeft een fout, namelijk dat x niet is gedefinieerd. \nf2() # Ook al bestaat de variabele x in de calling-environment, de functie f1 kan deze niet benaderen. \nBovenstaande laat zien dat niet de omgeving van waaruit de functie wordt aangeroepen ertoe doet, maar de omgeving van waaruit de functie is gedefinieerd.\nVia de &lt;&lt;- operator kunnen variabelen in een bovenliggende scope worden aangemaakt en/of gewijzigd. Over het algemeen raden wij het gebruik van deze operator af, omdat dit kan leiden tot onvoorspelbare (en vaak onnavolgbare) code.\n# Maak de omgeving leeg\nrm(list = ls())\n\n# Definieer een functie die een variabele aanmaakt in de bovenliggende omgeving\nf &lt;- function(){\n    x &lt;&lt;- 1    \n}\n\n# x bestaat niet totdat we de functie uitvoeren; deze regel zou een fout moeten geven\nprint(x) \n\n# Voer de functie f uit: \nf()\n\n# x bestaat nu wel. \nprint(x)\n\n\n2.1.2 Mutabiliteit en locks (*)\nEen variabele die in R is gedefinieerd kan worden bewerkt vanuit de eigen scope, of vanuit een ondergelegen scope.\n# Veranderen waarde binnen de eigen scope\nx &lt;- 5\nx &lt;- x + 1\nprint(x)\n# Veranderen waarde vanuit onderliggende scope (af te raden!)\nx &lt;- 1\n\nf &lt;- function(){\n    x &lt;&lt;- 2\n}\n\nf()\nIn tegenstelling tot veel andere programmeertalen (bijv. Java, C#, JavaScript) heeft R niet de mogelijkheid om een variabele direct en expliciet te definieren als onveranderdelijk (d.w.z., als een constante). R kent echter wel de mogelijkheid om een variabele te voorzien van een zogeheten lock.\n\n\n\n\n\n\n\n\nFunctie\nOmschrijving\nVoorbeeld\n\n\n\n\nlockBinding\nVergrendel een variabele\nx &lt;- 1; lockBinding(\"x\", .globalEnv)\n\n\nunlockBinding\nOntgrendel een variabele\nx &lt;- 1; unLockBinding(\"x\", .globalEnv)\n\n\nbindingIsLocked\nControleer of een variabele vergrendeld is\nx &lt;- 1; bindingIsLocked(x)\n\n\n\n\n\n2.1.3 Dynamische types (*)\nR behoort tot de zogeheten dynamisch-getypeerde programmeertalen. Dit wil zeggen dat het datatype van variabelen in principe niet à priori vastligt en pas wordt bepaald zodra het betreffende deel van het programma wordt uitgevoerd; ook kan het type gedurende de uitvoer veranderen. Met de functie typeof kan het type van een variabele worden bepaald.\n# Voorbeeld type-conversie\ny &lt;- 1\ntypeof(y)\ny &lt;- \"test\"\ntypeof(y)\nDeze dynamische omgang met types heeft voor- en nadelen. Aan de ene kant leidt een dynamisch type-systeem tot code die kernachtig, leesbaaode, waarmee men snel en eenvoudig scripts kan maken. Aan de andere kant kan een dergelijk los systeem leiden tot code waarvan pas bij uitvoer te zeggen is wat er precies gebeurt.\nStel dat we van een vector c(40,46,70) willen weten hoeveel elementen een waarde groter dan 40 hebben, dan kunnen we dat direct als volgt opschrijven.\nx &lt;- c(40,46,70)\nprint( sum(x &gt; 40))\nAchter de expressie sum(x &gt; 40) gaat een complexe serie bewerkingen en conversies schuil:\n\n\n\n\n\nflowchart TD\n    A[\"sum( x &gt; 40 )\"] --&gt; |&lt;small&gt;Vervang x&lt;/small&gt;|B[\"sum( c(40, 46, 70) &lt;b&gt;&gt; 40&lt;/b&gt; )\"]\n    B --&gt; |&lt;small&gt;Distribueer de vergelijking '&gt; 40' elementsgewijs&lt;/small&gt;|C[\"sum( c(40 &lt;b&gt;&gt; 40&lt;/b&gt;, 46 &lt;b&gt;&gt; 40&lt;/b&gt;, 70 &lt;b&gt;&gt; 40&lt;/b&gt;) )\"]\n    C --&gt; |&lt;small&gt;Evalueer de vergelijkingen&lt;/small&gt;|D[\"sum( c(&lt;b&gt;FALSE&lt;/b&gt;, &lt;b&gt;TRUE&lt;/b&gt;, &lt;b&gt;TRUE&lt;/b&gt;) )\"]\n    D --&gt; |&lt;small&gt;Converteer de logische waarden naar numerieke waarden&lt;/small&gt;|E[\"sum( c(&lt;b&gt;0&lt;/b&gt;, &lt;b&gt;1&lt;/b&gt;, &lt;b&gt;1&lt;/b&gt;) )\"]\n    E --&gt; |&lt;small&gt;Evalueer het resultaat&lt;/small&gt;|F[\"2\"] \n        \n\n\n\n\n\n\n\n\n2.1.4 Copy-on-modify semantiek(*)\nVariabelen in R kunnen verwijzen naar andere variabelen. Anders gezegd: meerdere namen kunnen in R verwijzen naar dezelfde waarden. De vraag is hoe R (intern) omgaat met een dergelijke situatie. Er zijn grofweg twee manieren waarop dit zou kunnen:\n\nCopy-on-assignment. Direct na het toewijzen van het label y aan het label x wordt een kopie van het object gemaakt.\nCopy-on-modify. Pas zodra x of y wordt bewerkt, wordt een kopie van het object in het geheugen gemaakt.\n\nR gebruikt een copy-on-modify strategie. Zie ter illustratie hoe in onderstaande voorbeeld beide variabelen x en y verwijzen naar dezelfde waarde 1. Het gaat hier niet enkel om dezelfde waarde; de namen x en y verwijzen naar hetzelfde geheugenadres. Dit kunnen we aantonen met behulp van de tracemem-functie.\nx &lt;- 1\ny &lt;- x\n\nidentical(tracemem(x), tracemem(y))\nZodra we één van de twee variabelen aanpassen, ontaat een nieuw object in het geheugen met een eigen geheugenadres.\nlibrary(data.table)\n\nx &lt;- 1\ny &lt;- x\n\nx &lt;- 2\n\nidentical(address(x), address(y))\n\nprint(x) # x = 2\nprint(y) # y = 1",
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen, operatoren en functies.</span>"
@@ -66,8 +55,19 @@
     "objectID": "mod1_variables.html#functies",
     "href": "mod1_variables.html#functies",
     "title": "2  Variablen, operatoren en functies.",
-    "section": "2.3 Functies",
-    "text": "2.3 Functies\nEen functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn fundamenteel voor het structureren van code: ze maken het mogelijk complexe problemen op te delen in kleinere taken. Een functie kan nul of meer parameters (ook bekend als argumenten) als input aannemen. Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten side-effect), of beide.\n\n2.3.1 Voorbeeld\nf &lt;- function(x,y){\n    return(x+1)\n}\n\nf(1) \nDe expressie f(1) retourneert 2. Merk op dat het argumen y niet is gespecificeerd. Dit is echter geen probleem, zolang de functie f dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation).\n\n\n2.3.2 Defaults\nHet is mogelijk om in R een standaardwaarde mee te geven aan een functie:\nf &lt;- function(x,y = 1){\n    return(x+y)\n}\n\nf(1)\nEen veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden:\nf &lt;- function(x, y = c(1,2,3)){\n    y &lt;- match.arg(y)\n    print(y)\n}\nBovenstaande zorgt ervoor dat het argument y altijd een waarde van 1, 2, of 3 heeft.\n\n\n2.3.3 Operatoren als functie\nIn R hebben alle operatoren ook een functionele-vorm. De binaire +-operator is in weze niks anders dan een functie met twee argumenten. De functionele vorm van de +-operator is `+`(x,y).\nZie onderstaande voorbeelden:",
+    "section": "2.2 Functies",
+    "text": "2.2 Functies\nEen functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn essentieel voor het opzetten van nette, herbruikbare en onderhoudbare code: ze maken het immers mogelijk complexe problemen op te splitsen in kleinere deeltaken. Een functie defineert men via de term function; met de toewijzingsoperator &lt;- kan de functie vervolgens worden toegewezen aan een naam.\nZie onderstaande voorbeeld:\n# Definieer een functie en geef deze de naam 'f'. \nf &lt;- function(x){\n    return(x+1)\n}\n\nf(1) # Geeft 1 + 1 = 2\n\nf(f(1)) # Geeft 1 + (1 + 1) = 3\nDe expressie f(1) retourneert 2. De expressie f(f(1)) past de functie twee keer toe en retourneert derhalve 3.\n\n2.2.1 Functie-argumenten\nDe argumenten vormen de input van de functie. Een functie kan 0, 1 of meerdere argumenten hebben. Argumenten kunnen een standaardwaarde hebben (een zogeheten default), maar dit hoeft niet. Argumenten kunnen een naam hebben, maar het is ook mogelijk om naamloze argumenten aan een functie mee te geven. De drie puntjes ... geven aan dat de functie nog meer argumenten kan accepteren (met naam of zonder naam).\n\n# Definieer een functie die x en y bij elkaar optelt. \n\nf &lt;- function(x,y = 1, z = NULL, ...){\n    return(x+y)\n}\n\nf(1)\nMet de functie formals kun je de default-argumenten van een functie opvragen. In combinatie met de toewijzingsoperator kun je deze zelfs aanpassen.\nformals(sd)\n\nformals(sd) &lt;- alist(x = , na.rm = TRUE) # Werkt, maar gevaarlijk (!)\nOver het algemeen raden we het overschrijven van default argumenten af: het wijzigen van bestaande functies kan leiden tot onvoorspelbaar gedrag in andere functies die afhankelijk zijn van de betreffende functies. Een veiligere strategie is om een nieuwe functie te maken die de oude functie aanroept, maar dan met gewijzigde default argumenten.\nsd.valid &lt;- sd\nformals(sd.valid) &lt;- alist(x = , na.rm = TRUE)\nArgumenten worden pas geëvalueerd zodra ze daadwerkelijk worden aangeroepen. Zie onderstaande voorbeelden:\nf &lt;- function(x, y, z = y + 1){\n    return(x + 1)\n}\n\nf(x = 1) \nf(x = 1, y = 2)\nf(y = 2) # Deze geeft een foutmelding; de waarde x is namelijk nodig binnen de functie. \nMerk op dat het argument y in onderstaande functie niet is gespecificeerd. Dit is echter geen probleem, zolang in de functie f dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation).\nEen veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden. Dit geschiedt met de functie match.arg.\nf &lt;- function(x = c(\"a\",\"b\",\"c\"){\n    x &lt;- match.arg(x)\n    print(x)\n}\n\nf(\"a\")\nf(\"fout\") # Dit geeft een foutmelding\n\n\n2.2.2 Pure functies en side-effects\nEen functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten bijwerking of side-effect), of beide. Een functie zonder side-effects is een zogeheten pure functie. In Module 4 zullen deze pure-functies uitvoerig aan bod komen.\n\n\n2.2.3 Functies en scope\nEen functie heeft toegang tot alle variabelen die gedefiniëerd zijn binnen de environment van waaruit de functie is aangemaakt (de zogeheten enclosing-environment).\n\n\n2.2.4 Functies als argument\nIn R is het mogelijk functies als argument mee te geven aan een andere functie.\n# Definieer een lijst van functies 'funcs' toepast over een vector x. \n\ndescribe &lt;- function(x, fs){\n    lapply(fs, function(f){\n        f(x)\n    })\n}\n\nx  &lt;- c(1,2,3,4,5,6,7)\nfs &lt;- list(m = mean, s = sd)\n\ndescribe(x, fs)\nBij het opzetten van Shiny dashboards zullen we handig gebruik maken van deze krachtige mogelijkheid van R.",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen, operatoren en functies.</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_variables.html#operatoren",
+    "href": "mod1_variables.html#operatoren",
+    "title": "2  Variablen, operatoren en functies.",
+    "section": "2.3 Operatoren",
+    "text": "2.3 Operatoren\nEen operator is een bewerking (operatie) op één of twee input-elementen. Operatoren kunnen worden ingedeeld in unaire operatoren (één input) en binaire operatoren (twee inputs).\nDe input van een unaire operator staat aan de rechterhandszijde (RHZ) van de operator:\n# Voorbeeld van een negatie-operator '!'\nx &lt;- TRUE\ny &lt;- !x  \nprint(y)\nDe inputs van een binaire operators staan aan de linkerhandszijde (LHZ) en rechterhandszijde (RHZ) van de operator:\nx &lt;- 1        #LHZ\ny &lt;- 2        #RHZ\nz &lt;- x + y \n\n\n\n\n\nflowchart TD\n   X[Operators] --&gt; |&lt;small&gt;Eén input&lt;/small&gt;| U[Unair]\n   X --&gt; |&lt;small&gt;Twee inputs&lt;/small&gt;|B[Binair]\n   U --&gt; |&lt;small&gt;Help&lt;/small&gt;|H[\"?, ??\"]\n   U --&gt; |&lt;small&gt;Negatie&lt;/small&gt;|N[\"!\"] \n   B --&gt; |&lt;small&gt;Toewijzing&lt;/small&gt;|A[\"&lt;-, &lt;&lt;-, -&gt;, -&gt;&gt;, =\"]\n   B --&gt; |&lt;small&gt;Extractie&lt;/small&gt;|EX[\"[, [[\"]\n   B --&gt; |&lt;small&gt;Logisch&lt;/small&gt;|LO[\"&, &&, |, ||\"]\n   B --&gt; |&lt;small&gt;Vergelijken&lt;/small&gt;|COM[\"&lt;, &lt;=, &gt;, &gt;=, ==, !=\"]\n   B --&gt; |&lt;small&gt;Rekenkundig&lt;/small&gt;|AR[\"+, -, /, ^, ...\"]\n   B --&gt; |&lt;small&gt;Speciaal&lt;/small&gt;|CUST[\"%any%, %in%\"]\n\n\n\n\n\n\nVoorbeelden:\nx &lt;- 1 # Toewijzen label 'x' aan waarde '1' in het geheugen \ny &lt;- 2 # idem. \n\n# Binaire operatoren: \nz &lt;- x + y # Optellen\nd &lt;- x * y # Vermenigvuldigen\n\n2.3.1 Volgorde van bewerkingen\nZie ?syntax voor een uitgebreide bespreking van de volgorde van bewerkingen in R.\nProbeer na te gaan in welke volgorde onderstaande bewerkingen worden uitgevoerd:\nx &lt;- 5 + 5 -&gt; y\n\n\n2.3.2 Pipe-operatoren\nDe zogeheten pipe-operator %&gt;% uit het magrittr-package is een operator waarmee bewerkingen sequentieel uitgevoerd kunnen worden. In tidyverse, plotly en shiny wordt deze operator veelvuldig gebruikt om complexe functie-aanroepen te vereenvoudigen.\n\n\n2.3.3 Operatoren als functie\nIn R hebben alle operatoren ook een functionele-vorm. De binaire +-operator is in weze niks anders dan een functie met twee argumenten. De functionele vorm van de +-operator is `+`(x,y).\nZie onderstaande voorbeelden:",
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Variablen, operatoren en functies.</span>"
@@ -78,18 +78,18 @@
     "href": "mod1_datatypes.html",
     "title": "3  Data types",
     "section": "",
-    "text": "3.1 Vectoren\nIn R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.\nZie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen (1,2,3,4,5) het getal 1 willen optellen.\nIn JavaScript los je een dergelijk probleem op door een for-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:\nOm bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals c(1,2,3,4,5) + 1. Conceptueel kun je je het als volgt voorstellen:\nflowchart TD\n    A[\"c(1, 2, 3, 4, 5) + &lt;b&gt;1&lt;/b&gt;\"] --&gt; |Recycle 1 om te conformeren aan de linkervector|B[\"c(1, 2, 3, 4, 5) + c(&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt;)\"]\n    B --&gt; |Tel de vectoren elementsgewijs op|C[\"c(1+&lt;b&gt;1&lt;/b&gt;, 2+&lt;b&gt;1&lt;/b&gt;, 3+&lt;b&gt;1&lt;/b&gt;, 4+&lt;b&gt;1&lt;/b&gt;, 5+&lt;b&gt;1&lt;/b&gt;)\"]\nMerk op dat het getal 1 in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden.\nProbeer zelf eens uit wat er gebeurt bij de volgende voorbeelden:",
+    "text": "3.1 Vectorisatie\nIn R is alles een vector. Ook enkelvoudige waarden, zoals een enkel getal (x &lt;- 1) of een enkelvoudige tekst (y &lt;- \"test\"), worden behandeld als vectoren met lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe de taal werkt. Zeker voor degenen die (meer) ervaring hebben met talen zoals Python, C# of Javascript is het van belang dit fundamentale aspect van R voor het netvlies te hebben.\nZie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een serie getallen 1, 2, 3, 4, 5) het getal 1 willen optellen. In JavaScript zou je zoiets kunnen oplossen met behulp van een for-loop over alle elementen van een array. in R kun je de berekening op een directe manier opschrijven.\nLaten we eens nader bezien wat er genlijk gebeurt bij de (schijnbaar) eenvoudige expressie c(1,2,3,4,5) + 1. Conceptueel gebeurt er het volgende:\nflowchart TD\n    A[\"c(1, 2, 3, 4, 5) + &lt;b&gt;1&lt;/b&gt;\"] --&gt; |Recycle 1 om te conformeren aan de linkervector|B[\"c(1, 2, 3, 4, 5) + c(&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt;)\"]\n    B --&gt; |Tel de vectoren elementsgewijs op|C[\"c(1+&lt;b&gt;1&lt;/b&gt;, 2+&lt;b&gt;1&lt;/b&gt;, 3+&lt;b&gt;1&lt;/b&gt;, 4+&lt;b&gt;1&lt;/b&gt;, 5+&lt;b&gt;1&lt;/b&gt;)\"]\n    C --&gt; |Evalueer elementsgewijs het resultaat|D[\"c(2, 3, 4, 5, 6)\"]\nMerk op dat er in R niet zoiets bestaat als een ‘los’ getal 1. Dit getal is eigenlijk een vector met lengte 1, met als eerste (en enige) element het getal 1.\nBij het optellen van twee vectoren in R worden de beide vectoren eerst gelijkgemaakt in lengte en type.\nIn R kunnen data types impliciet en expliciet worden geconverteerd. Impliciete conversie vindt plaats bij berekeningen op twee data typen die op het eerste gezicht onverenigbaar lijken.",
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
     ]
   },
   {
-    "objectID": "mod1_datatypes.html#vectoren",
-    "href": "mod1_datatypes.html#vectoren",
+    "objectID": "mod1_datatypes.html#vectorisatie",
+    "href": "mod1_datatypes.html#vectorisatie",
     "title": "3  Data types",
     "section": "",
-    "text": "// Javascript\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);\n\n\n# R\nx &lt;- c(1,2,3,4,5)\n\nx &lt;- x + 1\n\n\n\nprint(x);\n\n\n\n\n\n\n\nc(1,2,3) + c(1,2)",
+    "text": "Javascript\n\n\nR\n\n\n\n\nlet x = [1, 2, 3, 4, 5];\n\nfor(i = 0; i &lt; x.length; i++) {\n   x[i] += 1;\n}\n\nconsole.log(x);\n\n\nx &lt;- c(1,2,3,4,5)\n\nx &lt;- x + 1\n\n\n\nprint(x);\n\n\n\n\n\n\n\n\nGelijkmaken van lengte geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’ (recycling)\nGelijkmakten van data-types geschiedt via zogeheten dataconversie-regels (coercion).\n\n\n\nQuizAntwoord\n\n\nWe definiëren de variabelen x en y als volgt:\nx &lt;- c(0,1,2)\ny &lt;- c(TRUE,TRUE,TRUE) \nWat leveren onderstaande expressies op? Geef aan van wat voor type het resultaat is en wat de daadwerkelijke uitkomst is.\n\n\n\nExpressie\nType\nUitkomst\n\n\n\n\nx == y\n…\n…\n\n\nx | y\n…\n…\n\n\nx & y\n…\n…\n\n\nx + y\n…\n…\n\n\n\n\n\nWe definiëren de variabelen x en y als volgt:\nx &lt;- c(0,1,2)\ny &lt;- c(TRUE,TRUE,TRUE) \nWat leveren onderstaande expressies op? Geef aan van wat voor type het resultaat is en wat de daadwerkelijke uitkomst is.\n\n\n\nExpressie\nType\nUitkomst\n\n\n\n\nx == y\nLogische vector\nFALSE, TRUE, FALSE\n\n\nx | y\nLogische vector\nTRUE, TRUE, TRUE\n\n\nx & y\nLogische vector\nFALSE, TRUE, TRUE\n\n\nx + y\nNumerieke vector\n1, 2, 3",
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
@@ -100,97 +100,229 @@
     "href": "mod1_datatypes.html#atomische-vectoren",
     "title": "3  Data types",
     "section": "3.2 Atomische vectoren",
-    "text": "3.2 Atomische vectoren\nAtomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).\n\n\n\n\n\n flowchart TD\n        B[Atomische vector] --&gt; L[Logisch]\n        B --&gt; N[Numeriek]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]\n        B --&gt; C[Character]\n        B --&gt; R[Raw]\n       \n\n\n\n\n\n\nEr zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de vector() functie.\n\nvector maak je aan door de elementen van de vector te combineren met het commando c(). Bij het combineren van elementen van verschillende types worden de",
+    "text": "3.2 Atomische vectoren\nAtomische vectoren zijn de bouwstenen van meer complexe datastructuren in R. Een atomische vector bevat enkelvoudige data-types die slechts één enkele waarde of element bevatten. R kent verschillende typen vectoren, waaronder logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe vectoren en karakter-vectoren (character).\n\n\n\n\n\n flowchart TD\n        B[Atomische vector] --&gt; L[Logisch]\n        B --&gt; N[Numeriek]\n        N --&gt; I[Integer]\n        N --&gt; D[Double]\n        B --&gt; Z[Complex]  \n        B --&gt; C[Character]\n        B --&gt; R[Raw]\n       \n\n\n\n\n\n\nEr zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de vector() functie; gangbaarder is om de functie c() te gebruiken. Een impliciete manier is om een vector te definiëren als het resultaat van een berekening.\n\nQuizAntwoord\n\n\nWe definiëren de variabelen x en y als volgt:\nx &lt;- c(1, 2, 3)\ny &lt;- c(TRUE, FALSE, FALSE)\nz &lt;- c(\"a\", \"b\", \"c\")\nWat leveren onderstaande expressies op? Geef aan van wat voor type het resultaat is en wat de uitkomst is.\n\n\n\nExpressie\nType\nUitkomst\n\n\n\n\nc(x,y)\n…\n…\n\n\nc(x,z)\n…\n…\n\n\nc(y,z)\n…\n…\n\n\n\n\n\nWe definiëren de variabelen x en y als volgt:\nx &lt;- c(1, 2, 3)\ny &lt;- c(TRUE, FALSE, FALSE)\nz &lt;- c(\"a\", \"b\", \"c\")\nWat leveren onderstaande expressies op? Geef aan van wat voor type het resultaat is en wat de uitkomst is.\n\n\n\n\n\n\n\n\nExpressie\nType\nUitkomst\n\n\n\n\nc(x,y)\nvector van doubles\n1, 2, 3, 1, 0, 0\n\n\nc(x,z)\nvector van characters\n\"1\", \"2\", \"3\", \"a\", \"b\", \"c\"\n\n\nc(y,z)\nvector van doubles\n\"TRUE\", \"FALSE\", \"FALSE\", \"a\", \"b\", \"c\"",
     "crumbs": [
       "Module 1 - Basis R",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
     ]
   },
   {
+    "objectID": "mod1_datatypes.html#attributen",
+    "href": "mod1_datatypes.html#attributen",
+    "title": "3  Data types",
+    "section": "3.3 Attributen",
+    "text": "3.3 Attributen\nAan elk R-object kan meta-data worden toegevoegd via zogeheten attributen. Een R-object kan een willekeurige set van attributen hebben, waaronder dimensies (waardoor vectoren matrices en arrays worden), klasse (gebruikt voor S3 objectgeoriënteerd programmeren), namen (voor het benoemen van elementen van vectoren en lijsten), of andere door gebruikers gedefinieerde metadata.\nAttributen kunnen worden benaderd met de attr() functie om een attribuut direct te krijgen of in te stellen. Zo haalt attr(object, \"naam\") de waarde van het attribuut van op, en stelt attr(object, \"attribute_name\") &lt;- waarde de attribuutwaarde in. De attributes() functie geeft een lijst terug van alle attributen van een object, en attributes(object) &lt;- list(attribute_name = waarde, ...) kan worden gebruikt om meerdere attributen tegelijk in te stellen.\nAttributen moeten zorgvuldig worden beheerd, aangezien het wijzigen ervan de manier kan veranderen waarop een object wordt behandeld door functies en kan leiden tot onbedoelde resultaten als ze niet correct worden behandeld.\nx &lt;- c(1,2,3)\n\n# Voeg een attribuut \"omschrijving\" toe aan het object 'x' met als waarde 'test'. \nattr(x, \"omschrijving\") &lt;- \"test\"\n\n# Het printen van het object x zorgt ervoor dat ook de attribuut-waarden worden geprint: \nprint(x)",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_datatypes.html#matrices-en-arrays",
+    "href": "mod1_datatypes.html#matrices-en-arrays",
+    "title": "3  Data types",
+    "section": "3.4 Matrices en Arrays",
+    "text": "3.4 Matrices en Arrays\nEen matrix is een tweedimensionele datastructuur die gebruikt kan worden om wiskundige berekeningen te vereenvoudigen. Een array is een meerdimensionale generalisatie van een matrix. Matrices en arrays zijn in R niks anders dan atomische vectoren waaraan een zogeheten dimensie-attribuut (dim) is toegevoegd.\nEen matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut dim, door de matrix-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie diag() die een identiteitsmatrix oplevert.\nZie onderstaande voorbeeld:\n# Maak een matrix x aan door het dim-attribuut in te stellen: \nx &lt;- c(1,2,3,4)\ndim(x) &lt;- c(2,2)\n\n# Maak een matrix aan met het (expliciete) matrix-commando: \ny &lt;- matrix(x, nrow = 2)\n\n# Verifieer dat beide matrices gelijk aan elkaar zijn: \nidentical(x,y)\n\nQuizAntwoord\n\n\nProbeer de volgende matrices te construeren:\n\nEen 2 x 3-matrix met de getallen 1 tot en met 6, opgeslagen als integer data type.\n\n\\[\n\\begin{bmatrix}\n1  & 3 & 5 \\\\\n2  & 4 & 6\n\\end{bmatrix}\n\\]\n\nEen 3 x 3-identiteitsmatrix\n\n\\[\n\\begin{bmatrix}\n1  & 0 & 0 \\\\\n0  & 1 & 0 \\\\\n0  & 0 & 1\n\\end{bmatrix}\n\\]\n\n\nProbeer de volgende matrices te construeren:\n\nEen 2 x 3-matrix met de getallen 1 tot en met 6, gerepresenteerd als integer data type.\n\n  # Methode 1\n  x &lt;- matrix(as.integer(1:6), nrow = 2)\n  \n  # Methode 2\n  y &lt;- as.integer(1:6)\n  attr(y, \"dim\") &lt;- c(2,3)\n\nEen 3 x 3-identiteitsmatrix\n\n  # Methode 1\n  x &lt;- matrix(rep(0, 9)), nrow = 3)\n  \n  # Methode 2\n  y &lt;- 0 * diag(3)\n\n\n\nR kan wiskundige berekeningen uitvoeren op matrices mits de matrices conformeren naar voor de betreffende berekening geldige dimensies.\nProbeer na te",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_datatypes.html#lijsten",
+    "href": "mod1_datatypes.html#lijsten",
+    "title": "3  Data types",
+    "section": "3.5 Lijsten",
+    "text": "3.5 Lijsten\nLijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de list() functie uit R, de functie list2() uit het rlang-package, door het combineren van lijsten via de functie c(), of als uitkomst van een functie die een lijst retourneert (bijv. lapply) of as.list().",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_datatypes.html#data.frames",
+    "href": "mod1_datatypes.html#data.frames",
+    "title": "3  Data types",
+    "section": "3.6 Data.frames",
+    "text": "3.6 Data.frames\nEen data.frame is een lijst van vectoren met dezelfde lengte. Hoewel data.frame een veelgebruikt data type is in R, kiezen wij ervoor dit slechts beknopt te bespreken. In plaats daarvan",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_datatypes.html#omgevingen",
+    "href": "mod1_datatypes.html#omgevingen",
+    "title": "3  Data types",
+    "section": "3.7 Omgevingen",
+    "text": "3.7 Omgevingen",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_datatypes.html#objecten",
+    "href": "mod1_datatypes.html#objecten",
+    "title": "3  Data types",
+    "section": "3.8 Objecten",
+    "text": "3.8 Objecten",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data types</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_subsetting.html",
+    "href": "mod1_subsetting.html",
+    "title": "4  Sets en subsets",
+    "section": "",
+    "text": "4.1 Subsetten van atomische vectoren\nHet subsetten van een atomische vector levert een nieuwe atomische vector op van hetzelfde type als de originele vector. Subsetten kan worden gebruikt om een selectie van elementen te maken en deze aan een nieuwe vector toe te wijzen (selecteren), of om elementen van een bestaande datastructuur te wijzigen.\nEr zijn verschillende manieren om elementen te selecteren uit een atomische vector. Ga in de onderstaande voorbeelden uit van de vector x &lt;- c(10, 20, 30, 40, 50).\nMet negatieve indices\nDoor het gebruik van negatieve indices geef je aan welke elementen uitgesloten moeten worden van de selectie.\nMet logische waarden\nQuiz:\nGa uit van de vector x &lt;- c(10,20,30,40,50). Probeer te beredeneren wat er gebeurt bij de volgende subset-commando’s:",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Sets en subsets</span>"
+    ]
+  },
+  {
+    "objectID": "mod1_subsetting.html#subsetten-van-atomische-vectoren",
+    "href": "mod1_subsetting.html#subsetten-van-atomische-vectoren",
+    "title": "4  Sets en subsets",
+    "section": "",
+    "text": "Positieve indices bepalen welke elementen wél in de selectie dienen te vallen. Specificeer met positieve getallen posities van de elementen die je wilt selecteren. Bedenk dat in R het eerste x element positie 1 heeft (en niet 0, zoals in veel andere programmeertalen). Zo selecteert de expressie x[c(1,5)] bijvoorbeeld het eerste en vijfde element uit de vector x. Het is mogelijk een element meer dan één keer te selecteren (bijv. ) en om een selectie te maken met met : x[1,1,1,3.\n\n\n\nx &lt;- c(10, 20, 30, 40, 50)\nx[-c(2, 4)]  # Exclusief tweede en vierde element: 10, 30, 50\n\nx &lt;- c(10, 20, 30, 40, 50)\nx[c(T,F,F,F,F)]  # Exclusief tweede en vierde element: 10, 30, 50\n\n\n\n\n4.1.1 Subsetten van lijsten\n\n\n4.1.2 Subsetten van matrices en arrays",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Sets en subsets</span>"
+    ]
+  },
+  {
     "objectID": "mod1_flow.html",
     "href": "mod1_flow.html",
-    "title": "4  Flow",
+    "title": "5  Control flow",
     "section": "",
-    "text": "4.1 Voorwaardelijke uitvoer\nConditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.",
+    "text": "5.1 Voorwaardelijke statements\nConditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.",
     "crumbs": [
       "Module 1 - Basis R",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Control flow</span>"
     ]
   },
   {
-    "objectID": "mod1_flow.html#voorwaardelijke-uitvoer",
-    "href": "mod1_flow.html#voorwaardelijke-uitvoer",
-    "title": "4  Flow",
+    "objectID": "mod1_flow.html#voorwaardelijke-statements",
+    "href": "mod1_flow.html#voorwaardelijke-statements",
+    "title": "5  Control flow",
     "section": "",
-    "text": "4.1.1 if / else\n\nR\n\n\nx &lt;- 5\n\nif (x &gt; 0) {\n  print(\"x is positief\")\n} else if (x &lt; 0) {\n  print(\"x is negatief\")\n} else {\n  print(\"x is nul\")\n} \n\n\n\n\n\n4.1.2 switch\nIn R kan een switch-statement gebruikt worden om één van vele codeblokken te selecteren die uitgevoerd moeten worden. Een belangrijk kenmerk van het switch-statement is dat het direct het resultaat van de overeenkomende case teruggeeft. Dit betekent dat je het resultaat van een switch-statement direct kunt toewijzen aan een variabele.\n\nR\n\n\n# Definieer de variabele\ndag &lt;- 4\n\n# Gebruik switch om de waarde van de variabele te vergelijken met verschillende gevallen\nresultaat &lt;- switch(dag,\n  \"1\" = \"Maandag\",\n  \"2\" = \"Dinsdag\",\n  \"3\" = \"Woensdag\",\n  \"4\" = \"Donderdag\",\n  \"5\" = \"Vrijdag\",\n  \"6\" = \"Zaterdag\",\n  \"7\" = \"Zondag\",\n  \"Onbekende dag\"\n)\n\n# Print het resultaat\nprint(resultaat)",
+    "text": "5.1.1 if / else if / else\nDe if / else if / else control-flow statements worden gebruikt om beslissingen te nemen in de code. Als een gespecificeerde voorwaarde waar (TRUE) is, wordt de code gedefinieerd in de if-clausule uitgevoerd. Zo niet, dan kan als alternatief een zogeheten else of else-if codeblok worden gedefinieerd.\nx &lt;- 5 \n\nif (x &gt; 0) {\n  print(\"x is positief\")\n} else if (x &lt; 0) {\n  print(\"x is negatief\")\n} else {\n  print(\"x is nul\")\n} \nHet if-statement in R kan ook worden aangeroepen in zogeheten functionele vorm, dat wil zeggen: elk if statement kan worden omgeschreven naar een functie-aanroep van de `if`()-funtie.\ny &lt;- `if`(1 &lt; 2, TRUE, FALSE)\ny &lt;- if(1 &lt; 2) TRUE else FALSE\n\n\n5.1.2 switch\nIn R kan een switch-statement gebruikt worden om één van vele codeblokken te selecteren die uitgevoerd moeten worden. Een belangrijk kenmerk van het switch-statement is dat het direct het resultaat van de overeenkomende case teruggeeft. Dit betekent dat je het resultaat van een switch-statement direct kunt toewijzen aan een variabele.\n# Definieer de variabele\ndag &lt;- 4\n\n# Gebruik switch om de waarde van de variabele te vergelijken met verschillende gevallen\nresultaat &lt;- switch(dag,\n  \"1\" = \"Maandag\",\n  \"2\" = \"Dinsdag\",\n  \"3\" = \"Woensdag\",\n  \"4\" = \"Donderdag\",\n  \"5\" = \"Vrijdag\",\n  \"6\" = \"Zaterdag\",\n  \"7\" = \"Zondag\",\n  \"Onbekende dag\"\n)\n\n# Print het resultaat\nprint(resultaat)",
     "crumbs": [
       "Module 1 - Basis R",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Control flow</span>"
     ]
   },
   {
-    "objectID": "mod1_flow.html#loops",
-    "href": "mod1_flow.html#loops",
-    "title": "4  Flow",
-    "section": "4.2 Loops",
-    "text": "4.2 Loops\nLoops maken het mogelijk om code meerdere keren uit te voeren.\n\n4.2.1 For Loops\nEen for-loop werkt als volgt:\n\nR\n\n\n# Initialiseer een vector\nvect &lt;- 1:5\n\nfor (i in vect) {\n  print(i^2)  # Kwadrateer elk element en geef de output weer \n}\n\n\n\n\n\n4.2.2 While-loop\n\nRR2\n\n\ncount &lt;- 1\n\nwhile(count &lt;= 5) {\n    print(count)\n    count &lt;- count + 1\n}\n\n\ntest\n\n\n\n\n\n4.2.3 Repeat Loops\nDe repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.\n\nR\n\n\ncount &lt;- 1\n\nrepeat {\n    print(count)\n    if(count &gt;= 5) {\n        break  # Verlaat de loop als count groter of gelijk aan 5 is\n    }\n    count &lt;- count + 1\n}",
+    "objectID": "mod1_flow.html#herhaalde-uitvoer",
+    "href": "mod1_flow.html#herhaalde-uitvoer",
+    "title": "5  Control flow",
+    "section": "5.2 Herhaalde uitvoer",
+    "text": "5.2 Herhaalde uitvoer\nLoops maken het mogelijk om code meerdere keren uit te voeren.\n\n5.2.1 For Loops\nEen for-loop herhaalt de code een vastgesteld aantal keer.\nfor (i in 1:5) {\n  print(i)  \n}\n\n\n5.2.2 While\ncount &lt;- 1\n\nwhile(count &lt;= 5) {\n    print(count)\n    count &lt;- count + 1\n}\n\n\n5.2.3 Repeat\nDe repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.",
     "crumbs": [
       "Module 1 - Basis R",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Control flow</span>"
     ]
   },
   {
-    "objectID": "mod2_datatableintro.html",
-    "href": "mod2_datatableintro.html",
+    "objectID": "mod1_flow.html#r",
+    "href": "mod1_flow.html#r",
+    "title": "5  Control flow",
+    "section": "5.3 R",
+    "text": "5.3 R\ncount &lt;- 1\n\nrepeat {\n    print(count)\n    if(count &gt;= 5) {\n        break  # Verlaat de loop als count groter of gelijk aan 5 is\n    }\n    count &lt;- count + 1\n}",
+    "crumbs": [
+      "Module 1 - Basis R",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Control flow</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_dhintro.html",
+    "href": "mod2_dhintro.html",
     "title": "Module 2 - Databewerking",
     "section": "",
-    "text": "Deze module bespreekt enkele krachtige packages die nuttig zijn voor het bewerken van data.\n\nHet data.table-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets. In vergelijking met andere databewerkingsmethoden blinkt data.table uit in snelheid en efficiënt geheugengebruik.\nHet haven-package wordt gebruik voor het importeren en exporteren van SPSS-, SAS- of Stata-gegevensbestanden.\nHet labelled-package vereenvoudigt het werken met gelabelde data.",
+    "text": "Deze module bespreekt enkele krachtige technieken en bijbehorende packages die nuttig zijn voor het bewerken van data. We beperken ons in deze module tot de kennis en vaardigheden die van pas komen bij het maken van Shiny dashboards.\nWe gaan er vanuit dat de meeste onderzoekers zullen werken met (gelabelde) survey-data, veelal afkomstig vanuit secundaire bronbestanden (bijv. .sav of .dta). Kenmerkend voor deze bestandsformaten is dat deze niet alleen de onderzoeksdata opslaan, maar ook beschrijvende gegevens (i.e., meta-data) waaronder eventuele variabele- of waardelabels. Naar onze mening zijn dergelijke binaire bestandsformaten te verkiezen boven Excel- en CSV-bestanden (waar je dan vaak zelf een codeboek bij moet definiëren).\nDe module gaat achtereenvolgens in op de volgende onderwerpen:\n\nHet inlezen van Excel- en .csv-bestanden\nHet inlezen van gegevensbestanden vanuit SPSS, Stata of SAS via het haven-package\nHet werken met gelabelde data (o.a. factor, het labelled-package en het sjlabelled-package)\nHet data.table-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets. In vergelijking met andere databewerkingsmethoden blinkt data.table uit in snelheid en efficiënt geheugengebruik.",
     "crumbs": [
       "Module 2 - Databewerking"
     ]
   },
   {
-    "objectID": "mod2_datatableijby.html",
-    "href": "mod2_datatableijby.html",
-    "title": "5  Basisbewerkingen",
+    "objectID": "mod2_excel.html",
+    "href": "mod2_excel.html",
+    "title": "6  Excel- en CSV-bestanden",
     "section": "",
-    "text": "5.1 Subsetting",
+    "text": "6.1 Excel\nR kent legio libraries om Excel-bestanden in te lezen.\nVier",
     "crumbs": [
       "Module 2 - Databewerking",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Excel- en CSV-bestanden</span>"
     ]
   },
   {
-    "objectID": "mod2_datatableijby.html#samenvatten",
-    "href": "mod2_datatableijby.html#samenvatten",
-    "title": "5  Basisbewerkingen",
-    "section": "5.2 Samenvatten",
-    "text": "5.2 Samenvatten",
+    "objectID": "mod2_excel.html#csv",
+    "href": "mod2_excel.html#csv",
+    "title": "6  Excel- en CSV-bestanden",
+    "section": "6.2 CSV",
+    "text": "6.2 CSV",
     "crumbs": [
       "Module 2 - Databewerking",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Excel- en CSV-bestanden</span>"
     ]
   },
   {
-    "objectID": "mod2_datatableijby.html#aanmaken-of-wijzigen-variabelen",
-    "href": "mod2_datatableijby.html#aanmaken-of-wijzigen-variabelen",
-    "title": "5  Basisbewerkingen",
-    "section": "5.3 Aanmaken of wijzigen variabelen",
-    "text": "5.3 Aanmaken of wijzigen variabelen",
+    "objectID": "mod2_haven.html",
+    "href": "mod2_haven.html",
+    "title": "7  Inlezen SPSS, SAS en Stata",
+    "section": "",
+    "text": "Veel onderzoekers werken met gegevensbestanden die zijn opgeslagen als SPSS-, SAS-, of Stata-bestand. Vergeleken met .csv of .xlsx bieden dergelijke binaire bestandsformaten meer meta-informatie over de data, zoals bijvoorbeeld de variabele labels en de waarde-labels en het meetniveau van de variabele.\nBij het uitvoeren van complexe analyses of het opstellen van (interactieve) grafieken is het nuttig deze meta-informatie direct vanuit het databestand te kunnen gebruiken.\nHet haven-package biedt een manier om binaire bestanden in te lezen op een wijze die de meest belangrijke meta-informatie van de brondata behoudt.",
     "crumbs": [
       "Module 2 - Databewerking",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Inlezen SPSS, SAS en Stata</span>"
     ]
   },
   {
-    "objectID": "mod2_datatableijby.html#groeperen",
-    "href": "mod2_datatableijby.html#groeperen",
-    "title": "5  Basisbewerkingen",
-    "section": "5.4 Groeperen",
-    "text": "5.4 Groeperen",
+    "objectID": "mod2_datatable.html",
+    "href": "mod2_datatable.html",
+    "title": "9  Data handling met data.table",
+    "section": "",
+    "text": "9.1 Subsetting",
     "crumbs": [
       "Module 2 - Databewerking",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Basisbewerkingen</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data handling met data.table</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatable.html#samenvatten",
+    "href": "mod2_datatable.html#samenvatten",
+    "title": "9  Data handling met data.table",
+    "section": "9.2 Samenvatten",
+    "text": "9.2 Samenvatten",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data handling met data.table</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatable.html#aanmaken-of-wijzigen-variabelen",
+    "href": "mod2_datatable.html#aanmaken-of-wijzigen-variabelen",
+    "title": "9  Data handling met data.table",
+    "section": "9.3 Aanmaken of wijzigen variabelen",
+    "text": "9.3 Aanmaken of wijzigen variabelen",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data handling met data.table</span>"
+    ]
+  },
+  {
+    "objectID": "mod2_datatable.html#groeperen",
+    "href": "mod2_datatable.html#groeperen",
+    "title": "9  Data handling met data.table",
+    "section": "9.4 Groeperen",
+    "text": "9.4 Groeperen",
+    "crumbs": [
+      "Module 2 - Databewerking",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Data handling met data.table</span>"
     ]
   },
   {
@@ -206,23 +338,23 @@
   {
     "objectID": "mod4_fp.html",
     "href": "mod4_fp.html",
-    "title": "7  Functioneel Programmeren",
+    "title": "11  Functioneel Programmeren",
     "section": "",
-    "text": "7.1 apply Functies in base R",
+    "text": "11.1 apply Functies in base R",
     "crumbs": [
       "Module 4 - Gevanceerd R-gebruik",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
     ]
   },
   {
     "objectID": "mod4_fp.html#map-functies-in-purrr",
     "href": "mod4_fp.html#map-functies-in-purrr",
-    "title": "7  Functioneel Programmeren",
-    "section": "7.2 map Functies in purrr",
-    "text": "7.2 map Functies in purrr\nDe `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\nVoorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\n\ngemiddelden \\&lt;- map_dbl(nummeriekeLijst, mean)\n\nprint(gemiddelden)",
+    "title": "11  Functioneel Programmeren",
+    "section": "11.2 map Functies in purrr",
+    "text": "11.2 map Functies in purrr\nDe map functies zijn essentieel binnen purrr voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.\nVoorbeeld: Toepassen van `map` Functies\nStel, we hebben een lijst met numerieke vectoren en willen het gemiddelde van elk berekenen:\nlibrary(purrr) nummeriekeLijst \\&lt;- list(c(1, 2, 3), c(4, 5, 6), c(7, 8, 9))s\n\ngemiddelden \\&lt;- map_dbl(nummeriekeLijst, mean)\n\nprint(gemiddelden)",
     "crumbs": [
       "Module 4 - Gevanceerd R-gebruik",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Functioneel Programmeren</span>"
     ]
   },
   {
@@ -230,17 +362,7 @@
     "href": "mod5_basicshinyintro.html",
     "title": "Module 5 - Shiny (basis)",
     "section": "",
-    "text": "Server vs UI",
-    "crumbs": [
-      "Module 5 - Shiny (basis)"
-    ]
-  },
-  {
-    "objectID": "mod5_basicshinyintro.html#reactiviteit",
-    "href": "mod5_basicshinyintro.html#reactiviteit",
-    "title": "Module 5 - Shiny (basis)",
-    "section": "Reactiviteit",
-    "text": "Reactiviteit",
+    "text": "Shiny maakt het mogelijk om analyses en data-visualisaties weer te geven middels interactieve web-applicaties.\nDeze module bespreekt de volgende onderwerpen:\n\nBasisprincipes van Shiny (server vs UI, reactiviteit, etc.)\nHet ontwerpen van gebruikersinterfaces met behulp van shinyWidgets en bslib.\nShiny modules",
     "crumbs": [
       "Module 5 - Shiny (basis)"
     ]

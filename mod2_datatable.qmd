@@ -1,7 +1,10 @@
-# Basisbewerkingen
+# Data handling met data.table
+
+
+
 
 Voorbeeld aanmaken data.table:  
-```r
+```r 
 library(data.table)
 dt <- data.table(
   col1 = 1:26, 

@@ -1,1 +1,6 @@
-## Barcharts
+## Staaf- en kolomdiagrammen
+
+```{r}
+
+
+```

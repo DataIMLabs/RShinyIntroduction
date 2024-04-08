@@ -1,0 +1,54 @@
+# Sets en subsets
+
+Subsetting is een manier om delen van datastructuren zoals vectoren, lijsten, en data frames te _selecteren_ en elementen te _bewerken_. R kent twee subset-operatoren, te weten `[` en `[[`. Voor verruit de meeste R datastructuren geldt dat de toewijzingsoperator (`<-` en `->`) in combinatie met de subset operator kan worden gebruikt om een deel van een object te bewerken. 
+
+
+|Operator|Voorbeeld|Omschrijving|Resultaat|  
+| - | --- | ----- | ----- |
+| `[` | `x[c(1:n)]` |Selecteer _n_ elementen vanuit de collectie x|Een object van hetzelfde type als x.|
+| `[[`| `x[[1]]` | Selecteer het eerste element vanuit de collectie x|Een object van het type op de positie `...`|
+| `[<-`| `x[c(1,2)] <- c(8,7)` | Vervang het eerste en tweede element van de vector `x` door de waardes `8` en `9`. | Een gewijzigde vector `x`.  
+| `[[<-`| `x[[1]] <- 99` | Vervang het eerste element van de vector `x` met de waardes `8` en `9`. | Een gewijzigde vector `x`.  
+
+
+## Subsetten van atomische vectoren 
+
+Het subsetten van een atomische vector levert een nieuwe atomische vector op van hetzelfde type als de originele vector. Subsetten kan worden gebruikt om een selectie van elementen te maken en deze aan een nieuwe vector toe te wijzen (selecteren), of om elementen van een bestaande datastructuur te wijzigen. 
+
+
+Er zijn verschillende manieren om elementen te selecteren uit een atomische vector. Ga in de onderstaande voorbeelden uit van de vector `x <- c(10, 20, 30, 40, 50)`.
+
+- _Positieve indices_ bepalen welke elementen _wél_ in de selectie dienen te vallen. Specificeer met positieve getallen posities van de elementen die je wilt selecteren. Bedenk dat in R het eerste x element positie 1 heeft (en niet 0, zoals in veel andere programmeertalen). Zo selecteert de expressie `x[c(1,5)]` bijvoorbeeld het eerste en vijfde element uit de vector `x`. Het is mogelijk een element meer dan één keer te selecteren (bijv. ) en om een selectie te maken met met : `x[1,1,1,3`. 
+
+ _Met negatieve indices_ 
+
+Door het gebruik van negatieve indices geef je aan welke elementen uitgesloten moeten worden van de selectie. 
+ 
+```r
+x <- c(10, 20, 30, 40, 50)
+x[-c(2, 4)]  # Exclusief tweede en vierde element: 10, 30, 50
+```
+ 
+_Met logische waarden_ 
+
+```r
+x <- c(10, 20, 30, 40, 50)
+x[c(T,F,F,F,F)]  # Exclusief tweede en vierde element: 10, 30, 50
+```
+ 
+Quiz: 
+---
+
+Ga uit van de vector `x <- c(10,20,30,40,50)`. Probeer te beredeneren wat er gebeurt bij de volgende subset-commando's:
+
+
+
+ 
+ 
+
+### Subsetten van lijsten
+
+
+
+
+### Subsetten van matrices en arrays

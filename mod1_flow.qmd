@@ -1,16 +1,26 @@
-# Flow  
+# Control flow 
+Control flow verwijst naar de mechanismen die de volgorde en logica van het R-script of de applicatie bepalen. Enkele veelgebruikte control flow structuren in R zijn: 
 
-Flow-control in R is een essentieel concept dat je helpt om beslissingen te nemen in je code, herhaalde taken uit te voeren, en door datastructuren te itereren. We zullen kijken naar de meest voorkomende flow-control structuren in R: conditionele statements (if, else if, else), loops (for, while), en de repeat loop. We zullen ook kort de break en next statements aanraken.
+- voorwaardelijke uitvoer (`if`, `else if`, `else`), 
+- herhaalde uitvoer (`for`, `while`), en de `repeat` loop; we zullen ook kort de `break` en `next` statements aanstippen. 
 
-## Voorwaardelijke uitvoer 
+Het bijzondere aan R is dat control flow structuren ook kunnen worden aangeroepen via zogeheten control-flow functies.
+
+|Doel|Control-flow syntax|Functionele vorm|Retourneert|
+| ----- | --- |----|---|
+|Voorwaardelijke uitvoer|`if`, `else if`, `else`| `````  `if`()  ````` |De waarde van de laatstgeëvalueerde expressie. 
+
+
+
+## Voorwaardelijke statements 
 Conditionele statements laten je toe om te beslissen welke code uitgevoerd moet worden afhankelijk van bepaalde voorwaarden.
 
-### if / else 
-
-<div class='panel-tabset'> 
-## R
+### if / else if / else 
+  
+De `if` / `else if` / `else` control-flow statements worden gebruikt om beslissingen te nemen in de code. Als een gespecificeerde voorwaarde waar (TRUE) is, wordt de code gedefinieerd in de `if`-clausule uitgevoerd. Zo niet, dan kan als alternatief een zogeheten `else` of `else-if` codeblok worden gedefinieerd.  
+  
 ```R
-x <- 5
+x <- 5 
 
 if (x > 0) {
   print("x is positief")
@@ -19,15 +29,21 @@ if (x > 0) {
 } else {
   print("x is nul")
 } 
-```   
-</div>
+```    
+Het `if`-statement in R kan ook worden aangeroepen in zogeheten `functionele vorm`, dat wil zeggen: elk `if` statement kan worden omgeschreven naar een functie-aanroep van de `````  `if`()  `````-funtie. 
+
+```R
+y <- `if`(1 < 2, TRUE, FALSE)
+y <- if(1 < 2) TRUE else FALSE
+```
+
+
 
 ### switch
 
 In R kan een switch-statement gebruikt worden om één van vele codeblokken te selecteren die uitgevoerd moeten worden. Een belangrijk kenmerk van het switch-statement is dat het direct het resultaat van de overeenkomende case teruggeeft. Dit betekent dat je het resultaat van een switch-statement direct kunt toewijzen aan een variabele. 
 
-<div class='panel-tabset'> 
-## R
+  
 ```r
 # Definieer de variabele
 dag <- 4
@@ -47,31 +63,22 @@ resultaat <- switch(dag,
 # Print het resultaat
 print(resultaat)
 
-```
-</div>
+``` 
 
-## Loops
+## Herhaalde uitvoer
 Loops maken het mogelijk om code meerdere keren uit te voeren.
 
 ### For Loops
-Een `for`-loop werkt als volgt: 
-
-<div class='panel-tabset'> 
-## R
-```R
-# Initialiseer een vector
-vect <- 1:5
-
-for (i in vect) {
-  print(i^2)  # Kwadrateer elk element en geef de output weer 
+Een `for`-loop herhaalt de code een vastgesteld aantal keer. 
+  
+```R  
+for (i in 1:5) {
+  print(i)  
 }
 ```   
-</div>
+ 
 
-### While-loop
-
-<div class='panel-tabset'> 
-## R
+### While 
 ```R
 count <- 1
 
@@ -81,16 +88,12 @@ while(count <= 5) {
 }
 
 ```
-
-## R2
-test
-</div>
-
-### Repeat Loops
+ 
+### Repeat 
 
 De repeat loop voert een blok code uit tot het onderbroken wordt door een break statement.
 
-<div class='panel-tabset'> 
+ 
 ## R
 ```R
 count <- 1
@@ -102,5 +105,4 @@ repeat {
     }
     count <- count + 1
 }
-```
-</div>
+``` 

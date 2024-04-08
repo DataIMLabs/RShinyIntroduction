@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="David Macro">
-<meta name="dcterms.date" content="2024-03-03">
 
-<title>Introductie R en Shiny</title>
+<title>Introductie R en Shiny - 7&nbsp; Inlezen SPSS, SAS en Stata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./mod2_labelled.html" rel="next">
+<link href="./mod2_excel.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Index</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod2_dhintro.html">Module 2 - Databewerking</a></li><li class="breadcrumb-item"><a href="./mod2_haven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inlezen SPSS, SAS en Stata</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Index</span></a>
   </div>
 </li>
@@ -172,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mod2_haven.html" class="sidebar-item-text sidebar-link">
+  <a href="./mod2_haven.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inlezen SPSS, SAS en Stata</span></span></a>
   </div>
 </li>
@@ -252,40 +251,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#index" id="toc-index" class="nav-link active" data-scroll-target="#index">Index</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod2_dhintro.html">Module 2 - Databewerking</a></li><li class="breadcrumb-item"><a href="./mod2_haven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inlezen SPSS, SAS en Stata</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introductie R en Shiny</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inlezen SPSS, SAS en Stata</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta column-page-right">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>David Macro </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 3, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -295,11 +276,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="index" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="index">Index</h2>
+<p>Veel onderzoekers werken met gegevensbestanden die zijn opgeslagen als SPSS-, SAS-, of Stata-bestand. Vergeleken met <code>.csv</code> of <code>.xlsx</code> bieden dergelijke binaire bestandsformaten meer meta-informatie over de data, zoals bijvoorbeeld de variabele labels en de waarde-labels en het meetniveau van de variabele.</p>
+<p>Bij het uitvoeren van complexe analyses of het opstellen van (interactieve) grafieken is het nuttig deze meta-informatie direct vanuit het databestand te kunnen gebruiken.</p>
+<p>Het <code>haven</code>-package biedt een manier om binaire bestanden in te lezen op een wijze die de meest belangrijke meta-informatie van de brondata behoudt.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -711,12 +692,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-body">
+<nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
+      <a href="./mod2_excel.html" class="pagination-link" aria-label="Excel- en CSV-bestanden">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Excel- en CSV-bestanden</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introductie">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introductie</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./mod2_labelled.html" class="pagination-link" aria-label="Gelabelde data">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gelabelde data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

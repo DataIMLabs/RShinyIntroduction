@@ -1,28 +1,23 @@
 ### Data types
 
-Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt.
-
-## Vectoren
-
-In R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.  
+Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt. We beginnen met een korte bespreking van het begrip `vectorisatie`. Simpel gezegd: in R is _alles_ eigenlijk een vector. Hiermee onderscheidt R zich van veel andere talen. Vervolgens word en atomische vectoren (d.w.z., vectoren bestaande uit enkelvoudige, ondeelbare objecten van hetzelfde type) en lijsten besproken. 
 
 
-Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen `(1,2,3,4,5)` het getal `1` willen optellen. 
+## Vectorisatie
 
-In JavaScript los je een dergelijk probleem op door een `for`-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:
+In R is alles een vector. Ook enkelvoudige waarden, zoals een enkel getal (`x <- 1`) of een enkelvoudige tekst (`y <- "test"`), worden behandeld als vectoren met lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe de taal werkt. Zeker voor degenen die (meer) ervaring hebben met talen zoals `Python`, `C#` of `Javascript` is het van belang dit fundamentale aspect van R voor het netvlies te hebben. 
 
-```{r}
-#| echo: false
-tt <- function(x, y) {
-    paste0('<a href="#" data-toggle="tooltip" title="',y,'">',x,'</a>')
-}
-```
+Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een serie getallen `1, 2, 3, 4, 5)` het getal `1` willen optellen. In JavaScript zou je zoiets kunnen oplossen met behulp van een `for`-loop over alle elementen van een array. in R kun je de berekening op een directe manier opschrijven. 
 
-<div class="row" style='clear: both;'>
+::: {layout="[ [1,1], [1,1] ]"}
 
-<div  style="width: 49%; float:left;">
+__Javascript__
+
+
+__R__
+
+
 ```js 
-// Javascript
 let x = [1, 2, 3, 4, 5];
 
 for(i = 0; i < x.length; i++) {
@@ -30,12 +25,9 @@ for(i = 0; i < x.length; i++) {
 }
 
 console.log(x);
-
 ```
-</div>
-<div  style="width: 49%; float:left;">
-```R
-# R
+
+```r
 x <- c(1,2,3,4,5)
 
 x <- x + 1
@@ -44,34 +36,79 @@ x <- x + 1
 
 print(x);
 
-
-```
-</div>
-</div>
+```  
+:::
 
 
-Om bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals `c(1,2,3,4,5) + 1`. Conceptueel kun je je het als volgt voorstellen:
+Laten we eens nader bezien wat er genlijk gebeurt bij de (schijnbaar) eenvoudige expressie `c(1,2,3,4,5) + 1`. Conceptueel gebeurt er het volgende: 
 
 
 ```{mermaid}
 flowchart TD
     A["c(1, 2, 3, 4, 5) + <b>1</b>"] --> |Recycle 1 om te conformeren aan de linkervector|B["c(1, 2, 3, 4, 5) + c(<b>1</b> ,<b>1</b> ,<b>1</b> ,<b>1</b> ,<b>1</b>)"]
     B --> |Tel de vectoren elementsgewijs op|C["c(1+<b>1</b>, 2+<b>1</b>, 3+<b>1</b>, 4+<b>1</b>, 5+<b>1</b>)"]
+    C --> |Evalueer elementsgewijs het resultaat|D["c(2, 3, 4, 5, 6)"]
         
 ```     
         
-Merk op dat het getal `1` in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector 'past'. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden. 
+Merk op dat er in `R` niet zoiets bestaat als een 'los' getal `1`. Dit getal is eigenlijk een _vector_ met lengte 1, met als eerste (en enige) element het getal 1.
 
-Probeer zelf eens uit wat er gebeurt bij de volgende voorbeelden: 
+Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijkgemaakt in lengte en type. 
+ 
+- Gelijkmaken van lengte geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector 'past' (`recycling`)
+
+- Gelijkmakten van data-types geschiedt via zogeheten dataconversie-regels (`coercion`). 
+
+
+In R kunnen data types impliciet en expliciet worden geconverteerd. Impliciete conversie vindt plaats bij berekeningen op twee data typen die op het eerste gezicht onverenigbaar lijken. 
+
+
+::: {.panel-tabset}
+
+### Quiz
+We definiëren de variabelen `x` en `y` als volgt: 
 
 ```r
-c(1,2,3) + c(1,2)
-
+x <- c(0,1,2)
+y <- c(TRUE,TRUE,TRUE) 
 ```
+ 
+Wat leveren onderstaande expressies op? Geef aan van wat voor _type_ het resultaat is en wat de daadwerkelijke uitkomst is.
+
+| Expressie | Type | Uitkomst | 
+| - |  ---- | ---- | 
+| `x == y`|  ... | ... |
+| `x | y` |  ... | ... |
+| `x & y` |  ... | ... |
+| `x + y` |  ... | ... |
+
+
+### Antwoord
+We definiëren de variabelen `x` en `y` als volgt: 
+
+
+```r
+x <- c(0,1,2)
+y <- c(TRUE,TRUE,TRUE) 
+```
+
+Wat leveren onderstaande expressies op? Geef aan van wat voor _type_ het resultaat is en wat de daadwerkelijke uitkomst is.
+
+| Expressie | Type | Uitkomst | 
+| - | ---- | ---- | 
+| `x == y`|  Logische vector | `FALSE, TRUE, FALSE` |
+| `x | y` |  Logische vector | `TRUE, TRUE, TRUE` |
+| `x & y` |  Logische vector | `FALSE, TRUE, TRUE` |
+| `x + y` |  Numerieke vector | `1, 2, 3` |`
+
+:::
+
+
+
 
 ## Atomische vectoren
 
-Atomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).
+Atomische vectoren zijn de bouwstenen van meer complexe datastructuren in R. Een atomische vector bevat enkelvoudige data-types die slechts één enkele waarde of element bevatten. R kent verschillende typen vectoren, waaronder logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe vectoren en karakter-vectoren (character).
 
 ```{mermaid}
  flowchart TD
@@ -79,20 +116,174 @@ Atomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomi
         B --> N[Numeriek]
         N --> I[Integer]
         N --> D[Double]
-        B --> Z[Complex]
+        B --> Z[Complex]  
         B --> C[Character]
         B --> R[Raw]
        
 ```
 
-Er zijn verschillende manieren om een vector aan te maken. 
-Een expliciete (en niet veel gebruikte) methode is via de `vector()` functie. 
+Er zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de `vector()` functie; gangbaarder is om de functie `c()` te gebruiken. Een impliciete manier is om een vector te definiëren als het resultaat van een berekening. 
+
+
+::: {.panel-tabset}
+
+### Quiz
+We definiëren de variabelen `x` en `y` als volgt: 
+
+```r
+x <- c(1, 2, 3)
+y <- c(TRUE, FALSE, FALSE)
+z <- c("a", "b", "c")
+``` 
+
+Wat leveren onderstaande expressies op? Geef aan van wat voor _type_ het resultaat is en wat de uitkomst is.
+
+| Expressie | Type | Uitkomst | 
+| - | ---- | ---- | 
+| `c(x,y)` |  ... |  ... | 
+| `c(x,z)` |  ... |  ... | 
+| `c(y,z)` |  ... |  ... | 
+
+
+### Antwoord
+We definiëren de variabelen `x` en `y` als volgt: 
+
+```r
+x <- c(1, 2, 3)
+y <- c(TRUE, FALSE, FALSE)
+z <- c("a", "b", "c")
+``` 
+
+Wat leveren onderstaande expressies op? Geef aan van wat voor _type_ het resultaat is en wat de uitkomst is.
+
+| Expressie | Type | Uitkomst | 
+| - | ---- | ---- | 
+| `c(x,y)` |  `vector van doubles` |  `1, 2, 3, 1, 0, 0` | 
+| `c(x,z)` |  `vector van characters` |  `"1", "2", "3", "a", "b", "c"` | 
+| `c(y,z)` |  `vector van doubles` |  `"TRUE", "FALSE", "FALSE", "a", "b", "c"` | 
+
+
+
+:::
+
+
+## Attributen
+Aan elk R-object kan _meta_-data worden toegevoegd via zogeheten _attributen_. Een R-object kan een willekeurige set van attributen hebben, waaronder dimensies (waardoor vectoren matrices en arrays worden), klasse (gebruikt voor S3 objectgeoriënteerd programmeren), namen (voor het benoemen van elementen van vectoren en lijsten), of andere door gebruikers gedefinieerde metadata.
+
+Attributen kunnen worden benaderd met de `attr()` functie om een attribuut direct te krijgen of in te stellen. Zo haalt `attr(object, "naam")` de waarde van het attribuut van op, en stelt `attr(object, "attribute_name") <- waarde` de attribuutwaarde in. De `attributes()` functie geeft een lijst terug van alle attributen van een object, en `attributes(object) <- list(attribute_name = waarde, ...)` kan worden gebruikt om meerdere attributen tegelijk in te stellen. 
+
+Attributen moeten zorgvuldig worden beheerd, aangezien het wijzigen ervan de manier kan veranderen waarop een object wordt behandeld door functies en kan leiden tot onbedoelde resultaten als ze niet correct worden behandeld.
+
+
+ 
+
+```r
+x <- c(1,2,3)
+
+# Voeg een attribuut "omschrijving" toe aan het object 'x' met als waarde 'test'. 
+attr(x, "omschrijving") <- "test"
+
+# Het printen van het object x zorgt ervoor dat ook de attribuut-waarden worden geprint: 
+print(x)
 
 ```
 
+
+## Matrices en Arrays
+
+Een matrix is een tweedimensionele datastructuur die gebruikt kan worden om wiskundige berekeningen te vereenvoudigen. Een array is een meerdimensionale generalisatie van een matrix. Matrices en arrays zijn in R niks anders dan atomische vectoren waaraan een zogeheten _dimensie_-attribuut (`dim`) is toegevoegd. 
+
+Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut `dim`, door de `matrix`-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie `diag()` die een identiteitsmatrix oplevert. 
+
+Zie onderstaande voorbeeld: 
+
+```r
+# Maak een matrix x aan door het dim-attribuut in te stellen: 
+x <- c(1,2,3,4)
+dim(x) <- c(2,2)
+
+# Maak een matrix aan met het (expliciete) matrix-commando: 
+y <- matrix(x, nrow = 2)
+
+# Verifieer dat beide matrices gelijk aan elkaar zijn: 
+identical(x,y)
+
+```
+::: {.panel-tabset}
+
+### Quiz
+Probeer de volgende matrices te construeren: 
+
+- Een `2 x 3`-matrix met de getallen 1 tot en met 6, opgeslagen als `integer` data type. 
+
+$$
+\begin{bmatrix} 
+1  & 3 & 5 \\ 
+2  & 4 & 6 
+\end{bmatrix}
+$$
+
+- Een `3 x 3`-identiteitsmatrix
+
+$$
+\begin{bmatrix} 
+1  & 0 & 0 \\ 
+0  & 1 & 0 \\
+0  & 0 & 1 
+\end{bmatrix}
+$$
+
+
+### Antwoord
+Probeer de volgende matrices te construeren: 
+
+- Een `2 x 3`-matrix met de getallen 1 tot en met 6, gerepresenteerd als `integer` data type. 
+ 
+```r
+  # Methode 1
+  x <- matrix(as.integer(1:6), nrow = 2)
+  
+  # Methode 2
+  y <- as.integer(1:6)
+  attr(y, "dim") <- c(2,3)
 ```
 
-vector maak je aan door de elementen van de vector te combineren met het commando `c()`. Bij het combineren van elementen van verschillende types worden de 
+- Een `3 x 3`-identiteitsmatrix
+
+```r
+  # Methode 1
+  x <- matrix(rep(0, 9)), nrow = 3)
+  
+  # Methode 2
+  y <- 0 * diag(3)
+```
+
+:::
+
+R kan wiskundige berekeningen uitvoeren op matrices mits de matrices conformeren naar voor de betreffende berekening geldige dimensies. 
+
+Probeer na te  
+
+
+## Lijsten
+
+Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de `list()` functie uit R, de functie `list2()` uit het `rlang`-package, door het combineren van lijsten via de functie `c()`, of als uitkomst van een functie die een lijst retourneert (bijv. `lapply`) of `as.list()`.  
+
+```r
+
+```
+
+
+## Data.frames 
+
+Een `data.frame` is een `lijst` van vectoren met dezelfde lengte. Hoewel `data.frame` een veelgebruikt data type is in R, kiezen wij ervoor dit slechts beknopt te bespreken. In plaats daarvan 
+ 
+
+## Omgevingen
+
+
+
+## Objecten
 
 
 

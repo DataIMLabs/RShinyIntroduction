@@ -1,17 +1,10 @@
 # Module 5 - Shiny (basis) 
 
-Shiny maakt het mogelijk om analyses en visualisaties tot leven te brengen, waardoor anderen de kans krijgen om zelf met de data te experimenteren en nieuwe inzichten te verkrijgen. 
+Shiny maakt het mogelijk om analyses en data-visualisaties weer te geven middels interactieve web-applicaties. 
 
-Onderwerpen: 
+Deze module bespreekt de volgende onderwerpen:  
 
 -  Basisprincipes van Shiny (server vs UI, reactiviteit, etc.)
 -  Het ontwerpen van gebruikersinterfaces met behulp van `shinyWidgets` en `bslib`.
 -  Shiny modules
 
- 
-
-
-## Server vs UI
-
-
-## Reactiviteit

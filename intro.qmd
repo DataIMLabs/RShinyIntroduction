@@ -1,18 +1,18 @@
 # Introductie
 
-Welkom bij de cursus R en Shiny. Deze cursus heeft als doel om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken.
+Welkom bij de introductiecursus R en Shiny. Doel van de cursus is om jouw kennis van R en Shiny op het gebied van data-analyse en visualisatie te verrijken. 
 
-Gedurende deze cursus zullen we eenvoudige en meer geavanceerde R-technieken behandelen, evenals hun toepassing bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en casestudies begeleiden we u bij het ontwikkelen van uw eigen projecten, variërend van simpele apps die data in realtime visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.
+We zullen eenvoudige en meer geavanceerde R-technieken behandelen, steeds in de context van wat nuttig en nodig is bij het opzetten van Shiny dashboards. Aan de hand van praktijkvoorbeelden en case-studies begeleiden we je bij het ontwikkelen van eigen projecten in R, variërend van eenvoudige statische apps die data visualiseren tot complexe applicaties met uitgebreide gebruikersinteracties.
 
-De cursus is opgedeeld in verschillende modules:
+De cursus bestaat uit vijf modules:
 
--   Module 1 geeft een introductie in de basisprincipes van R. Onze ervaring is dat veel van wat hier besproken wordt de meeste datawetenschappers bekend in de oren zal klinken. Evenwel raden wij aan deze module met zorg door te werken.
+-   Module 1 geeft een introductie in de basisprincipes van R. Veel van wat hier besproken wordt zal voor de meeste datawetenschappers bekend zijn. Toch raden wij aan deze module met zorg door te werken. 
 
--   Module 2 gaat in op databewerking met het `data.table` package. Degenen die al enige ervaring met R hebben, zullen merken dat de wijze waarop wij data handling uitvoeren afwijkt van de gangbare praktijk (i.e., `tidyverse`). Kort gezegd: wij kiezen er bewust voor alle data handling met het `data.table` package uit te voeren, omdat dit package voor het bouwen van Shiny dashboards superieure performance levert.
+-   Module 2 bespreekt beknopt hoe wij werken met data bij het opzetten van dashboards. We richten ons (enkel) op de technieken en packages die voor het bouwen van productiedashboards nuttig zijn. Zo verkiezen we het `data.table` package boven `tidyverse` vanwege de superieure performance van `data.table`.  
 
--   Module 3 gaat in op het maken van grafieken met het `plotly` package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die R biedt.
+-   Module 3 gaat in op het maken van grafieken met het `plotly` package. Hier hebben wij wederom en keuze gemaakt uit de vele verschillende mogelijkheden die in het R ecosysteem geboden worden. Degenen met ervaring `ggplot2` kunnen deze kennis blijven inzetten: `plotly` biedt de mogelijkheid om de meeste (statische) `ggplot2`-grafieken te converteren naar `plotly`-charts. 
 
--   Module 4 behandelt enkele meer geavanceerde R technieken die wij gebruiken bij het opstellen van Shiny dashboards.
+-   Module 4 behandelt enkele meer geavanceerde R technieken die later zullen terugkomen bij het opstellen van Shiny dashboards. Ingegaan wordt op het gebruik van `R6`-classes en objecten, het gebruik van iteratoren
 
 -   Module 5 behandelt de basisprincipes van Shiny
 

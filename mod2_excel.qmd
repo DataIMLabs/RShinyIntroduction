@@ -1,0 +1,11 @@
+# Excel- en CSV-bestanden 
+
+## Excel
+
+R kent legio libraries om Excel-bestanden in te lezen. 
+
+Vier 
+
+
+
+## CSV

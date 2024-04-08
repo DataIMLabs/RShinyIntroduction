@@ -179,15 +179,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./mod1_subsetting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mod1_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Control flow</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mod2_datatableintro.html" class="sidebar-item-text sidebar-link">
+            <a href="./mod2_dhintro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 2 - Databewerking</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -196,8 +202,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mod2_datatableijby.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Basisbewerkingen</span></span></a>
+  <a href="./mod2_excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Excel- en CSV-bestanden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mod2_haven.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inlezen SPSS, SAS en Stata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mod2_labelled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gelabelde data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mod2_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data handling met data.table</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod3_plotlybarchart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Barcharts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Staaf- en kolomdiagrammen</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod4_fp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functioneel Programmeren</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Functioneel Programmeren</span></span></a>
   </div>
 </li>
       </ul>
@@ -248,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod5_basicshinycomponents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Basic components</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic components</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,14 +295,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#variabelen" id="toc-variabelen" class="nav-link active" data-scroll-target="#variabelen"><span class="header-section-number">2.1</span> Variabelen</a>
   <ul>
-  <li><a href="#mutabiliteit" id="toc-mutabiliteit" class="nav-link" data-scroll-target="#mutabiliteit"><span class="header-section-number">2.1.1</span> Mutabiliteit</a></li>
-  <li><a href="#copy-on-modify" id="toc-copy-on-modify" class="nav-link" data-scroll-target="#copy-on-modify"><span class="header-section-number">2.1.2</span> Copy-on-modify</a></li>
+  <li><a href="#scopes-en-environments" id="toc-scopes-en-environments" class="nav-link" data-scroll-target="#scopes-en-environments"><span class="header-section-number">2.1.1</span> Scopes en environments</a></li>
+  <li><a href="#mutabiliteit-en-locks" id="toc-mutabiliteit-en-locks" class="nav-link" data-scroll-target="#mutabiliteit-en-locks"><span class="header-section-number">2.1.2</span> Mutabiliteit en locks (*)</a></li>
+  <li><a href="#dynamische-types" id="toc-dynamische-types" class="nav-link" data-scroll-target="#dynamische-types"><span class="header-section-number">2.1.3</span> Dynamische types (*)</a></li>
+  <li><a href="#copy-on-modify-semantiek" id="toc-copy-on-modify-semantiek" class="nav-link" data-scroll-target="#copy-on-modify-semantiek"><span class="header-section-number">2.1.4</span> Copy-on-modify semantiek(*)</a></li>
   </ul></li>
-  <li><a href="#operatoren" id="toc-operatoren" class="nav-link" data-scroll-target="#operatoren"><span class="header-section-number">2.2</span> Operatoren</a></li>
-  <li><a href="#functies" id="toc-functies" class="nav-link" data-scroll-target="#functies"><span class="header-section-number">2.3</span> Functies</a>
+  <li><a href="#functies" id="toc-functies" class="nav-link" data-scroll-target="#functies"><span class="header-section-number">2.2</span> Functies</a>
   <ul>
-  <li><a href="#voorbeeld" id="toc-voorbeeld" class="nav-link" data-scroll-target="#voorbeeld"><span class="header-section-number">2.3.1</span> Voorbeeld</a></li>
-  <li><a href="#defaults" id="toc-defaults" class="nav-link" data-scroll-target="#defaults"><span class="header-section-number">2.3.2</span> Defaults</a></li>
+  <li><a href="#functie-argumenten" id="toc-functie-argumenten" class="nav-link" data-scroll-target="#functie-argumenten"><span class="header-section-number">2.2.1</span> Functie-argumenten</a></li>
+  <li><a href="#pure-functies-en-side-effects" id="toc-pure-functies-en-side-effects" class="nav-link" data-scroll-target="#pure-functies-en-side-effects"><span class="header-section-number">2.2.2</span> Pure functies en <em>side-effects</em></a></li>
+  <li><a href="#functies-en-scope" id="toc-functies-en-scope" class="nav-link" data-scroll-target="#functies-en-scope"><span class="header-section-number">2.2.3</span> Functies en <em>scope</em></a></li>
+  <li><a href="#functies-als-argument" id="toc-functies-als-argument" class="nav-link" data-scroll-target="#functies-als-argument"><span class="header-section-number">2.2.4</span> Functies als argument</a></li>
+  </ul></li>
+  <li><a href="#operatoren" id="toc-operatoren" class="nav-link" data-scroll-target="#operatoren"><span class="header-section-number">2.3</span> Operatoren</a>
+  <ul>
+  <li><a href="#volgorde-van-bewerkingen" id="toc-volgorde-van-bewerkingen" class="nav-link" data-scroll-target="#volgorde-van-bewerkingen"><span class="header-section-number">2.3.1</span> Volgorde van bewerkingen</a></li>
+  <li><a href="#pipe-operatoren" id="toc-pipe-operatoren" class="nav-link" data-scroll-target="#pipe-operatoren"><span class="header-section-number">2.3.2</span> Pipe-operatoren</a></li>
   <li><a href="#operatoren-als-functie" id="toc-operatoren-als-functie" class="nav-link" data-scroll-target="#operatoren-als-functie"><span class="header-section-number">2.3.3</span> Operatoren als functie</a></li>
   </ul></li>
   </ul>
@@ -306,36 +338,340 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Dit hoofdstuk bespreekt drie elementaire bouwstenen van R, te weten variabelen, operatoren en functies.</p>
 <section id="variabelen" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="variabelen"><span class="header-section-number">2.1</span> Variabelen</h2>
-<p>Een variabele is een verwijzing naar een waarde in het geheugden van de computer. We gebruiken de (binaire) toewijzingsoperator <strong><code>&lt;-</code></strong> of <strong><code>-&gt;</code></strong> om waarden toe te wijzen aan variabelen.</p>
-<section id="mutabiliteit" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="mutabiliteit"><span class="header-section-number">2.1.1</span> Mutabiliteit</h3>
-<p>Variabelen in R zijn <em>mutabel</em>. In R betekent dit dat gedurende de uitvoer van een programma zowel de waarde als het type van de variabele kan veranderen.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voorbeeld mutabiliteit </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Voorbeeld type-conversie</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"test"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Een variabele is een verwijzing naar een waarde in het geheugden van de computer. Een variabele in <em>R</em> bestaat uit twee onderdelen, namelijk de <em>naam</em> van de variabele en de <em>waarde</em> van de variabele. De (binaire) operatoren <strong><code>&lt;-</code></strong>, <strong><code>&lt;&lt;-</code></strong>, <strong><code>-&gt;</code></strong> en <strong><code>-&gt;&gt;</code></strong> creëren variabelen door een <em>naam</em> toe te kennen aan een <em>waarde</em>.</p>
+<p><em>Voorbeelden:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(x)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Het <code>ls()</code>-commando geeft weer welke variabelen gedefiniëerd zijn in de huidige werkomgeving.</p>
+<p>In de hiernavolgende paragrafen gaan we nader in op enkele meer geavanceerde onderwerpen die betrekking hebben op het werken met variabelen in R, te weten scopes en environments, mutabiliteit (*), dynamische types (*) en copy-on-modify semantiek (*). Dit zijn geen eenvoudige onderwerpen, maar voor een goed begrip van de werking van complexe R Scripts en Shiny-dashboards is het van belang op enige wijze bekend te geraken met hetgeen hier is besproken. We raden de lezer aan de onderdelen met een asterisk op een later moment nog eens te bezien.</p>
+<section id="scopes-en-environments" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="scopes-en-environments"><span class="header-section-number">2.1.1</span> Scopes en environments</h3>
+<p>De scope van een variabele geeft aan in welke context de variabele betekenis heeft. In R heet een dergelijke context ook wel een <code>environment</code>. Dit hoofdstuk beperkt zich tot de meest gangbare betekenis van het begrip environment, namelijk als de omgeving waarin een variabelen is gedefinieerd. Later zullen we zien dat een environment niet enkel een abstract concept is, maar (ook) een datatype waar binnen het R-ecosysteem handig gebruik van gemaakt wordt.</p>
+<p>We beseffen dat deze paragraaf een tamelijk technisch karakter heeft. Kennis van environments is echter essentieel voor een goed begrip van de werking van zogeheten <code>R6</code>-reference klasses en Shiny reactives.</p>
+<p>Hieronder vatten we de hoofdpunten samen:</p>
+<ul>
+<li><p>De belangrijkste <em>scope</em> is de zogeheten <em>globale environment</em>. Dit is de omgeving waarin men werkt gedurende een interactieve R sessie; ook een R script of Shiny-sessie wordt uitgevoerd in deze scope. De globale environment kan worden benaderd via het <em>keyword</em> <code>.GlobalEnv</code> of via de functie <code>globalenv()</code>.</p></li>
+<li><p>Functies creëren hun eigen lokale omgeving—een zogeheten <code>execution</code>-environment—met daarin de variabelen die (enkel) binnen de context van de functie betekenis hebben.</p></li>
+<li><p>Zodra een functie wordt uitgevoerd ontstaat een koppeling tussen de <code>execution</code>-environment van de functie en de omgeving waar de functie werd aangeroepen—de zogeheten <code>calling</code>-environment.</p></li>
+<li><p>De plek waar een functie is <em>aangemaakt</em> is de zogeheten <code>enclosing</code>-environment van de functie.</p></li>
+</ul>
+<p>Enkele nuttige functies voor het doorzoeken van een omgeving:</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Syntax</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>assign()</code></td>
+<td>Wijs een waarde toe aan een naam in een <em>environment</em></td>
+</tr>
+<tr class="even">
+<td><code>get()</code></td>
+<td>Haal de waarde van een bepaalde naam op uit een <em>environment</em></td>
+</tr>
+<tr class="odd">
+<td><code>ls()</code></td>
+<td>Geef de objecten weer in de huidige scope. Door het argument <code>envir</code> aan te passen kan de <code>scope</code> waarin gezocht wordt worden aangepasrt.</td>
+</tr>
+<tr class="even">
+<td><code>rm(list=ls())</code></td>
+<td>Maak de huidige scope leeg</td>
+</tr>
+<tr class="odd">
+<td><code>.GlobalEnv</code></td>
+<td>De globale omgeving als ‘object’</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Antwoord</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Zie de functie <code>f</code> in onderstaande codevoorbeeld. Wat zou je op de <code>...</code> in <code>f</code> kunnen invullen zodat de variabele <code>x</code> uit de bovenliggende omgeving wordt opgezocht en niet de variabele <code>x</code> in de functieomgeving?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(...) </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Door op de <code>...</code> het commando <code>get()</code> te gebruiken in combinatie met het <code>envir</code>-argument kun je bepalen in welke omgeving <code>x</code> opgezocht moet worden. In dit geval volstaat het om als <code>envir</code> de waarde <code>.GlobalEnv</code> te nemen. Noot: we hadden ook de functie <code>rlang::env_parent()</code> kunnen gebruiken.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">get</span>(<span class="st">"x"</span>, <span class="at">envir =</span> .GlobalEnv)) </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Elke programmeertaal heeft zogeheten <em>scoping rules</em> die bepalen vanuit welke <em>scope</em> men toegang heeft tot variabelen in andere <em>scopes</em>. In R gelden zogeheten <em>lexicale</em> scoping regels. Het voert te ver om deze in detail uit te werken, maar samengevat komt het erop neer dat een variabele eerst wordt opgezocht in de <em>scope</em> van waaruit de variabele wordt opgevraagd en vervolgens in de scope van waaruit betreffende code is gedefinieerd. Kan de variabele daar niet worden gevonden, dan wordt deze opgezocht in de naasthogere <em>scope</em>., etc. Als de variabele nergens gevonden kan worden geeft R een foutmelding.</p>
+<p>Zie onderstaande voorbeeld:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maak de omgeving leeg</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een variabele 'x' en wijs de waarde 1 toe. </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># x bestaat niet in deze scope, maar wel in de bovenliggende scope waar de functie is aangemaakt:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(){ </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(x) </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Een interessante vraag is wat er gebeurt wanneer een variabele <em>niet</em> bestaat in de functie-environment, maar wel in de <code>enclosing</code>-environment (de omgeving waar de functie is aangemaakt) én in de <code>calling</code>-environment (de omgeving van waaruit de functie wordt aangeroepen).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># We definieren x in de enclosing-environment van f1 (de globale environment)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(x)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(){  </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="co"># We herdefinieren x in de calling-environment van f1</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">f1</span>()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">f1</span>() <span class="co"># geeft de waarde 10</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">f2</span>() <span class="co"># geeft de waarde 10 en _niet_ 100 (!)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwijder de variabele x uit de globale environment</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="st">"x"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">f1</span>() <span class="co"># Deze functie geeft een fout, namelijk dat x niet is gedefinieerd. </span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">f2</span>() <span class="co"># Ook al bestaat de variabele x in de calling-environment, de functie f1 kan deze niet benaderen. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bovenstaande laat zien dat niet de omgeving van waaruit de functie wordt <em>aangeroepen</em> ertoe doet, maar de omgeving van waaruit de functie is <em>gedefinieerd</em>.</p>
+<p>Via de <code>&lt;&lt;-</code> operator kunnen variabelen in een <em>bovenliggende</em> scope worden aangemaakt en/of gewijzigd. Over het algemeen raden wij het gebruik van deze operator af, omdat dit kan leiden tot onvoorspelbare (en vaak onnavolgbare) code.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maak de omgeving leeg</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een functie die een variabele aanmaakt in de bovenliggende omgeving</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> <span class="dv">1</span>    </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># x bestaat niet totdat we de functie uitvoeren; deze regel zou een fout moeten geven</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Voer de functie f uit: </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># x bestaat nu wel. </span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="copy-on-modify" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="copy-on-modify"><span class="header-section-number">2.1.2</span> Copy-on-modify</h3>
-<p>Zie verder onderstaande voorbeelden:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="ot">-&gt;</span> x</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">-&gt;</span> y</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="mutabiliteit-en-locks" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="mutabiliteit-en-locks"><span class="header-section-number">2.1.2</span> Mutabiliteit en locks (*)</h3>
+<p>Een variabele die in R is gedefinieerd kan worden bewerkt vanuit de eigen <em>scope</em>, of vanuit een ondergelegen <em>scope</em>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veranderen waarde binnen de eigen scope</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veranderen waarde vanuit onderliggende scope (af te raden!)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;&lt;-</span> <span class="dv">2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In tegenstelling tot veel andere programmeertalen (bijv. Java, C#, JavaScript) heeft R niet de mogelijkheid om een variabele direct en expliciet te definieren als onveranderdelijk (d.w.z., als een constante). R kent echter wel de mogelijkheid om een variabele te voorzien van een zogeheten <code>lock</code>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 37%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Functie</th>
+<th>Omschrijving</th>
+<th>Voorbeeld</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>lockBinding</code></td>
+<td>Vergrendel een variabele</td>
+<td><code>x &lt;- 1; lockBinding("x", .globalEnv)</code></td>
+</tr>
+<tr class="even">
+<td><code>unlockBinding</code></td>
+<td>Ontgrendel een variabele</td>
+<td><code>x &lt;- 1; unLockBinding("x", .globalEnv)</code></td>
+</tr>
+<tr class="odd">
+<td><code>bindingIsLocked</code></td>
+<td>Controleer of een variabele vergrendeld is</td>
+<td><code>x &lt;- 1; bindingIsLocked(x)</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dynamische-types" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="dynamische-types"><span class="header-section-number">2.1.3</span> Dynamische types (*)</h3>
+<p>R behoort tot de zogeheten <em>dynamisch-getypeerde</em> programmeertalen. Dit wil zeggen dat het datatype van variabelen in principe niet à priori vastligt en pas wordt bepaald zodra het betreffende deel van het programma wordt uitgevoerd; ook kan het type gedurende de uitvoer veranderen. Met de functie <code>typeof</code> kan het type van een variabele worden bepaald.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voorbeeld type-conversie</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"test"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Deze dynamische omgang met types heeft voor- en nadelen. Aan de ene kant leidt een <em>dynamisch</em> type-systeem tot code die kernachtig, leesbaaode, waarmee men snel en eenvoudig scripts kan maken. Aan de andere kant kan een dergelijk <em>los</em> systeem leiden tot code waarvan pas bij uitvoer te zeggen is wat er precies gebeurt.</p>
+<p>Stel dat we van een vector <code>c(40,46,70)</code> willen weten hoeveel elementen een waarde groter dan <code>40</code> hebben, dan kunnen we dat direct als volgt opschrijven.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">46</span>,<span class="dv">70</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>( <span class="fu">sum</span>(x <span class="sc">&gt;</span> <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Achter de expressie <code>sum(x &gt; 40)</code> gaat een complexe serie bewerkingen en conversies schuil:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["sum( x &gt; 40 )"] --&gt; |&lt;small&gt;Vervang x&lt;/small&gt;|B["sum( c(40, 46, 70) &lt;b&gt;&gt; 40&lt;/b&gt; )"]
+    B --&gt; |&lt;small&gt;Distribueer de vergelijking '&gt; 40' elementsgewijs&lt;/small&gt;|C["sum( c(40 &lt;b&gt;&gt; 40&lt;/b&gt;, 46 &lt;b&gt;&gt; 40&lt;/b&gt;, 70 &lt;b&gt;&gt; 40&lt;/b&gt;) )"]
+    C --&gt; |&lt;small&gt;Evalueer de vergelijkingen&lt;/small&gt;|D["sum( c(&lt;b&gt;FALSE&lt;/b&gt;, &lt;b&gt;TRUE&lt;/b&gt;, &lt;b&gt;TRUE&lt;/b&gt;) )"]
+    D --&gt; |&lt;small&gt;Converteer de logische waarden naar numerieke waarden&lt;/small&gt;|E["sum( c(&lt;b&gt;0&lt;/b&gt;, &lt;b&gt;1&lt;/b&gt;, &lt;b&gt;1&lt;/b&gt;) )"]
+    E --&gt; |&lt;small&gt;Evalueer het resultaat&lt;/small&gt;|F["2"] 
+        
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="copy-on-modify-semantiek" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="copy-on-modify-semantiek"><span class="header-section-number">2.1.4</span> Copy-on-modify semantiek(*)</h3>
+<p>Variabelen in R kunnen verwijzen naar andere variabelen. Anders gezegd: meerdere <em>namen</em> kunnen in R verwijzen naar dezelfde <em>waarden</em>. De vraag is hoe R (intern) omgaat met een dergelijke situatie. Er zijn grofweg twee manieren waarop dit zou kunnen:</p>
+<ul>
+<li><p><strong>Copy-on-assignment</strong>. Direct na het toewijzen van het label <code>y</code> aan het label <code>x</code> wordt een kopie van het object gemaakt.</p></li>
+<li><p><strong>Copy-on-modify</strong>. Pas zodra <code>x</code> of <code>y</code> wordt bewerkt, wordt een kopie van het object in het geheugen gemaakt.</p></li>
+</ul>
+<p>R gebruikt een <em>copy-on-modify</em> strategie. Zie ter illustratie hoe in onderstaande voorbeeld beide variabelen <code>x</code> en <code>y</code> verwijzen naar dezelfde waarde <code>1</code>. Het gaat hier niet enkel om dezelfde waarde; de <em>namen</em> x en y verwijzen naar hetzelfde geheugenadres. Dit kunnen we aantonen met behulp van de <code>tracemem</code>-functie.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">tracemem</span>(x), <span class="fu">tracemem</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Zodra we één van de twee variabelen aanpassen, ontaat een nieuw object in het geheugen met een eigen geheugenadres.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">address</span>(x), <span class="fu">address</span>(y))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x) <span class="co"># x = 2</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y) <span class="co"># y = 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="operatoren" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="operatoren"><span class="header-section-number">2.2</span> Operatoren</h2>
-<p>Een operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen. Operatoren kunne worden ingedeeld in <em>unaire</em> operatoren (één input) en <em>binaire</em> operatoren (twee inputs).</p>
+<section id="functies" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="functies"><span class="header-section-number">2.2</span> Functies</h2>
+<p>Een functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn essentieel voor het opzetten van nette, herbruikbare en onderhoudbare code: ze maken het immers mogelijk complexe problemen op te splitsen in kleinere deeltaken. Een functie defineert men via de term <code>function</code>; met de toewijzingsoperator <code>&lt;-</code> kan de functie vervolgens worden toegewezen aan een naam.</p>
+<p>Zie onderstaande voorbeeld:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een functie en geef deze de naam 'f'. </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="dv">1</span>) <span class="co"># Geeft 1 + 1 = 2</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fu">f</span>(<span class="dv">1</span>)) <span class="co"># Geeft 1 + (1 + 1) = 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>De expressie <code>f(1)</code> retourneert <code>2</code>. De expressie <code>f(f(1))</code> past de functie twee keer toe en retourneert derhalve <code>3</code>.</p>
+<section id="functie-argumenten" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="functie-argumenten"><span class="header-section-number">2.2.1</span> Functie-argumenten</h3>
+<p>De <em>argumenten</em> vormen de input van de functie. Een functie kan 0, 1 of meerdere argumenten hebben. Argumenten kunnen een standaardwaarde hebben (een zogeheten <code>default</code>), maar dit hoeft niet. Argumenten kunnen een <em>naam</em> hebben, maar het is ook mogelijk om naamloze argumenten aan een functie mee te geven. De drie puntjes <code>...</code> geven aan dat de functie nog meer argumenten kan accepteren (met naam of zonder naam).</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een functie die x en y bij elkaar optelt. </span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">y =</span> <span class="dv">1</span>, <span class="at">z =</span> <span class="cn">NULL</span>, ...){</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x<span class="sc">+</span>y)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Met de functie <code>formals</code> kun je de <em>default</em>-argumenten van een functie opvragen. In combinatie met de toewijzingsoperator kun je deze zelfs aanpassen.</p>
+<pre><code>formals(sd)
+
+formals(sd) &lt;- alist(x = , na.rm = TRUE) # Werkt, maar gevaarlijk (!)</code></pre>
+<p>Over het algemeen raden we het overschrijven van default argumenten af: het wijzigen van bestaande functies kan leiden tot onvoorspelbaar gedrag in andere functies die afhankelijk zijn van de betreffende functies. Een veiligere strategie is om een <em>nieuwe</em> functie te maken die de oude functie aanroept, maar dan met gewijzigde default argumenten.</p>
+<pre><code>sd.valid &lt;- sd
+formals(sd.valid) &lt;- alist(x = , na.rm = TRUE)</code></pre>
+<p>Argumenten worden pas geëvalueerd zodra ze daadwerkelijk worden aangeroepen. Zie onderstaande voorbeelden:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">z =</span> y <span class="sc">+</span> <span class="dv">1</span>){</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="at">x =</span> <span class="dv">1</span>) </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="at">y =</span> <span class="dv">2</span>) <span class="co"># Deze geeft een foutmelding; de waarde x is namelijk nodig binnen de functie. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Merk op dat het argument <code>y</code> in onderstaande functie niet is gespecificeerd. Dit is echter geen probleem, zolang in de functie <code>f</code> dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation).</p>
+<p>Een veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden. Dit geschiedt met de functie <code>match.arg</code>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>){</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(x)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(x)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="st">"a"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="st">"fout"</span>) <span class="co"># Dit geeft een foutmelding</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pure-functies-en-side-effects" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="pure-functies-en-side-effects"><span class="header-section-number">2.2.2</span> Pure functies en <em>side-effects</em></h3>
+<p>Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten bijwerking of <em>side-effect</em>), of beide. Een functie zonder <em>side-effects</em> is een zogeheten <em>pure</em> functie. In Module 4 zullen deze <em>pure</em>-functies uitvoerig aan bod komen.</p>
+</section>
+<section id="functies-en-scope" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="functies-en-scope"><span class="header-section-number">2.2.3</span> Functies en <em>scope</em></h3>
+<p>Een functie heeft toegang tot alle variabelen die gedefiniëerd zijn binnen de <em>environment</em> van waaruit de functie is aangemaakt (de zogeheten <code>enclosing</code>-environment).</p>
+</section>
+<section id="functies-als-argument" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="functies-als-argument"><span class="header-section-number">2.2.4</span> Functies als argument</h3>
+<p>In R is het mogelijk functies als argument mee te geven aan een andere functie.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een lijst van functies 'funcs' toepast over een vector x. </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>describe <span class="ot">&lt;-</span> <span class="cf">function</span>(x, fs){</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(fs, <span class="cf">function</span>(f){</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f</span>(x)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">m =</span> mean, <span class="at">s =</span> sd)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(x, fs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bij het opzetten van Shiny dashboards zullen we handig gebruik maken van deze krachtige mogelijkheid van R.</p>
+</section>
+</section>
+<section id="operatoren" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="operatoren"><span class="header-section-number">2.3</span> Operatoren</h2>
+<p>Een operator is een bewerking (operatie) op één of twee input-elementen. Operatoren kunnen worden ingedeeld in <em>unaire</em> operatoren (één input) en <em>binaire</em> operatoren (twee inputs).</p>
+<p>De input van een <em>unaire</em> operator staat aan de rechterhandszijde (RHZ) van de operator:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voorbeeld van een negatie-operator '!'</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="sc">!</span>x  </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>De inputs van een <em>binaire</em> operators staan aan de linkerhandszijde (LHZ) en rechterhandszijde (RHZ) van de operator:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span>        <span class="co">#LHZ</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span>        <span class="co">#RHZ</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -344,57 +680,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="mermaid mermaid-js">flowchart TD
    X[Operators] --&gt; |&lt;small&gt;Eén input&lt;/small&gt;| U[Unair]
    X --&gt; |&lt;small&gt;Twee inputs&lt;/small&gt;|B[Binair]
-   U --&gt; A["&lt;-"]
-   U --&gt; H["?"]
-   U --&gt; N["!"]
-   U --&gt; S["..."]
-   B --&gt; AR["+, -, /, ^"]
-   B --&gt; LO["&amp;, &amp;&amp;, |, ||"]
+   U --&gt; |&lt;small&gt;Help&lt;/small&gt;|H["?, ??"]
+   U --&gt; |&lt;small&gt;Negatie&lt;/small&gt;|N["!"] 
+   B --&gt; |&lt;small&gt;Toewijzing&lt;/small&gt;|A["&lt;-, &lt;&lt;-, -&gt;, -&gt;&gt;, ="]
+   B --&gt; |&lt;small&gt;Extractie&lt;/small&gt;|EX["[, [["]
+   B --&gt; |&lt;small&gt;Logisch&lt;/small&gt;|LO["&amp;, &amp;&amp;, |, ||"]
+   B --&gt; |&lt;small&gt;Vergelijken&lt;/small&gt;|COM["&lt;, &lt;=, &gt;, &gt;=, ==, !="]
+   B --&gt; |&lt;small&gt;Rekenkundig&lt;/small&gt;|AR["+, -, /, ^, ..."]
+   B --&gt; |&lt;small&gt;Speciaal&lt;/small&gt;|CUST["%any%, %in%"]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># Toewijzen label 'x' aan waarde '1' in het geheugen </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># idem. </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Binaire operatoren: </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y <span class="co"># Optellen</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> x <span class="sc">*</span> y <span class="co"># Vermenigvuldigen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Voorbeelden:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># Toewijzen label 'x' aan waarde '1' in het geheugen </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># idem. </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Binaire operatoren: </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y <span class="co"># Optellen</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> x <span class="sc">*</span> y <span class="co"># Vermenigvuldigen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="volgorde-van-bewerkingen" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="volgorde-van-bewerkingen"><span class="header-section-number">2.3.1</span> Volgorde van bewerkingen</h3>
+<p>Zie <code>?syntax</code> voor een uitgebreide bespreking van de volgorde van bewerkingen in R.</p>
+<p>Probeer na te gaan in welke volgorde onderstaande bewerkingen worden uitgevoerd:</p>
+<pre><code>x &lt;- 5 + 5 -&gt; y</code></pre>
 </section>
-<section id="functies" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="functies"><span class="header-section-number">2.3</span> Functies</h2>
-<p>Een functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn fundamenteel voor het structureren van code: ze maken het mogelijk complexe problemen op te delen in kleinere taken. Een functie kan nul of meer parameters (ook bekend als argumenten) als input aannemen. Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten <em>side-effect</em>), of beide.</p>
-<section id="voorbeeld" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="voorbeeld"><span class="header-section-number">2.3.1</span> Voorbeeld</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>De expressie <code>f(1)</code> retourneert <code>2</code>. Merk op dat het argumen <code>y</code> niet is gespecificeerd. Dit is echter geen probleem, zolang de functie <code>f</code> dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation).</p>
-</section>
-<section id="defaults" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="defaults"><span class="header-section-number">2.3.2</span> Defaults</h3>
-<p>Het is mogelijk om in R een standaardwaarde mee te geven aan een functie:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">y =</span> <span class="dv">1</span>){</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x<span class="sc">+</span>y)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Een veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)){</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(y)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(y)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Bovenstaande zorgt ervoor dat het argument <code>y</code> altijd een waarde van <code>1</code>, <code>2</code>, of <code>3</code> heeft.</p>
+<section id="pipe-operatoren" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="pipe-operatoren"><span class="header-section-number">2.3.2</span> Pipe-operatoren</h3>
+<p>De zogeheten <em>pipe</em>-operator <code>%&gt;%</code> uit het <code>magrittr</code>-package is een operator waarmee bewerkingen sequentieel uitgevoerd kunnen worden. In <code>tidyverse</code>, <code>plotly</code> en <code>shiny</code> wordt deze operator veelvuldig gebruikt om complexe functie-aanroepen te vereenvoudigen.</p>
 </section>
 <section id="operatoren-als-functie" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="operatoren-als-functie"><span class="header-section-number">2.3.3</span> Operatoren als functie</h3>
 <p>In R hebben alle operatoren ook een functionele-vorm. De binaire <code>+</code>-operator is in weze niks anders dan een functie met twee argumenten. De functionele vorm van de <code>+</code>-operator is <code>`+`(x,y)</code>.</p>
 <p>Zie onderstaande voorbeelden:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

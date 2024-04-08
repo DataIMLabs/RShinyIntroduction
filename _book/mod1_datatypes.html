@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./mod1_flow.html" rel="next">
+<link href="./mod1_subsetting.html" rel="next">
 <link href="./mod1_variables.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -106,6 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -179,15 +208,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./mod1_subsetting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mod1_flow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Control flow</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./mod2_datatableintro.html" class="sidebar-item-text sidebar-link">
+            <a href="./mod2_dhintro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 2 - Databewerking</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -196,8 +231,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mod2_datatableijby.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Basisbewerkingen</span></span></a>
+  <a href="./mod2_excel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Excel- en CSV-bestanden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mod2_haven.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inlezen SPSS, SAS en Stata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mod2_labelled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Gelabelde data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mod2_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data handling met data.table</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod3_plotlybarchart.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Barcharts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Staaf- en kolomdiagrammen</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod4_fp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functioneel Programmeren</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Functioneel Programmeren</span></span></a>
   </div>
 </li>
       </ul>
@@ -248,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod5_basicshinycomponents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Basic components</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Basic components</span></span></a>
   </div>
 </li>
       </ul>
@@ -269,8 +322,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#vectoren" id="toc-vectoren" class="nav-link active" data-scroll-target="#vectoren"><span class="header-section-number">3.1</span> Vectoren</a></li>
+  <li><a href="#vectorisatie" id="toc-vectorisatie" class="nav-link active" data-scroll-target="#vectorisatie"><span class="header-section-number">3.1</span> Vectorisatie</a></li>
   <li><a href="#atomische-vectoren" id="toc-atomische-vectoren" class="nav-link" data-scroll-target="#atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</a></li>
+  <li><a href="#attributen" id="toc-attributen" class="nav-link" data-scroll-target="#attributen"><span class="header-section-number">3.3</span> Attributen</a></li>
+  <li><a href="#matrices-en-arrays" id="toc-matrices-en-arrays" class="nav-link" data-scroll-target="#matrices-en-arrays"><span class="header-section-number">3.4</span> Matrices en Arrays</a></li>
+  <li><a href="#lijsten" id="toc-lijsten" class="nav-link" data-scroll-target="#lijsten"><span class="header-section-number">3.5</span> Lijsten</a></li>
+  <li><a href="#data.frames" id="toc-data.frames" class="nav-link" data-scroll-target="#data.frames"><span class="header-section-number">3.6</span> Data.frames</a></li>
+  <li><a href="#omgevingen" id="toc-omgevingen" class="nav-link" data-scroll-target="#omgevingen"><span class="header-section-number">3.7</span> Omgevingen</a></li>
+  <li><a href="#objecten" id="toc-objecten" class="nav-link" data-scroll-target="#objecten"><span class="header-section-number">3.8</span> Objecten</a></li>
   </ul>
 </nav>
     </div>
@@ -296,36 +355,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt.</p>
-<section id="vectoren" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="vectoren"><span class="header-section-number">3.1</span> Vectoren</h2>
-<p>In R is alles een vector. Zelfs enkelvoudige waarden, zoals getallen of strings, worden behandeld als vectoren van lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe berekeningen op data worden uitgevoerd.</p>
-<p>Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een collectie getallen <code>(1,2,3,4,5)</code> het getal <code>1</code> willen optellen.</p>
-<p>In JavaScript los je een dergelijk probleem op door een <code>for</code>-loop uit te voeren over de elementen van een array. In R kan de berekening veel directer worden opgeschreven:</p>
-<div class="row" style="clear: both;">
-<div style="width: 49%; float:left;">
-<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Javascript</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> x<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   x[i] <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt. We beginnen met een korte bespreking van het begrip <code>vectorisatie</code>. Simpel gezegd: in R is <em>alles</em> eigenlijk een vector. Hiermee onderscheidt R zich van veel andere talen. Vervolgens word en atomische vectoren (d.w.z., vectoren bestaande uit enkelvoudige, ondeelbare objecten van hetzelfde type) en lijsten besproken.</p>
+<section id="vectorisatie" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="vectorisatie"><span class="header-section-number">3.1</span> Vectorisatie</h2>
+<p>In R is alles een vector. Ook enkelvoudige waarden, zoals een enkel getal (<code>x &lt;- 1</code>) of een enkelvoudige tekst (<code>y &lt;- "test"</code>), worden behandeld als vectoren met lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe de taal werkt. Zeker voor degenen die (meer) ervaring hebben met talen zoals <code>Python</code>, <code>C#</code> of <code>Javascript</code> is het van belang dit fundamentale aspect van R voor het netvlies te hebben.</p>
+<p>Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een serie getallen <code>1, 2, 3, 4, 5)</code> het getal <code>1</code> willen optellen. In JavaScript zou je zoiets kunnen oplossen met behulp van een <code>for</code>-loop over alle elementen van een array. in R kun je de berekening op een directe manier opschrijven.</p>
+<div>
+
 </div>
-<div style="width: 49%; float:left;">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<div class="quarto-layout-panel" data-layout="[ [1,1], [1,1] ]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Javascript</strong></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>R</strong></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> x<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   x[i] <span class="op">+=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x);</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Om bovenstaande echt goed te begrijpen is het goed om nader te bezien wat er eigenlijk gebeurt bij een eenvoudige expressie zoals <code>c(1,2,3,4,5) + 1</code>. Conceptueel kun je je het als volgt voorstellen:</p>
+</div>
+<p>Laten we eens nader bezien wat er genlijk gebeurt bij de (schijnbaar) eenvoudige expressie <code>c(1,2,3,4,5) + 1</code>. Conceptueel gebeurt er het volgende:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -334,6 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="mermaid mermaid-js">flowchart TD
     A["c(1, 2, 3, 4, 5) + &lt;b&gt;1&lt;/b&gt;"] --&gt; |Recycle 1 om te conformeren aan de linkervector|B["c(1, 2, 3, 4, 5) + c(&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt; ,&lt;b&gt;1&lt;/b&gt;)"]
     B --&gt; |Tel de vectoren elementsgewijs op|C["c(1+&lt;b&gt;1&lt;/b&gt;, 2+&lt;b&gt;1&lt;/b&gt;, 3+&lt;b&gt;1&lt;/b&gt;, 4+&lt;b&gt;1&lt;/b&gt;, 5+&lt;b&gt;1&lt;/b&gt;)"]
+    C --&gt; |Evalueer elementsgewijs het resultaat|D["c(2, 3, 4, 5, 6)"]
         
 </pre>
 </div>
@@ -341,13 +410,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Merk op dat het getal <code>1</code> in R niet een getal is, maar een vector met lengte 1, met als eerste (en enige) element het getal 1. Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijk in lengte gemaakt. Dit geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’. In de meeste gevallen gebeurt dit op voor de hand liggende (en dus intuïtieve) wijze, maar bedenk dat dit ook tot onverwachte uitkomsten kan leiden.</p>
-<p>Probeer zelf eens uit wat er gebeurt bij de volgende voorbeelden:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Merk op dat er in <code>R</code> niet zoiets bestaat als een ‘los’ getal <code>1</code>. Dit getal is eigenlijk een <em>vector</em> met lengte 1, met als eerste (en enige) element het getal 1.</p>
+<p>Bij het optellen van twee vectoren in R worden de beide vectoren eerst gelijkgemaakt in lengte en type.</p>
+<ul>
+<li><p>Gelijkmaken van lengte geschiedt door de kortste vector net zo vaak te vermenigvuldigen totdat deze in de langere vector ‘past’ (<code>recycling</code>)</p></li>
+<li><p>Gelijkmakten van data-types geschiedt via zogeheten dataconversie-regels (<code>coercion</code>).</p></li>
+</ul>
+<p>In R kunnen data types impliciet en expliciet worden geconverteerd. Impliciete conversie vindt plaats bij berekeningen op twee data typen die op het eerste gezicht onverenigbaar lijken.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Antwoord</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>We definiëren de variabelen <code>x</code> en <code>y</code> als volgt:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wat leveren onderstaande expressies op? Geef aan van wat voor <em>type</em> het resultaat is en wat de daadwerkelijke uitkomst is.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Expressie</th>
+<th>Type</th>
+<th>Uitkomst</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x == y</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>x | y</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td><code>x &amp; y</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>x + y</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>We definiëren de variabelen <code>x</code> en <code>y</code> als volgt:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wat leveren onderstaande expressies op? Geef aan van wat voor <em>type</em> het resultaat is en wat de daadwerkelijke uitkomst is.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Expressie</th>
+<th>Type</th>
+<th>Uitkomst</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>x == y</code></td>
+<td>Logische vector</td>
+<td><code>FALSE, TRUE, FALSE</code></td>
+</tr>
+<tr class="even">
+<td><code>x | y</code></td>
+<td>Logische vector</td>
+<td><code>TRUE, TRUE, TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><code>x &amp; y</code></td>
+<td>Logische vector</td>
+<td><code>FALSE, TRUE, TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>x + y</code></td>
+<td>Numerieke vector</td>
+<td><code>1, 2, 3</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
 <section id="atomische-vectoren" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</h2>
-<p>Atomische vectoren zijn de bouwstenen voor complexere structuren in R. Een atomische vector bevat enkelvoudige types die slechts één enkele waarde of element bevatten. R kent logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe getallen en tekst (character).</p>
+<p>Atomische vectoren zijn de bouwstenen van meer complexe datastructuren in R. Een atomische vector bevat enkelvoudige data-types die slechts één enkele waarde of element bevatten. R kent verschillende typen vectoren, waaronder logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe vectoren en karakter-vectoren (character).</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -358,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         B --&gt; N[Numeriek]
         N --&gt; I[Integer]
         N --&gt; D[Double]
-        B --&gt; Z[Complex]
+        B --&gt; Z[Complex]  
         B --&gt; C[Character]
         B --&gt; R[Raw]
        
@@ -368,9 +520,175 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Er zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de <code>vector()</code> functie.</p>
-<pre><code></code></pre>
-<p>vector maak je aan door de elementen van de vector te combineren met het commando <code>c()</code>. Bij het combineren van elementen van verschillende types worden de</p>
+<p>Er zijn verschillende manieren om een vector aan te maken. Een expliciete (en niet veel gebruikte) methode is via de <code>vector()</code> functie; gangbaarder is om de functie <code>c()</code> te gebruiken. Een impliciete manier is om een vector te definiëren als het resultaat van een berekening.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Antwoord</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>We definiëren de variabelen <code>x</code> en <code>y</code> als volgt:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wat leveren onderstaande expressies op? Geef aan van wat voor <em>type</em> het resultaat is en wat de uitkomst is.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Expressie</th>
+<th>Type</th>
+<th>Uitkomst</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>c(x,y)</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>c(x,z)</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td><code>c(y,z)</code></td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>We definiëren de variabelen <code>x</code> en <code>y</code> als volgt:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wat leveren onderstaande expressies op? Geef aan van wat voor <em>type</em> het resultaat is en wat de uitkomst is.</p>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Expressie</th>
+<th>Type</th>
+<th>Uitkomst</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>c(x,y)</code></td>
+<td><code>vector van doubles</code></td>
+<td><code>1, 2, 3, 1, 0, 0</code></td>
+</tr>
+<tr class="even">
+<td><code>c(x,z)</code></td>
+<td><code>vector van characters</code></td>
+<td><code>"1", "2", "3", "a", "b", "c"</code></td>
+</tr>
+<tr class="odd">
+<td><code>c(y,z)</code></td>
+<td><code>vector van doubles</code></td>
+<td><code>"TRUE", "FALSE", "FALSE", "a", "b", "c"</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="attributen" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="attributen"><span class="header-section-number">3.3</span> Attributen</h2>
+<p>Aan elk R-object kan <em>meta</em>-data worden toegevoegd via zogeheten <em>attributen</em>. Een R-object kan een willekeurige set van attributen hebben, waaronder dimensies (waardoor vectoren matrices en arrays worden), klasse (gebruikt voor S3 objectgeoriënteerd programmeren), namen (voor het benoemen van elementen van vectoren en lijsten), of andere door gebruikers gedefinieerde metadata.</p>
+<p>Attributen kunnen worden benaderd met de <code>attr()</code> functie om een attribuut direct te krijgen of in te stellen. Zo haalt <code>attr(object, "naam")</code> de waarde van het attribuut van op, en stelt <code>attr(object, "attribute_name") &lt;- waarde</code> de attribuutwaarde in. De <code>attributes()</code> functie geeft een lijst terug van alle attributen van een object, en <code>attributes(object) &lt;- list(attribute_name = waarde, ...)</code> kan worden gebruikt om meerdere attributen tegelijk in te stellen.</p>
+<p>Attributen moeten zorgvuldig worden beheerd, aangezien het wijzigen ervan de manier kan veranderen waarop een object wordt behandeld door functies en kan leiden tot onbedoelde resultaten als ze niet correct worden behandeld.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Voeg een attribuut "omschrijving" toe aan het object 'x' met als waarde 'test'. </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(x, <span class="st">"omschrijving"</span>) <span class="ot">&lt;-</span> <span class="st">"test"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Het printen van het object x zorgt ervoor dat ook de attribuut-waarden worden geprint: </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="matrices-en-arrays" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="matrices-en-arrays"><span class="header-section-number">3.4</span> Matrices en Arrays</h2>
+<p>Een matrix is een tweedimensionele datastructuur die gebruikt kan worden om wiskundige berekeningen te vereenvoudigen. Een array is een meerdimensionale generalisatie van een matrix. Matrices en arrays zijn in R niks anders dan atomische vectoren waaraan een zogeheten <em>dimensie</em>-attribuut (<code>dim</code>) is toegevoegd.</p>
+<p>Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut <code>dim</code>, door de <code>matrix</code>-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie <code>diag()</code> die een identiteitsmatrix oplevert.</p>
+<p>Zie onderstaande voorbeeld:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maak een matrix x aan door het dim-attribuut in te stellen: </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Maak een matrix aan met het (expliciete) matrix-commando: </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifieer dat beide matrices gelijk aan elkaar zijn: </span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Antwoord</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Probeer de volgende matrices te construeren:</p>
+<ul>
+<li>Een <code>2 x 3</code>-matrix met de getallen 1 tot en met 6, opgeslagen als <code>integer</code> data type.</li>
+</ul>
+<p><span class="math display">\[
+\begin{bmatrix}
+1  &amp; 3 &amp; 5 \\
+2  &amp; 4 &amp; 6
+\end{bmatrix}
+\]</span></p>
+<ul>
+<li>Een <code>3 x 3</code>-identiteitsmatrix</li>
+</ul>
+<p><span class="math display">\[
+\begin{bmatrix}
+1  &amp; 0 &amp; 0 \\
+0  &amp; 1 &amp; 0 \\
+0  &amp; 0 &amp; 1
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Probeer de volgende matrices te construeren:</p>
+<ul>
+<li>Een <code>2 x 3</code>-matrix met de getallen 1 tot en met 6, gerepresenteerd als <code>integer</code> data type.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Methode 1</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">as.integer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Methode 2</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attr</span>(y, <span class="st">"dim"</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Een <code>3 x 3</code>-identiteitsmatrix</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Methode 1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">9</span>)), nrow <span class="ot">=</span> <span class="dv">3</span><span class="er">)</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Methode 2</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="sc">*</span> <span class="fu">diag</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>R kan wiskundige berekeningen uitvoeren op matrices mits de matrices conformeren naar voor de betreffende berekening geldige dimensies.</p>
+<p>Probeer na te</p>
+</section>
+<section id="lijsten" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="lijsten"><span class="header-section-number">3.5</span> Lijsten</h2>
+<p>Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de <code>list()</code> functie uit R, de functie <code>list2()</code> uit het <code>rlang</code>-package, door het combineren van lijsten via de functie <code>c()</code>, of als uitkomst van een functie die een lijst retourneert (bijv. <code>lapply</code>) of <code>as.list()</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="data.frames" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="data.frames"><span class="header-section-number">3.6</span> Data.frames</h2>
+<p>Een <code>data.frame</code> is een <code>lijst</code> van vectoren met dezelfde lengte. Hoewel <code>data.frame</code> een veelgebruikt data type is in R, kiezen wij ervoor dit slechts beknopt te bespreken. In plaats daarvan</p>
+</section>
+<section id="omgevingen" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="omgevingen"><span class="header-section-number">3.7</span> Omgevingen</h2>
+</section>
+<section id="objecten" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="objecten"><span class="header-section-number">3.8</span> Objecten</h2>
 
 
 </section>
@@ -792,8 +1110,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./mod1_flow.html" class="pagination-link" aria-label="Flow">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./mod1_subsetting.html" class="pagination-link" aria-label="Sets en subsets">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

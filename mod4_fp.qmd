@@ -11,7 +11,7 @@ Het `purrr` package biedt een meer consistente en complete set gereedschappen vo
  
 ## `map` Functies in `purrr`
 
-De \`map\` functies zijn essentieel binnen \`purrr\` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.
+De `map` functies zijn essentieel binnen `purrr` voor het toepassen van een bewerking op elk element van een lijst of vector, zonder expliciet een lus te gebruiken. Dit maakt de code efficiënter en leesbaarder.
 
 Voorbeeld: Toepassen van \`map\` Functies
 

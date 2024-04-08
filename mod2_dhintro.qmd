@@ -1,0 +1,21 @@
+# Module 2 - Databewerking
+
+Deze module bespreekt enkele krachtige technieken en bijbehorende packages die nuttig zijn voor het bewerken van data. 
+We beperken ons in deze module tot de kennis en vaardigheden die van pas komen bij het maken van Shiny dashboards. 
+
+We gaan er vanuit dat de meeste onderzoekers zullen werken met (gelabelde) survey-data, veelal afkomstig vanuit secundaire bronbestanden (bijv. `.sav` of `.dta`). 
+Kenmerkend voor deze bestandsformaten is dat deze niet alleen de onderzoeksdata opslaan, maar ook beschrijvende gegevens (i.e., meta-data) waaronder eventuele variabele- of waardelabels. Naar onze mening zijn dergelijke binaire bestandsformaten te verkiezen boven Excel- en CSV-bestanden (waar je dan vaak zelf een codeboek bij moet definiëren).  
+
+De module gaat achtereenvolgens in op de volgende onderwerpen: 
+
+-  Het inlezen van `Excel`- en `.csv`-bestanden
+
+-  Het inlezen van gegevensbestanden vanuit SPSS, Stata of SAS via het `haven`-package 
+
+-  Het werken met gelabelde data (o.a. `factor`, het `labelled`-package en het `sjlabelled`-package)
+
+-  Het `data.table`-package is speciaal ontwikkeld voor het analyseren en bewerken van grote datasets.
+In vergelijking met andere databewerkingsmethoden blinkt `data.table` uit in snelheid en efficiënt geheugengebruik. 
+
+
+

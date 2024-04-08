@@ -1,19 +1,202 @@
 # Variablen, operatoren en functies. 
 
-## Variabelen
+Dit hoofdstuk bespreekt drie elementaire bouwstenen van R, te weten variabelen, operatoren en functies.
 
-Een variabele is een verwijzing naar een waarde in het geheugden van de computer. We gebruiken de (binaire) toewijzingsoperator **`<-`** of **`->`** om waarden toe te wijzen aan variabelen.
+## Variabelen 
 
-### Mutabiliteit
-Variabelen in R zijn _mutabel_. In R betekent dit dat gedurende de uitvoer van een programma zowel de waarde als het type van de variabele kan veranderen.  
+Een variabele is een verwijzing naar een waarde in het geheugden van de computer. Een variabele in _R_ bestaat uit twee onderdelen, namelijk de _naam_ van de variabele en de _waarde_ van de variabele. De (binaire) operatoren **`<-`**, **`<<-`**, **`->`** en **`->>`** creëren variabelen door een _naam_ toe te kennen aan een _waarde_. 
+
+_Voorbeelden:_
+
+```r
+x1 <- 5
+x2 <- c(1,2,3)
+x3 <- list("a", "b", "c")
+x4 <- function(x){
+    print(x)
+}
+
+```
+
+Het `ls()`-commando geeft weer welke variabelen gedefiniëerd zijn in de huidige werkomgeving. 
+
+
+
+
+In de hiernavolgende paragrafen gaan we nader in op enkele meer geavanceerde onderwerpen die betrekking hebben op het werken met variabelen in R, te weten scopes en environments, mutabiliteit (\*), dynamische types (\*) en copy-on-modify semantiek (\*). Dit zijn geen eenvoudige onderwerpen, maar voor een goed begrip van de werking van complexe R Scripts en Shiny-dashboards is het van belang op enige wijze bekend te geraken met hetgeen hier is besproken. We raden de lezer aan de onderdelen met een asterisk op een later moment nog eens te bezien. 
+
+### Scopes en environments
+
+De scope van een variabele geeft aan in welke context de variabele betekenis heeft. In R heet een dergelijke context ook wel een `environment`. Dit hoofdstuk beperkt zich tot de meest gangbare betekenis van het begrip environment, namelijk als de omgeving waarin een variabelen is gedefinieerd. Later zullen we zien dat een environment niet enkel een abstract concept is, maar (ook) een datatype waar binnen het R-ecosysteem handig gebruik van gemaakt wordt. 
+
+We beseffen dat deze paragraaf een tamelijk technisch karakter heeft. Kennis van environments is echter essentieel voor een goed begrip van de werking van zogeheten `R6`-reference klasses en Shiny reactives. 
+
+Hieronder vatten we de hoofdpunten samen: 
+
+- De belangrijkste _scope_ is de zogeheten _globale environment_. Dit is de omgeving waarin men werkt gedurende een interactieve R sessie; ook een R script of Shiny-sessie wordt uitgevoerd in deze scope. De globale environment kan worden benaderd via het _keyword_ `.GlobalEnv` of via de functie `globalenv()`. 
+
+- Functies creëren hun eigen lokale omgeving&mdash;een zogeheten `execution`-environment&mdash;met daarin de variabelen die (enkel) binnen de context van de functie betekenis hebben. 
+
+- Zodra een functie wordt uitgevoerd ontstaat een koppeling tussen de `execution`-environment van de functie en de omgeving waar de functie werd aangeroepen&mdash;de zogeheten `calling`-environment. 
+
+- De plek waar een functie is _aangemaakt_ is de zogeheten `enclosing`-environment van de functie. 
+
+Enkele nuttige functies voor het doorzoeken van een omgeving: 
+
+|Syntax|Omschrijving|
+| - | ---- | 
+| `assign()` | Wijs een waarde toe aan een naam in een _environment_ |
+| `get()` | Haal de waarde van een bepaalde naam op uit een _environment_ |
+| `ls()` | Geef de objecten weer in de huidige scope. Door het argument `envir` aan te passen kan de `scope` waarin gezocht wordt worden aangepasrt.|
+| `rm(list=ls())` | Maak de huidige scope leeg | 
+| `.GlobalEnv` | De globale omgeving als 'object'|
+
+---
+
+
+::: {.panel-tabset}
+
+### Quiz
+
+Zie de functie `f` in onderstaande codevoorbeeld. Wat zou je op de `...` in `f` kunnen invullen zodat de variabele `x` uit de bovenliggende omgeving wordt opgezocht en niet de variabele `x` in de functieomgeving? 
+
+
+```r
+x <- 2
+
+f <- function(){
+    x <- 10
+    print(...) 
+}
+
+f()
+``` 
+
+### Antwoord
+
+Door op de `...` het commando `get()` te gebruiken in combinatie met het `envir`-argument kun je bepalen in welke omgeving `x` opgezocht moet worden. In dit geval volstaat het om als `envir` de waarde `.GlobalEnv` te nemen. Noot: we hadden ook de functie `rlang::env_parent()` kunnen gebruiken.
+
+```r
+x <- 2
+
+f <- function(){
+    x <- 10
+    print(get("x", envir = .GlobalEnv)) 
+}
+
+f()
+```
+:::
+
+Elke programmeertaal heeft zogeheten _scoping rules_ die bepalen vanuit welke _scope_ men toegang heeft tot variabelen in andere _scopes_. In R gelden zogeheten _lexicale_ scoping regels. Het voert te ver om deze in detail uit te werken, maar samengevat komt het erop neer dat een variabele eerst wordt opgezocht in de _scope_ van waaruit de variabele wordt opgevraagd en vervolgens in de scope van waaruit betreffende code is gedefinieerd. Kan de variabele daar niet worden gevonden, dan wordt deze opgezocht in de naasthogere _scope_., etc. Als de variabele nergens gevonden kan worden geeft R een foutmelding. 
+
+Zie onderstaande voorbeeld:
+
+```r 
+# Maak de omgeving leeg
+rm(list=ls())
+
+# Definieer een variabele 'x' en wijs de waarde 1 toe. 
+x <- 1
+
+# x bestaat niet in deze scope, maar wel in de bovenliggende scope waar de functie is aangemaakt:
+f <- function(){ 
+    print(x) 
+}
+
+f()
+
+```
+
+Een interessante vraag is wat er gebeurt wanneer een variabele _niet_ bestaat in de functie-environment, maar wel in de `enclosing`-environment (de omgeving waar de functie is aangemaakt) én in de `calling`-environment (de omgeving van waaruit de functie wordt aangeroepen). 
+
+```r 
+
+x <- 10 # We definieren x in de enclosing-environment van f1 (de globale environment)
+
+f1 <- function(){
+    print(x)
+}
+
+f2 <- function(){  
+    x <- 20 # We herdefinieren x in de calling-environment van f1
+    f1()
+}
+
+f1() # geeft de waarde 10
+f2() # geeft de waarde 10 en _niet_ 100 (!)
+
+# Verwijder de variabele x uit de globale environment
+rm("x")
+
+f1() # Deze functie geeft een fout, namelijk dat x niet is gedefinieerd. 
+f2() # Ook al bestaat de variabele x in de calling-environment, de functie f1 kan deze niet benaderen. 
+
+```
+
+Bovenstaande laat zien dat niet de omgeving van waaruit de functie wordt _aangeroepen_ ertoe doet, maar de omgeving van waaruit de functie is _gedefinieerd_. 
+
+
+Via de `<<-` operator kunnen variabelen in een _bovenliggende_ scope worden aangemaakt en/of gewijzigd. Over het algemeen raden wij het gebruik van deze operator af, omdat dit kan leiden tot onvoorspelbare (en vaak onnavolgbare) code. 
+
+```r 
+# Maak de omgeving leeg
+rm(list = ls())
+
+# Definieer een functie die een variabele aanmaakt in de bovenliggende omgeving
+f <- function(){
+    x <<- 1    
+}
+
+# x bestaat niet totdat we de functie uitvoeren; deze regel zou een fout moeten geven
+print(x) 
+
+# Voer de functie f uit: 
+f()
+
+# x bestaat nu wel. 
+print(x)
+
+```
+
+
+### Mutabiliteit en locks (*)
+
+Een variabele die in R is gedefinieerd kan worden bewerkt vanuit de eigen _scope_, of vanuit een ondergelegen _scope_. 
 
 
 ``` r 
-# Voorbeeld mutabiliteit 
+# Veranderen waarde binnen de eigen scope
 x <- 5
 x <- x + 1
 print(x)
+```
 
+``` r
+# Veranderen waarde vanuit onderliggende scope (af te raden!)
+x <- 1
+
+f <- function(){
+    x <<- 2
+}
+
+f()
+```
+
+
+In tegenstelling tot veel andere programmeertalen (bijv. Java, C#, JavaScript) heeft R niet de mogelijkheid om een variabele direct en expliciet te definieren als onveranderdelijk (d.w.z., als een constante). R kent echter wel de mogelijkheid om een variabele te voorzien van een zogeheten `lock`. 
+
+|Functie|Omschrijving|Voorbeeld|
+| - | --- | ---- |
+| `lockBinding` | Vergrendel een variabele  | `x <- 1; lockBinding("x", .globalEnv)`
+| `unlockBinding` | Ontgrendel een variabele | `x <- 1; unLockBinding("x", .globalEnv)`
+| `bindingIsLocked` | Controleer of een variabele vergrendeld is  | `x <- 1; bindingIsLocked(x)`
+
+### Dynamische types (*)
+
+R behoort tot de zogeheten _dynamisch-getypeerde_ programmeertalen. Dit wil zeggen dat het datatype van variabelen in principe niet à priori vastligt en pas wordt bepaald zodra het betreffende deel van het programma wordt uitgevoerd; ook kan het type gedurende de uitvoer veranderen. Met de functie `typeof` kan het type van een variabele worden bepaald. 
+
+```r
 # Voorbeeld type-conversie
 y <- 1
 typeof(y)
@@ -22,35 +205,220 @@ typeof(y)
 
 ```
 
-### Copy-on-modify
+Deze dynamische omgang met types heeft voor- en nadelen. Aan de ene kant leidt een _dynamisch_ type-systeem tot code die kernachtig, leesbaaode, waarmee men snel en eenvoudig scripts kan maken. Aan de andere kant kan een dergelijk _los_ systeem leiden tot code waarvan pas bij uitvoer te zeggen is wat er precies gebeurt. 
 
-Zie verder onderstaande voorbeelden: 
+Stel dat we van een vector `c(40,46,70)` willen weten hoeveel elementen een waarde groter dan `40` hebben, dan kunnen we dat direct als volgt opschrijven.
+
 
 ```r
-5 -> x
-x -> y
-z <- x
+x <- c(40,46,70)
+print( sum(x > 40))
+```
 
-print(z)
+Achter de expressie `sum(x > 40)` gaat een complexe serie bewerkingen en conversies schuil:
+
+
+```{mermaid}
+flowchart TD
+    A["sum( x > 40 )"] --> |<small>Vervang x</small>|B["sum( c(40, 46, 70) <b>> 40</b> )"]
+    B --> |<small>Distribueer de vergelijking '> 40' elementsgewijs</small>|C["sum( c(40 <b>> 40</b>, 46 <b>> 40</b>, 70 <b>> 40</b>) )"]
+    C --> |<small>Evalueer de vergelijkingen</small>|D["sum( c(<b>FALSE</b>, <b>TRUE</b>, <b>TRUE</b>) )"]
+    D --> |<small>Converteer de logische waarden naar numerieke waarden</small>|E["sum( c(<b>0</b>, <b>1</b>, <b>1</b>) )"]
+    E --> |<small>Evalueer het resultaat</small>|F["2"] 
+        
+```   
+
+  
+
+### Copy-on-modify semantiek(*)
+
+Variabelen in R kunnen verwijzen naar andere variabelen. Anders gezegd: meerdere _namen_ kunnen in R verwijzen naar dezelfde _waarden_. De vraag is hoe R (intern) omgaat met een dergelijke situatie. Er zijn grofweg twee manieren waarop dit zou kunnen: 
+ 
+- __Copy-on-assignment__. Direct na het toewijzen van het label `y` aan het label `x` wordt een kopie van het object gemaakt. 
+
+- __Copy-on-modify__. Pas zodra `x` of `y` wordt bewerkt, wordt een kopie van het object in het geheugen gemaakt.  
+
+R gebruikt een _copy-on-modify_ strategie. Zie ter illustratie hoe in onderstaande voorbeeld beide variabelen `x` en `y` verwijzen naar dezelfde waarde `1`. Het gaat hier niet enkel om dezelfde waarde; de _namen_ x en y verwijzen naar hetzelfde geheugenadres. Dit kunnen we aantonen met behulp van de `tracemem`-functie.
+
+```r 
+x <- 1
+y <- x
+
+identical(tracemem(x), tracemem(y))
+```
+ 
+Zodra we één van de twee variabelen aanpassen, ontaat een nieuw object in het geheugen met een eigen geheugenadres. 
+ 
+
+```r
+library(data.table)
+
+x <- 1
+y <- x
+
+x <- 2
+
+identical(address(x), address(y))
+
+print(x) # x = 2
+print(y) # y = 1
 
 ```
 
+## Functies
+
+Een functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn essentieel voor het opzetten van nette, herbruikbare en onderhoudbare code: ze maken het immers mogelijk complexe problemen op te splitsen in kleinere deeltaken. Een functie defineert men via de term `function`; met de toewijzingsoperator `<-` kan de functie vervolgens worden toegewezen aan een naam. 
+
+Zie onderstaande voorbeeld:
+
+``` r
+# Definieer een functie en geef deze de naam 'f'. 
+f <- function(x){
+    return(x+1)
+}
+
+f(1) # Geeft 1 + 1 = 2
+
+f(f(1)) # Geeft 1 + (1 + 1) = 3
+
+```
+
+De expressie `f(1)` retourneert `2`. De expressie `f(f(1))` past de functie twee keer toe en retourneert derhalve `3`.
+
+ 
+### Functie-argumenten
+
+De _argumenten_ vormen de input van de functie. Een functie kan 0, 1 of meerdere argumenten hebben. Argumenten kunnen een standaardwaarde hebben (een zogeheten `default`), maar dit hoeft niet. Argumenten kunnen een _naam_ hebben, maar het is ook mogelijk om naamloze argumenten aan een functie mee te geven. De drie puntjes `...` geven aan dat de functie nog meer argumenten kan accepteren (met naam of zonder naam).
+
+```r
+
+# Definieer een functie die x en y bij elkaar optelt. 
+
+f <- function(x,y = 1, z = NULL, ...){
+    return(x+y)
+}
+
+f(1)
+
+```
+
+Met de functie `formals` kun je de _default_-argumenten van een functie opvragen. In combinatie met de toewijzingsoperator kun je deze zelfs aanpassen. 
+
+```
+formals(sd)
+
+formals(sd) <- alist(x = , na.rm = TRUE) # Werkt, maar gevaarlijk (!)
+```
+
+Over het algemeen raden we het overschrijven van default argumenten af: het wijzigen van bestaande functies kan leiden tot onvoorspelbaar gedrag in andere functies die afhankelijk zijn van de betreffende functies. Een veiligere strategie is om een _nieuwe_ functie te maken die de oude functie aanroept, maar dan met gewijzigde default argumenten. 
+
+```
+sd.valid <- sd
+formals(sd.valid) <- alist(x = , na.rm = TRUE)
+```
+
+Argumenten worden pas geëvalueerd zodra ze daadwerkelijk worden aangeroepen. 
+Zie onderstaande voorbeelden: 
+
+```r 
+f <- function(x, y, z = y + 1){
+    return(x + 1)
+}
+
+f(x = 1) 
+f(x = 1, y = 2)
+f(y = 2) # Deze geeft een foutmelding; de waarde x is namelijk nodig binnen de functie. 
+
+``` 
+
+
+Merk op dat het argument `y` in onderstaande functie niet is gespecificeerd. Dit is echter geen probleem, zolang in de functie `f` dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation). 
+
+
+
+Een veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden. Dit geschiedt met de functie `match.arg`. 
+
+```r 
+f <- function(x = c("a","b","c"){
+    x <- match.arg(x)
+    print(x)
+}
+
+f("a")
+f("fout") # Dit geeft een foutmelding
+
+```
+
+### Pure functies en _side-effects_
+
+Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten bijwerking of _side-effect_), of beide. Een functie zonder _side-effects_ is een zogeheten _pure_ functie. In Module 4 zullen deze _pure_-functies uitvoerig aan bod komen. 
+
+
+### Functies en _scope_
+
+Een functie heeft toegang tot alle variabelen die gedefiniëerd zijn binnen de _environment_ van waaruit de functie is aangemaakt (de zogeheten `enclosing`-environment).
+
+
+### Functies als argument
+
+In R is het mogelijk functies als argument mee te geven aan een andere functie.
+
+```r
+# Definieer een lijst van functies 'funcs' toepast over een vector x. 
+
+describe <- function(x, fs){
+    lapply(fs, function(f){
+        f(x)
+    })
+}
+
+x  <- c(1,2,3,4,5,6,7)
+fs <- list(m = mean, s = sd)
+
+describe(x, fs)
+```
+
+Bij het opzetten van Shiny dashboards zullen we handig gebruik maken van deze krachtige mogelijkheid van R. 
+ 
+
 ## Operatoren
 
-Een operator is een symbool dat de programmeertaal vertelt om een bepaalde wiskundige, relationele of logische operatie uit te voeren tussen waarden of variabelen. Operatoren kunne worden ingedeeld in _unaire_ operatoren (één input) en _binaire_ operatoren (twee inputs).
- 
- 
+Een operator is een bewerking (operatie) op één of twee input-elementen. Operatoren kunnen worden ingedeeld in _unaire_ operatoren (één input) en _binaire_ operatoren (twee inputs).
+
+De input van een _unaire_ operator staat aan de rechterhandszijde (RHZ) van de operator: 
+
+```r
+# Voorbeeld van een negatie-operator '!'
+x <- TRUE
+y <- !x  
+print(y)
+```
+
+De inputs van een _binaire_ operators staan aan de linkerhandszijde (LHZ) en rechterhandszijde (RHZ) van de operator: 
+
+
+```r
+x <- 1        #LHZ
+y <- 2        #RHZ
+z <- x + y 
+```
+
+
 ```{mermaid}
 flowchart TD
    X[Operators] --> |<small>Eén input</small>| U[Unair]
    X --> |<small>Twee inputs</small>|B[Binair]
-   U --> A["<-"]
-   U --> H["?"]
-   U --> N["!"]
-   U --> S["..."]
-   B --> AR["+, -, /, ^"]
-   B --> LO["&, &&, |, ||"]
+   U --> |<small>Help</small>|H["?, ??"]
+   U --> |<small>Negatie</small>|N["!"] 
+   B --> |<small>Toewijzing</small>|A["<-, <<-, ->, ->>, ="]
+   B --> |<small>Extractie</small>|EX["[, [["]
+   B --> |<small>Logisch</small>|LO["&, &&, |, ||"]
+   B --> |<small>Vergelijken</small>|COM["<, <=, >, >=, ==, !="]
+   B --> |<small>Rekenkundig</small>|AR["+, -, /, ^, ..."]
+   B --> |<small>Speciaal</small>|CUST["%any%, %in%"]
 ```
+
+Voorbeelden: 
 
 ```r
 x <- 1 # Toewijzen label 'x' aan waarde '1' in het geheugen 
@@ -62,44 +430,21 @@ d <- x * y # Vermenigvuldigen
 
 ```
 
-## Functies
 
-Een functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn fundamenteel voor het structureren van code: ze maken het mogelijk complexe problemen op te delen in kleinere taken. Een functie kan nul of meer parameters (ook bekend als argumenten) als input aannemen. Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten _side-effect_), of beide. 
+### Volgorde van bewerkingen
 
+Zie `?syntax` voor een uitgebreide bespreking van de volgorde van bewerkingen in R. 
 
-### Voorbeeld
-
-```r
-f <- function(x,y){
-    return(x+1)
-}
-
-f(1) 
+Probeer na te gaan in welke volgorde onderstaande bewerkingen worden uitgevoerd: 
 
 ```
-
-De expressie `f(1)` retourneert `2`. Merk op dat het argumen `y` niet is gespecificeerd. Dit is echter geen probleem, zolang de functie `f` dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation). 
-
-### Defaults
-Het is mogelijk om in R een standaardwaarde mee te geven aan een functie: 
-
-```r
-f <- function(x,y = 1){
-    return(x+y)
-}
-
-f(1)
-
+x <- 5 + 5 -> y
 ```
 
-Een veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden:
-```r 
-f <- function(x, y = c(1,2,3)){
-    y <- match.arg(y)
-    print(y)
-}
-```
-Bovenstaande zorgt ervoor dat het argument `y` altijd een waarde van `1`, `2`, of `3` heeft. 
+### Pipe-operatoren
+
+De zogeheten _pipe_-operator `%>%` uit het `magrittr`-package is een operator waarmee bewerkingen sequentieel uitgevoerd kunnen worden. 
+In `tidyverse`, `plotly` en `shiny` wordt deze operator veelvuldig gebruikt om complexe functie-aanroepen te vereenvoudigen. 
 
 ### Operatoren als functie
 

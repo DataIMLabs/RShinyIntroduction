@@ -1,6 +1,6 @@
 project:
   type: book  
-book:
+book: 
   title: "Introductie R en Shiny"
   author: "David Macro"
   date: "2024 03 03"
@@ -11,10 +11,14 @@ book:
       chapters:  
         - mod1_variables.qmd  
         - mod1_datatypes.qmd  
+        - mod1_subsetting.qmd  
         - mod1_flow.qmd
-    - part: mod2_datatableintro.qmd
+    - part: mod2_dhintro.qmd
       chapters: 
-        - mod2_datatableijby.qmd
+        - mod2_excel.qmd
+        - mod2_haven.qmd
+        - mod2_labelled.qmd
+        - mod2_datatable.qmd
     - part: mod3_plotlyintro.qmd 
       chapters:  
         - mod3_plotlybarchart.qmd  
