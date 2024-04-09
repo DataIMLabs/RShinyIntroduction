@@ -227,8 +227,11 @@ window.Quarto = {
   <li><a href="#vectorisatie" id="toc-vectorisatie" class="nav-link active" data-scroll-target="#vectorisatie"><span class="header-section-number">3.1</span> Vectorisatie</a></li>
   <li><a href="#atomische-vectoren" id="toc-atomische-vectoren" class="nav-link" data-scroll-target="#atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</a></li>
   <li><a href="#attributen" id="toc-attributen" class="nav-link" data-scroll-target="#attributen"><span class="header-section-number">3.3</span> Attributen</a></li>
-  <li><a href="#matrices-en-arrays" id="toc-matrices-en-arrays" class="nav-link" data-scroll-target="#matrices-en-arrays"><span class="header-section-number">3.4</span> Matrices en Arrays</a></li>
-  <li><a href="#lijsten" id="toc-lijsten" class="nav-link" data-scroll-target="#lijsten"><span class="header-section-number">3.5</span> Lijsten</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">3.4</span> Matrices</a></li>
+  <li><a href="#lijsten" id="toc-lijsten" class="nav-link" data-scroll-target="#lijsten"><span class="header-section-number">3.5</span> Lijsten</a>
+  <ul>
+  <li><a href="#lapply" id="toc-lapply" class="nav-link" data-scroll-target="#lapply"><span class="header-section-number">3.5.1</span> Lapply</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -509,11 +512,38 @@ window.Quarto = {
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Het printen van het object x zorgt ervoor dat ook de attribuut-waarden worden geprint: </span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Antwoord</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Zie de vector <code>x &lt;- c(1,2,3,4)</code>.</p>
+<ul>
+<li><p>Voeg het attribuut <code>dim</code> toe met de waarde <code>c(2,2)</code></p></li>
+<li><p>Probeer het attribuut <code>dim</code> in de waarde <code>c(1,3)</code> te veranderen. Lukt dit?</p></li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Zie de vector <code>x &lt;- c(1,2,3,4)</code>.</p>
+<ul>
+<li>Voeg het attribuut <code>dim</code> toe met de waarde <code>c(2,2)</code>
+<ul>
+<li><code>dim(x) &lt;- c(2,2)</code> of:</li>
+<li><code>attr(x, "dim") &lt;- c(2,2)</code></li>
+</ul></li>
+<li>Probeer het attribuut <code>dim</code> in de waarde <code>c(1,3)</code> te veranderen. Lukt dit?
+<ul>
+<li><code>dim(x) &lt;- c(1,3)</code> geeft een fout</li>
+<li><code>attr(x, "dim") &lt;- c(1,3)</code> geeft ook een fout.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-<section id="matrices-en-arrays" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="matrices-en-arrays"><span class="header-section-number">3.4</span> Matrices en Arrays</h2>
+<section id="matrices" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="matrices"><span class="header-section-number">3.4</span> Matrices</h2>
 <p>Een matrix is een tweedimensionele datastructuur die gebruikt kan worden om wiskundige berekeningen te vereenvoudigen. Een array is een meerdimensionale generalisatie van een matrix. Matrices en arrays zijn in R niks anders dan atomische vectoren waaraan een zogeheten <em>dimensie</em>-attribuut (<code>dim</code>) is toegevoegd.</p>
-<p>Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut <code>dim</code>, door de <code>matrix</code>-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie <code>diag()</code> die een identiteitsmatrix oplevert.</p>
+<p>Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut <code>dim</code>, door de <code>matrix</code>-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie <code>diag()</code>).</p>
 <p>Zie onderstaande voorbeeld:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maak een matrix x aan door het dim-attribuut in te stellen: </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
@@ -525,10 +555,10 @@ window.Quarto = {
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verifieer dat beide matrices gelijk aan elkaar zijn: </span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Antwoord</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Antwoord</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Probeer de volgende matrices te construeren:</p>
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>Construeer de volgende matrices:</p>
 <ul>
 <li>Een <code>2 x 3</code>-matrix met de getallen 1 tot en met 6, opgeslagen als <code>integer</code> data type.</li>
 </ul>
@@ -549,8 +579,8 @@ window.Quarto = {
 \end{bmatrix}
 \]</span></p>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>Probeer de volgende matrices te construeren:</p>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Construeer de volgende matrices:</p>
 <ul>
 <li>Een <code>2 x 3</code>-matrix met de getallen 1 tot en met 6, gerepresenteerd als <code>integer</code> data type.</li>
 </ul>
@@ -581,9 +611,9 @@ window.Quarto = {
 <li><p>De functie <code>t(x)</code> geeft de matrixtranspositie van <code>x</code>.</p></li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Antwoord</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Antwoord</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>Bereken het matrixproduct <span class="math inline">\(A * B\)</span> van de volgende matrices:</p>
 <p><span class="math display">\[
 A = \begin{bmatrix}
@@ -597,7 +627,7 @@ B = \begin{bmatrix}
 \end{bmatrix}
 \]</span></p>
 </div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>Bereken het matrix-product <span class="math inline">\(A * B\)</span> van de volgende matrices:</p>
 <p><span class="math display">\[
 A = \begin{bmatrix}
@@ -625,10 +655,18 @@ B = \begin{bmatrix}
 <section id="lijsten" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="lijsten"><span class="header-section-number">3.5</span> Lijsten</h2>
 <p>Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de <code>list()</code> functie uit R, de functie <code>list2()</code> uit het <code>rlang</code>-package, door het combineren van lijsten via de functie <code>c()</code>, of als uitkomst van een functie die een lijst retourneert (bijv. <code>lapply</code>) of <code>as.list()</code>. De functie <code>names()</code> retourneert de namen van een lijst; deze functie kan gebruikt worden in combinatie met de toewijzingsoperator <code>&lt;-</code>.</p>
+<section id="lapply" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="lapply"><span class="header-section-number">3.5.1</span> Lapply</h3>
+<p>Een belangrijke manier om lijsten aan te maken is met het zogeheten <code>lapply(x, FUN)</code> commando. Dit commando voert de functie <code>FUN</code> uit voor elke element uit een lijst (of atomische vector) <code>x</code>.</p>
+<ul>
+<li>Het resultaat van <code>lapply</code> is een lijst met het zelfde aantal elementen als het aantal elementen in <code>x</code>.</li>
+<li>Als <code>x</code> namen heeft, dan worden deze behouden in de nieuwe lijst.</li>
+<li>Het resultaat van een <code>lapply</code>-bewerking kan als <em>input</em> dienen voor een volgende bewerking.</li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Antwoord</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Antwoord</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <p>Zie onderstaande lijst <code>x</code> met toetsresultaten.</p>
 <ul>
 <li>Maak een nieuwe lijst <code>y</code> met het gemiddelde resultaat voor elk van de personen in <code>x</code>.<br>
@@ -641,7 +679,7 @@ B = \begin{bmatrix}
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Gijs =</span> <span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <p>Zie onderstaande lijst <code>x</code> met toetsresultaten.</p>
 <ul>
 <li>Maak een nieuwe lijst <code>y</code> met het gemiddelde resultaat voor elk van de personen in <code>x</code>.<br>
@@ -662,8 +700,99 @@ B = \begin{bmatrix}
 </div>
 </div>
 </div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Antwoord</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-3" role="tab" aria-controls="tabset-7-3" aria-selected="false">Extra</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Maak een lijst <code>M</code> met de eerste 10 vierkante matrices, op de hiernavolgende wijze:</p>
+<p><span class="math display">\[
+M_1 = \begin{bmatrix}
+1  
+\end{bmatrix},
+M_2 = \begin{bmatrix}
+1 &amp; 2  \\
+3 &amp; 4
+\end{bmatrix},
+M_3 = \begin{bmatrix}
+1 &amp; 2 &amp; 3  \\
+4 &amp; 5 &amp; 6  \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}, ...,
+M_{10} = \begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; ... &amp; 10  \\
+4 &amp; 5 &amp; 6 &amp; ... &amp; 20 \\
+7 &amp; 8 &amp; 9 &amp; ... &amp; 30\\
+... &amp; ... &amp; ... &amp; ... &amp; ... \\
+91 &amp; 92 &amp; 93  &amp; ... &amp; 100
+\end{bmatrix}
+\]</span></p>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p>Maak een lijst <code>M</code> met de eerste 10 vierkante matrices, op de hiernavolgende wijze:</p>
+<p><span class="math display">\[
+M_1 = \begin{bmatrix}
+1  
+\end{bmatrix},
+M_2 = \begin{bmatrix}
+1 &amp; 2  \\
+3 &amp; 4
+\end{bmatrix},
+M_3 = \begin{bmatrix}
+1 &amp; 2 &amp; 3  \\
+4 &amp; 5 &amp; 6  \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}, ...,
+M_{10} = \begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; ... &amp; 10  \\
+4 &amp; 5 &amp; 6 &amp; ... &amp; 20 \\
+7 &amp; 8 &amp; 9 &amp; ... &amp; 30\\
+... &amp; ... &amp; ... &amp; ... &amp; ... \\
+91 &amp; 92 &amp; 93  &amp; ... &amp; 100
+\end{bmatrix}
+\]</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="cf">function</span>(x){</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(x<span class="sc">^</span><span class="dv">2</span>)), <span class="at">ncol =</span> x, <span class="at">byrow =</span> T)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-7-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-3-tab">
+<p>Zie wederom de lijst <code>M</code> met de eerste 10 vierkante matrices:</p>
+<p><span class="math display">\[
+M_1 = \begin{bmatrix}
+1  
+\end{bmatrix},
+M_2 = \begin{bmatrix}
+1 &amp; 2  \\
+3 &amp; 4
+\end{bmatrix},
+M_3 = \begin{bmatrix}
+1 &amp; 2 &amp; 3  \\
+4 &amp; 5 &amp; 6  \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}, ...,
+M_{10} = \begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; ... &amp; 10  \\
+4 &amp; 5 &amp; 6 &amp; ... &amp; 20 \\
+7 &amp; 8 &amp; 9 &amp; ... &amp; 30\\
+... &amp; ... &amp; ... &amp; ... &amp; ... \\
+91 &amp; 92 &amp; 93  &amp; ... &amp; 100
+\end{bmatrix}
+\]</span></p>
+<p>We willen een vector <span class="math inline">\(V\)</span> waarbij elk element de <em>som</em> bevat van de diagonalen van de oorspronkelijke matrices. Dus: <span class="math inline">\(V_1 = 1\)</span>, <span class="math inline">\(V_2 = 1 + 4\)</span>, <span class="math inline">\(V_3 = 1 + 5 + 9\)</span>, etc.</p>
+<p>Met behulp van de pipe-operator <code>%&gt;%</code> uit het <code>magrittr</code>-package kunnen we dit eenvoudig berekenen door de corresponderende functies achtereenvolgens toe te passen.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">lapply</span>(<span class="cf">function</span>(x){ <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(x<span class="sc">^</span><span class="dv">2</span>)), <span class="at">ncol =</span> x, <span class="at">byrow =</span> T)}) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">lapply</span>(diag) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">lapply</span>(sum) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        simplify2array</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

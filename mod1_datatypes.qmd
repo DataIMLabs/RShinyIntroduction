@@ -175,8 +175,6 @@ Attributen kunnen worden benaderd met de `attr()` functie om een attribuut direc
 Attributen moeten zorgvuldig worden beheerd, aangezien het wijzigen ervan de manier kan veranderen waarop een object wordt behandeld door functies en kan leiden tot onbedoelde resultaten als ze niet correct worden behandeld.
 
 
- 
-
 ```r
 x <- c(1,2,3)
 
@@ -188,12 +186,35 @@ print(x)
 
 ```
 
+::: {.panel-tabset}
 
-## Matrices en Arrays
+### Quiz
+Zie de vector `x <- c(1,2,3,4)`.
+
+- Voeg het attribuut `dim` toe met de waarde `c(2,2)`
+
+- Probeer het attribuut `dim` in de waarde `c(1,3)` te veranderen. Lukt dit? 
+
+
+
+### Antwoord
+Zie de vector `x <- c(1,2,3,4)`.
+
+- Voeg het attribuut `dim` toe met de waarde `c(2,2)`
+    - `dim(x) <- c(2,2)` of:
+    - `attr(x, "dim") <- c(2,2)` 
+- Probeer het attribuut `dim` in de waarde `c(1,3)` te veranderen. Lukt dit? 
+     - `dim(x) <- c(1,3)` geeft een fout
+     - `attr(x, "dim") <- c(1,3)` geeft ook een fout. 
+:::
+
+
+
+## Matrices 
 
 Een matrix is een tweedimensionele datastructuur die gebruikt kan worden om wiskundige berekeningen te vereenvoudigen. Een array is een meerdimensionale generalisatie van een matrix. Matrices en arrays zijn in R niks anders dan atomische vectoren waaraan een zogeheten _dimensie_-attribuut (`dim`) is toegevoegd. 
 
-Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut `dim`, door de `matrix`-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie `diag()` die een identiteitsmatrix oplevert. 
+Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut `dim`, door de `matrix`-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie `diag()`).
 
 Zie onderstaande voorbeeld: 
 
@@ -212,7 +233,7 @@ identical(x,y)
 ::: {.panel-tabset}
 
 ### Quiz
-Probeer de volgende matrices te construeren: 
+Construeer de volgende matrices: 
 
 - Een `2 x 3`-matrix met de getallen 1 tot en met 6, opgeslagen als `integer` data type. 
 
@@ -235,7 +256,7 @@ $$
 
 
 ### Antwoord
-Probeer de volgende matrices te construeren: 
+Construeer de volgende matrices: 
 
 - Een `2 x 3`-matrix met de getallen 1 tot en met 6, gerepresenteerd als `integer` data type. 
  
@@ -326,6 +347,14 @@ A %*% B
 
 Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de `list()` functie uit R, de functie `list2()` uit het `rlang`-package, door het combineren van lijsten via de functie `c()`, of als uitkomst van een functie die een lijst retourneert (bijv. `lapply`) of `as.list()`. De functie `names()` retourneert de namen van een lijst; deze functie kan gebruikt worden in combinatie met de toewijzingsoperator `<-`. 
  
+
+### Lapply
+Een belangrijke manier om lijsten aan te maken is met het zogeheten `lapply(x, FUN)` commando. Dit commando voert de functie `FUN` uit voor elke element uit een lijst (of atomische vector) `x`. 
+
+- Het resultaat van `lapply` is een lijst met het zelfde aantal elementen als het aantal elementen in `x`. 
+- Als `x` namen heeft, dan worden deze behouden in de nieuwe lijst. 
+- Het resultaat van een `lapply`-bewerking kan als _input_ dienen voor een volgende bewerking. 
+
 ::: {.panel-tabset}
 
 ### Quiz
@@ -366,4 +395,106 @@ names(y) <- tolower(names(y))
 
 :::
 
+
+::: {.panel-tabset}
+
+### Quiz
+
+Maak een lijst `M` met de eerste 10 vierkante matrices, op de hiernavolgende wijze: 
+
+$$
+M_1 = \begin{bmatrix} 
+1  
+\end{bmatrix}, 
+ M_2 = \begin{bmatrix} 
+1 & 2  \\
+3 & 4
+\end{bmatrix},
+M_3 = \begin{bmatrix} 
+1 & 2 & 3  \\
+4 & 5 & 6  \\
+7 & 8 & 9 
+\end{bmatrix}, ..., 
+M_{10} = \begin{bmatrix} 
+1 & 2 & 3 & ... & 10  \\
+4 & 5 & 6 & ... & 20 \\
+7 & 8 & 9 & ... & 30\\
+... & ... & ... & ... & ... \\
+91 & 92 & 93  & ... & 100
+\end{bmatrix}
+$$ 
+
+
+### Antwoord
+Maak een lijst `M` met de eerste 10 vierkante matrices, op de hiernavolgende wijze: 
+
+$$
+M_1 = \begin{bmatrix} 
+1  
+\end{bmatrix}, 
+ M_2 = \begin{bmatrix} 
+1 & 2  \\
+3 & 4
+\end{bmatrix},
+M_3 = \begin{bmatrix} 
+1 & 2 & 3  \\
+4 & 5 & 6  \\
+7 & 8 & 9 
+\end{bmatrix}, ..., 
+M_{10} = \begin{bmatrix} 
+1 & 2 & 3 & ... & 10  \\
+4 & 5 & 6 & ... & 20 \\
+7 & 8 & 9 & ... & 30\\
+... & ... & ... & ... & ... \\
+91 & 92 & 93  & ... & 100
+\end{bmatrix}
+$$ 
+```r 
+M <- lapply(c(1:10), function(x){
+    matrix(c(1:(x^2)), ncol = x, byrow = T)
+})
+```
+
+### Extra
+
+Zie wederom de lijst `M` met de eerste 10 vierkante matrices: 
+
+$$
+M_1 = \begin{bmatrix} 
+1  
+\end{bmatrix}, 
+ M_2 = \begin{bmatrix} 
+1 & 2  \\
+3 & 4
+\end{bmatrix},
+M_3 = \begin{bmatrix} 
+1 & 2 & 3  \\
+4 & 5 & 6  \\
+7 & 8 & 9 
+\end{bmatrix}, ..., 
+M_{10} = \begin{bmatrix} 
+1 & 2 & 3 & ... & 10  \\
+4 & 5 & 6 & ... & 20 \\
+7 & 8 & 9 & ... & 30\\
+... & ... & ... & ... & ... \\
+91 & 92 & 93  & ... & 100
+\end{bmatrix}
+$$ 
+
+We willen een vector $V$ waarbij elk element de _som_ bevat van de diagonalen van de oorspronkelijke matrices. Dus: $V_1 = 1$, $V_2 = 1 + 4$, $V_3 = 1 + 5 + 9$, etc. 
+
+Met behulp van de pipe-operator `%>%` uit het `magrittr`-package kunnen we dit eenvoudig berekenen door de corresponderende functies achtereenvolgens toe te passen. 
+
+```r
+library(magrittr)
+
+V <- c(1:10) %>% 
+        lapply(function(x){ matrix(c(1:(x^2)), ncol = x, byrow = T)}) %>% 
+        lapply(diag) %>% 
+        lapply(sum) %>% 
+        simplify2array
+ 
+```
+
+:::
 
