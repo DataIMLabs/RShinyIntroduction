@@ -305,10 +305,23 @@ f(1)
 ::: {.panel-tabset}
 
 ### Quiz
+Maak een functie `f` die drie vectoren `x`, `y` en `z` elementsgewijs bij elkaar optelt en vervolgens het product van de elementen geeft: 
 
+$$f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]
+
+$$
 
 ### Antwoord
+Maak een functie `f` die drie vectoren `x`, `y` en `z` elementsgewijs bij elkaar optelt en vervolgens het product van de elementen geeft: 
 
+$$f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]
+
+$$
+```r
+f <- function(x, y, z){
+    prod(x + y + z)
+}
+```
 :::
 
 
@@ -360,19 +373,11 @@ f("fout") # Dit geeft een foutmelding
 
 ```
 
-### Pure functies en _side-effects_
-
-Een functie kan een resultaat teruggeven, een handeling uitvoeren (een zogeheten bijwerking of _side-effect_), of beide. Een functie zonder _side-effects_ is een zogeheten _pure_ functie. In Module 4 zullen deze _pure_-functies uitvoerig aan bod komen. 
-
-
-### Functies en _scope_
-
-Een functie heeft toegang tot alle variabelen die gedefiniëerd zijn binnen de _environment_ van waaruit de functie is aangemaakt (de zogeheten `enclosing`-environment).
-
-
 ### Functies als argument
 
 In R is het mogelijk functies als argument mee te geven aan een andere functie.
+
+Zie onderstaande voorbeeld:
 
 ```r
 # Definieer een lijst van functies 'funcs' toepast over een vector x. 
