@@ -1,10 +1,10 @@
 # Variablen, operatoren en functies. 
 
-Dit hoofdstuk bespreekt drie elementaire bouwstenen van R, te weten variabelen, operatoren en functies.
+Dit hoofdstuk bespreekt drie elementaire bouwstenen van R, namelijk _variabelen_, _operatoren_ en _functies_.
 
 ## Variabelen 
 
-Een variabele is een verwijzing naar een waarde in het geheugden van de computer. Een variabele in _R_ bestaat uit twee onderdelen, namelijk de _naam_ van de variabele en de _waarde_ van de variabele. De (binaire) operatoren **`<-`**, **`<<-`**, **`->`** en **`->>`** creëren variabelen door een _naam_ toe te kennen aan een _waarde_. 
+Een variabele is een verwijzing naar een waarde in het geheugden van de computer. Een variabele in R bestaat uit twee onderdelen, namelijk de _naam_ van de variabele en de _waarde_ van de variabele. De (binaire) operatoren **`<-`**, **`<<-`**, **`->`** en **`->>`** creëren variabelen door een _naam_ toe te kennen aan een _waarde_. 
 
 _Voorbeelden:_
 
@@ -18,18 +18,20 @@ x4 <- function(x){
 
 ```
 
-Het `ls()`-commando geeft weer welke variabelen gedefiniëerd zijn in de huidige werkomgeving. 
+Variabelen worden altijd gedefiniëerd in een bepaalde _context_ (environment). Het `ls()`-commando geeft weer welke variabelen gedefiniëerd zijn in de huidige werkomgeving. 
 
+In de hiernavolgende paragrafen gaan we nader in op enkele meer geavanceerde onderwerpen die betrekking hebben op het werken met variabelen in R, te weten:
 
+- de context waarin variabelen bestaan (scopes en environments) 
+- mutabiliteit en locks (\*)
+- dynamische types (\*) 
+- copy-on-modify semantiek (\*). 
 
-
-In de hiernavolgende paragrafen gaan we nader in op enkele meer geavanceerde onderwerpen die betrekking hebben op het werken met variabelen in R, te weten scopes en environments, mutabiliteit (\*), dynamische types (\*) en copy-on-modify semantiek (\*). Dit zijn geen eenvoudige onderwerpen, maar voor een goed begrip van de werking van complexe R Scripts en Shiny-dashboards is het van belang op enige wijze bekend te geraken met hetgeen hier is besproken. We raden de lezer aan de onderdelen met een asterisk op een later moment nog eens te bezien. 
+Dit zijn geen eenvoudige onderwerpen, maar voor een goed begrip van complexe R Scripts en Shiny-dashboards zijn deze onderwerpen essentiëel. We raden aan de onderdelen met een asterisk op een later moment nog eens te bezien. 
 
 ### Scopes en environments
 
-De scope van een variabele geeft aan in welke context de variabele betekenis heeft. In R heet een dergelijke context ook wel een `environment`. Dit hoofdstuk beperkt zich tot de meest gangbare betekenis van het begrip environment, namelijk als de omgeving waarin een variabelen is gedefinieerd. Later zullen we zien dat een environment niet enkel een abstract concept is, maar (ook) een datatype waar binnen het R-ecosysteem handig gebruik van gemaakt wordt. 
-
-We beseffen dat deze paragraaf een tamelijk technisch karakter heeft. Kennis van environments is echter essentieel voor een goed begrip van de werking van zogeheten `R6`-reference klasses en Shiny reactives. 
+De scope van een variabele geeft aan in welke context de variabele bestaat. In R heet een dergelijke context ook wel een `environment`. Dit hoofdstuk beperkt zich tot deze betekenis van het begrip environment; later zullen we zien dat een environment niet enkel een abstract concept is, maar (ook) een datatype waar we handig gebruik van kunnen maken. Twee voorbeelden hiervan zijn zogeheten `R6`-reference klasses en Shiny reactives. 
 
 Hieronder vatten we de hoofdpunten samen: 
 
@@ -184,7 +186,7 @@ f()
 ```
 
 
-In tegenstelling tot veel andere programmeertalen (bijv. Java, C#, JavaScript) heeft R niet de mogelijkheid om een variabele direct en expliciet te definieren als onveranderdelijk (d.w.z., als een constante). R kent echter wel de mogelijkheid om een variabele te voorzien van een zogeheten `lock`. 
+In tegenstelling tot veel andere programmeertalen (bijv. Java, C#, JavaScript) heeft R niet de mogelijkheid om een variabele direct te definieren als onveranderdelijk (d.w.z., als een constante). R kent echter wel de mogelijkheid om een variabele te voorzien van een zogeheten `lock`. Wanneer je een dergelijke vergrendelde variabelen probeert te wijzigen, geeft R een foutmelding. 
 
 |Functie|Omschrijving|Voorbeeld|
 | - | --- | ---- |
@@ -205,17 +207,18 @@ typeof(y)
 
 ```
 
-Deze dynamische omgang met types heeft voor- en nadelen. Aan de ene kant leidt een _dynamisch_ type-systeem tot code die kernachtig, leesbaaode, waarmee men snel en eenvoudig scripts kan maken. Aan de andere kant kan een dergelijk _los_ systeem leiden tot code waarvan pas bij uitvoer te zeggen is wat er precies gebeurt. 
+R's dynamische omgang met types heeft voor- en nadelen. Aan de ene kant leidt een _dynamisch_ type-systeem tot code die kernachtig, leesbaaode, waarmee men snel en eenvoudig scripts kan maken. Aan de andere kant kan een dergelijk _los_ systeem leiden tot code waarvan pas bij uitvoer te zeggen is wat er precies gebeurt. 
 
-Stel dat we van een vector `c(40,46,70)` willen weten hoeveel elementen een waarde groter dan `40` hebben, dan kunnen we dat direct als volgt opschrijven.
-
+Aan de hand van een simpel voorbeeld zullen we laten zien hoe we _dynamische_ typen in ons voordeel kunnen gebruiken bij het analyseren van data. Stel dat we een vector hebben met leeftijden van personen, bijvoorbeeld `x <- c(40,46,70)`. We willen weten hoeveel personen een leeftijd groter dan `40` hebben. We kunnen dit in R als volgt uitrekenen: 
 
 ```r
 x <- c(40,46,70)
 print( sum(x > 40))
 ```
 
-Achter de expressie `sum(x > 40)` gaat een complexe serie bewerkingen en conversies schuil:
+Achter de expressie `sum(x > 40)` gaat een complexe serie bewerkingen en een onopvallende maar zeer nuttige type-conversis schuil. 
+
+In he volgende hoofdstuk zullen we nader ingaan op de verschillende data typen in R. 
 
 
 ```{mermaid}
@@ -227,8 +230,6 @@ flowchart TD
     E --> |<small>Evalueer het resultaat</small>|F["2"] 
         
 ```   
-
-  
 
 ### Copy-on-modify semantiek(*)
 
@@ -291,10 +292,7 @@ De expressie `f(1)` retourneert `2`. De expressie `f(f(1))` past de functie twee
 De _argumenten_ vormen de input van de functie. Een functie kan 0, 1 of meerdere argumenten hebben. Argumenten kunnen een standaardwaarde hebben (een zogeheten `default`), maar dit hoeft niet. Argumenten kunnen een _naam_ hebben, maar het is ook mogelijk om naamloze argumenten aan een functie mee te geven. De drie puntjes `...` geven aan dat de functie nog meer argumenten kan accepteren (met naam of zonder naam).
 
 ```r
-
-# Definieer een functie die x en y bij elkaar optelt. 
-
-f <- function(x,y = 1, z = NULL, ...){
+f <- function(x, y = 1, z = NULL, ...){
     return(x+y)
 }
 
@@ -302,22 +300,32 @@ f(1)
 
 ```
 
-Met de functie `formals` kun je de _default_-argumenten van een functie opvragen. In combinatie met de toewijzingsoperator kun je deze zelfs aanpassen. 
 
-```
-formals(sd)
 
+::: {.panel-tabset}
+
+### Quiz
+
+
+### Antwoord
+
+:::
+
+
+Met de functie `formals()` kun je de _default_-argumenten van een functie opvragen. In combinatie met de toewijzingsoperator zou je deze zelfs kunnen aanpassen:
+
+```r
 formals(sd) <- alist(x = , na.rm = TRUE) # Werkt, maar gevaarlijk (!)
 ```
 
-Over het algemeen raden we het overschrijven van default argumenten af: het wijzigen van bestaande functies kan leiden tot onvoorspelbaar gedrag in andere functies die afhankelijk zijn van de betreffende functies. Een veiligere strategie is om een _nieuwe_ functie te maken die de oude functie aanroept, maar dan met gewijzigde default argumenten. 
+Over het algemeen raden we bovenstaande werkwijze af, want het wijzigen van de werking van bestaande functies kan leiden tot onvoorspelbaar gedrag, bijvoorbeeld in andere functies die van de door ons gewijzigde functie afhankelijk zijn. Veiliger is het om een _nieuwe_ functie te maken die de oude functie aanroept, maar dan met gewijzigde default argumenten. 
 
-```
+```r
 sd.valid <- sd
 formals(sd.valid) <- alist(x = , na.rm = TRUE)
 ```
 
-Argumenten worden pas geëvalueerd zodra ze daadwerkelijk worden aangeroepen. 
+Argumenten van functies kunnen berekeningen bevatten, eventueel met verwijzingen naar andere functie-argumenten. 
 Zie onderstaande voorbeelden: 
 
 ```r 
@@ -331,8 +339,9 @@ f(y = 2) # Deze geeft een foutmelding; de waarde x is namelijk nodig binnen de f
 
 ``` 
 
+### Lazy evaluation
 
-Merk op dat het argument `y` in onderstaande functie niet is gespecificeerd. Dit is echter geen probleem, zolang in de functie `f` dit argument niet daaderkelijk gebruikt. In R geldt dat functie-argumenten pas worden uitgevoerd (=geëvalueerd) zodra ze daadwerkelijk gebruikt worden (lazy-evaluation). 
+Wellicht vraag je je af hoe je bij het definieren van het argument `z` kunt verwijzen naar de waarde `y`, terwijl deze waarde nog niet bekend is. Bedenk dat in R geldt dat functieargumenten pas worden geëvalueerd zodra ze binnen de _context_ van de functie worden gebruikt. (lazy-evaluation). 
 
 
 

@@ -1,6 +1,8 @@
 # Module 1 - Basis R 
 
-In deze module verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het maken van dashboards in Shiny. We behandelen achtereenvolgens: 
+In deze module verkennen we de basisconcepten van R die essentieel zijn voor data-analyse, data-manipulatie en het maken van dashboards in Shiny. 
+
+We behandelen achtereenvolgens de volgende thema's:  
 
 - het werken met variabelen, operatoren en functies
 - de verschillende datatypes in R

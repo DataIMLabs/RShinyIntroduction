@@ -262,30 +262,108 @@ Probeer de volgende matrices te construeren:
 
 R kan wiskundige berekeningen uitvoeren op matrices mits de matrices conformeren naar voor de betreffende berekening geldige dimensies. 
 
-Probeer na te  
+Enkele voorbeelden: 
+
+- De rekenkundige operatoren `+`, `-`, `*` en `/` werken op elk van de elementen van twee matrices, mits deze conformeren. 
+
+- De operator `%*%` geeft het matrixproduct tussen twee matrices. 
+
+- De functie `diag(x)` geeft de diagonaal van de (vierkante) matrix `x`. 
+
+- De functie `solve(x)` geeft de inverse van de matrix `x`. 
+
+- De functie `t(x)` geeft de matrixtranspositie van `x`. 
+
+::: {.panel-tabset}
+
+### Quiz
+
+Bereken het matrixproduct van de volgende matrices: 
+
+$$
+A = \begin{bmatrix} 
+1  & 3 & 5 \\ 
+2  & 4 & 6 
+\end{bmatrix}, 
+ B = \begin{bmatrix} 
+1 & 2  \\
+3 & 4   \\
+5 & 6
+\end{bmatrix}
+$$ 
+
+### Antwoord
+
+Bereken het matrix-product $A * B$ van de volgende matrices: 
+
+$$
+A = \begin{bmatrix} 
+1  & 3 & 5 \\ 
+2  & 4 & 6 
+\end{bmatrix}, 
+ B = \begin{bmatrix} 
+1 & 2  \\
+3 & 4   \\
+5 & 6
+\end{bmatrix}
+$$ 
+```r
+# We definieren de matrix A als volgt:
+A <- matrix(c(1,2,3,4,5,6), nrow = 2)
+
+# Merk op dat B de transpositie van A is: 
+B <- t(A) 
+
+# Het beoogde resultaat: 
+A %*% B
+
+```
+
+:::
 
 
 ## Lijsten
 
-Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de `list()` functie uit R, de functie `list2()` uit het `rlang`-package, door het combineren van lijsten via de functie `c()`, of als uitkomst van een functie die een lijst retourneert (bijv. `lapply`) of `as.list()`.  
+Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de `list()` functie uit R, de functie `list2()` uit het `rlang`-package, door het combineren van lijsten via de functie `c()`, of als uitkomst van een functie die een lijst retourneert (bijv. `lapply`) of `as.list()`. De functie `names()` retourneert de namen van een lijst; deze functie kan gebruikt worden in combinatie met de toewijzingsoperator `<-`. 
+ 
+::: {.panel-tabset}
+
+### Quiz
+Zie onderstaande lijst `x` met toetsresultaten. 
+
+- Maak een nieuwe lijst `y` met het gemiddelde resultaat voor elk van de personen in `x`.  
+- Verander de namen van de lijst in kleine letters (gebruik hiervoor de functie `tolower()`). 
 
 ```r
+x <- list(
+    Jan = c(10, 4, 2), 
+    Piet = c(5),
+    Gijs = c(8,9,10)
+)
 
-```
-
-
-## Data.frames 
-
-Een `data.frame` is een `lijst` van vectoren met dezelfde lengte. Hoewel `data.frame` een veelgebruikt data type is in R, kiezen wij ervoor dit slechts beknopt te bespreken. In plaats daarvan 
+``` 
  
 
-## Omgevingen
+### Antwoord
+Zie onderstaande lijst `x` met toetsresultaten. 
 
+- Maak een nieuwe lijst `y` met het gemiddelde resultaat voor elk van de personen in `x`.  
+- Verander de namen van de lijst in kleine letters (gebruik hiervoor de functie `tolower()`). 
 
+```r
+x <- list(
+    Jan = c(10, 4, 2), 
+    Piet = c(5),
+    Gijs = c(8,9,10)
+)
 
-## Objecten
+# Gebruik de lapply functie in combinatie met de 'mean' functie. 
+y <- lapply(x, mean)
 
+# Gebruik de functie 'names' in combinatie met de toewijzingsoperator <- om de namen te wijzigen: 
+names(y) <- tolower(names(y))
+``` 
 
-
+:::
 
 

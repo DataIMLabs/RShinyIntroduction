@@ -1,54 +1,139 @@
 # Sets en subsets
 
-Subsetting is een manier om delen van datastructuren zoals vectoren, lijsten, en data frames te _selecteren_ en elementen te _bewerken_. R kent twee subset-operatoren, te weten `[` en `[[`. Voor verruit de meeste R datastructuren geldt dat de toewijzingsoperator (`<-` en `->`) in combinatie met de subset operator kan worden gebruikt om een deel van een object te bewerken. 
+Subsetting is een manier om elementen van een grotere datastructuur te selecteren. R kent twee subset-operatoren, te weten `[` en `[[`. Voor veel datatypen geldt dat de toewijzingsoperator (`<-` en `->`) in combinatie met de subset-operator kan worden gebruikt. Dit maakt het mogelijk om een deel van een object te bewerken. 
 
-
-|Operator|Voorbeeld|Omschrijving|Resultaat|  
+|Operator|Voorbeeld|Uitleg|Resultaat|  
 | - | --- | ----- | ----- |
 | `[` | `x[c(1:n)]` |Selecteer _n_ elementen vanuit de collectie x|Een object van hetzelfde type als x.|
 | `[[`| `x[[1]]` | Selecteer het eerste element vanuit de collectie x|Een object van het type op de positie `...`|
 | `[<-`| `x[c(1,2)] <- c(8,7)` | Vervang het eerste en tweede element van de vector `x` door de waardes `8` en `9`. | Een gewijzigde vector `x`.  
 | `[[<-`| `x[[1]] <- 99` | Vervang het eerste element van de vector `x` met de waardes `8` en `9`. | Een gewijzigde vector `x`.  
 
+Hieronder worden enkele nuttige functies samengevat voor het werken met sets en subsets:
+
+|Functie|Omschrijving|Voorbeeld|Uitleg|
+| - | --- | ----- | ----- |
+|`which()`|Welk element voldoet aan een voorwaarde?|`which(x == 1)`|Geeft de index van element(en) in x die gelijk zijn aan 1?|
+|`names()`|Retourneer de namen van een vector of lijst|`names(list(x = 1,y = 4))`|Geeft "x" en "y" terug.|
+
+
+::: {.panel-tabset}
+
+### Quiz
+Stel we hebben een vector `x` met scores van verschillende proefpersonen, namelijk: 
+```r
+x <- c(Jan = 1, Piet = 10, Tineke = 5) 
+```
+
+Maak een vector `y` met enkel de scores van Jan en Piet. 
+
+
+Maak een vector `z` met enkel de scores van degenen met een waarde groter dan `1`.
+
+
+### Antwoord
+Stel we hebben een vector `x` met scores van verschillende proefpersonen, namelijk: 
+```r
+x <- c(Jan = 1, Piet = 10, Tineke = 5)
+```
+
+Maak een vector `y` met enkel de scores van Jan en Piet. 
+```r
+y <- x[c("Jan", "Piet")]
+``` 
+
+Maak een vector `z` met enkel de scores van degenen met een waarde groter dan `1`.
+```r
+z <- x[which(x > 1)]
+```
+:::
+ 
 
 ## Subsetten van atomische vectoren 
 
 Het subsetten van een atomische vector levert een nieuwe atomische vector op van hetzelfde type als de originele vector. Subsetten kan worden gebruikt om een selectie van elementen te maken en deze aan een nieuwe vector toe te wijzen (selecteren), of om elementen van een bestaande datastructuur te wijzigen. 
 
 
-Er zijn verschillende manieren om elementen te selecteren uit een atomische vector. Ga in de onderstaande voorbeelden uit van de vector `x <- c(10, 20, 30, 40, 50)`.
+Er zijn verschillende manieren om elementen te selecteren uit een atomische vector.
 
-- _Positieve indices_ bepalen welke elementen _wél_ in de selectie dienen te vallen. Specificeer met positieve getallen posities van de elementen die je wilt selecteren. Bedenk dat in R het eerste x element positie 1 heeft (en niet 0, zoals in veel andere programmeertalen). Zo selecteert de expressie `x[c(1,5)]` bijvoorbeeld het eerste en vijfde element uit de vector `x`. Het is mogelijk een element meer dan één keer te selecteren (bijv. ) en om een selectie te maken met met : `x[1,1,1,3`. 
+- _Positieve indices_ geven aan welke elementen _wél_ in de selectie dienen te vallen. 
 
- _Met negatieve indices_ 
-
-Door het gebruik van negatieve indices geef je aan welke elementen uitgesloten moeten worden van de selectie. 
+- _Negatieve indices_  geven aan welke elementen _niet_ in de selectie dienen te vallen. 
  
-```r
-x <- c(10, 20, 30, 40, 50)
-x[-c(2, 4)]  # Exclusief tweede en vierde element: 10, 30, 50
-```
+- _Logische waarden_ geven aan of een element wel (`TRUE`) of niet (`FALSE`) in de selectie dient te vallen. 
+
+- _Namen_ geven aan welk element _wél_ in de selectie dient te vallen. 
+
+Let op bij het gebruik van indices: in R geldt dat het eerste element op positie `1` staat (en niet op positie `0`, zoals in veel andere programmeertalen gebruikelijk is. Het is mogelijk een element meer dan één keer te selecteren door de index te herhalen. 
+
+
+::: {.panel-tabset}
+
+### Quiz
+Zie de vector `x <- c(10, 20, 30, 40, 50)`.
+
+- Maak een vector `p` met enkel de eerste drie elementen. 
+    
+- Maak een vector `q` zonder de eerste twee elementen. 
+
+- Maak een vector `r` met alle elementen groter dan 30. 
+
+- Maak een vector `s` met drie keer het eerste element uit `x`. 
+
+### Antwoord
+Zie de vector `x <- c(10, 20, 30, 40, 50)`.
+
+- Maak een vector `p` met enkel de eerste drie elementen. 
+    - `p <- x[c(1:3)]`
+
+- Maak een vector `q` zonder de eerste twee elementen. 
+    - `q <- x[-c(1:2)]`
+
+- Maak een vector `r` met alle elementen groter dan 30. 
+    - `r <- x[which(x > 30)]`
+
+- Maak een vector `s` met drie keer het eerste element uit `x`. 
+    - `s <- x[c(1,1,1)]`
+    
+
+:::
+
  
-_Met logische waarden_ 
 
-```r
-x <- c(10, 20, 30, 40, 50)
-x[c(T,F,F,F,F)]  # Exclusief tweede en vierde element: 10, 30, 50
-```
- 
-Quiz: 
----
+## Subsetten van lijsten
+Het selecteren van elementen uit lijsten geschiedt op gelijksoortige wijzen als het subsetten van atomische vectoren. Er bestaat echter een belangrijk verschil tussen de operator `[` en `[[`. 
 
-Ga uit van de vector `x <- c(10,20,30,40,50)`. Probeer te beredeneren wat er gebeurt bij de volgende subset-commando's:
+- `[` retourneert een lijst van alle geselecteerde elementen
+- `[[` retourneert één element uit een lijst 
 
 
+::: {.panel-tabset}
 
- 
- 
+### Quiz
+Zie de lijst `x <- list(a = "Jan", b = "Piet")`. 
 
-### Subsetten van lijsten
+Leg uit wat het verschil is tussen `x["a"]` en `x[["a"]]`
+
+### Antwoord
+Zie de lijst `x <- list(a = "Jan", b = "Piet")`. 
+
+Leg uit wat het verschil is tussen `x["a"]` en `x[["a"]]`
+
+Beide bewerkingen selecteren "Jan", maar `x["a"]` levert een _lijst_ met het element "Jan", terwijl `x[["a"]]` de _waarde_ "Jan" levert 
+:::
 
 
 
 
-### Subsetten van matrices en arrays
+## Vergelijken en combineren van sets 
+
+R kent een aantal functies die het combineren van sets mogelijk maakt. 
+
+
+|Functie|Omschrijving|
+| -- | -----| 
+| `intersect(x,y)` | Geef alle elementen die _zowel_ in `x` als `y` voorkomen | 
+| `union(x,y)` | Geef alle elementen die in `x` óf in `y` voorkomen |
+| `unique(x)` | Geef alle unieke elementen in `x` | 
+| `setdiff(x, y)` | Geef het verschil tussen de vector x en y, dat wil zeggen: alle elementen die 
+
