@@ -278,7 +278,7 @@ Enkele voorbeelden:
 
 ### Quiz
 
-Bereken het matrixproduct van de volgende matrices: 
+Bereken het matrixproduct $A * B$ van de volgende matrices: 
 
 $$
 A = \begin{bmatrix} 
