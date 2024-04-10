@@ -1,5 +1,33 @@
 body {
-    
- 
+
+  
     
 }
+
+@media (min-width: 1200px){
+    
+    h2, .h2 {
+        font-size: 1.45rem;
+    }
+    
+}
+
+@media (min-width: 992px){
+
+    div.sourceCode {
+        margin-left: calc(calc(-0.6em + -3px) + 10px);
+    }
+
+    body.floating.fullcontent .page-columns {
+        display: grid;
+        gap: 0;
+        grid-template-columns: [ screen-start ] 1.5em [ screen-start-inset ] 1fr [ page-start ] 100px [ page-start-inset ] minmax(70px, 210px) [ body          -start-outset ] 70px [ body-start ] 1.5em [ body-content-start ] minmax(500px, calc(1100px - 3em)) [ body-content-end ] 1.5em [ body-end body          -end-outset page-end-inset page-end ] 5fr [ screen-end-inset ] 1.5em [ screen-end ];
+
+    
+}
+
+h3 {
+    border-bottom: 1px solid #dee2e6;
+}
+
+ 

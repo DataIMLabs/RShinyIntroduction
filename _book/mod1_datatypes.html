@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introductie R en Shiny - 3&nbsp; Data types</title>
+<title>Introductie R en Shiny - 4&nbsp; Data types</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_datatypes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data types</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_datatypes.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data types</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -196,20 +196,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./mod1_gettingstarted.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vereisten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mod1_variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod1_datatypes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod1_subsetting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span></a>
   </div>
 </li>
       </ul>
@@ -224,13 +230,13 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#vectorisatie" id="toc-vectorisatie" class="nav-link active" data-scroll-target="#vectorisatie"><span class="header-section-number">3.1</span> Vectorisatie</a></li>
-  <li><a href="#atomische-vectoren" id="toc-atomische-vectoren" class="nav-link" data-scroll-target="#atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</a></li>
-  <li><a href="#attributen" id="toc-attributen" class="nav-link" data-scroll-target="#attributen"><span class="header-section-number">3.3</span> Attributen</a></li>
-  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">3.4</span> Matrices</a></li>
-  <li><a href="#lijsten" id="toc-lijsten" class="nav-link" data-scroll-target="#lijsten"><span class="header-section-number">3.5</span> Lijsten</a>
+  <li><a href="#vectorisatie" id="toc-vectorisatie" class="nav-link active" data-scroll-target="#vectorisatie"><span class="header-section-number">4.1</span> Vectorisatie</a></li>
+  <li><a href="#atomische-vectoren" id="toc-atomische-vectoren" class="nav-link" data-scroll-target="#atomische-vectoren"><span class="header-section-number">4.2</span> Atomische vectoren</a></li>
+  <li><a href="#attributen" id="toc-attributen" class="nav-link" data-scroll-target="#attributen"><span class="header-section-number">4.3</span> Attributen</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">4.4</span> Matrices</a></li>
+  <li><a href="#lijsten" id="toc-lijsten" class="nav-link" data-scroll-target="#lijsten"><span class="header-section-number">4.5</span> Lijsten</a>
   <ul>
-  <li><a href="#lapply" id="toc-lapply" class="nav-link" data-scroll-target="#lapply"><span class="header-section-number">3.5.1</span> Lapply</a></li>
+  <li><a href="#lapply" id="toc-lapply" class="nav-link" data-scroll-target="#lapply"><span class="header-section-number">4.5.1</span> Lapply</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -238,9 +244,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_datatypes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data types</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_datatypes.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data types</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data types</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data types</span></h1>
 </div>
 
 
@@ -258,8 +264,8 @@ window.Quarto = {
 
 
 <p>Dit hoofdstuk bespreekt de verschillende soorten data-typen die R ondersteunt. We beginnen met een korte bespreking van het begrip <code>vectorisatie</code>. Simpel gezegd: in R is <em>alles</em> eigenlijk een vector. Hiermee onderscheidt R zich van veel andere talen. Vervolgens word en atomische vectoren (d.w.z., vectoren bestaande uit enkelvoudige, ondeelbare objecten van hetzelfde type) en lijsten besproken.</p>
-<section id="vectorisatie" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="vectorisatie"><span class="header-section-number">3.1</span> Vectorisatie</h2>
+<section id="vectorisatie" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="vectorisatie"><span class="header-section-number">4.1</span> Vectorisatie</h2>
 <p>In R is alles een vector. Ook enkelvoudige waarden, zoals een enkel getal (<code>x &lt;- 1</code>) of een enkelvoudige tekst (<code>y &lt;- "test"</code>), worden behandeld als vectoren met lengte één. Dit is een fundamenteel aspect van R en heeft grote invloed op hoe de taal werkt. Zeker voor degenen die (meer) ervaring hebben met talen zoals <code>Python</code>, <code>C#</code> of <code>Javascript</code> is het van belang dit fundamentale aspect van R voor het netvlies te hebben.</p>
 <p>Zie ter illustratie onderstaande codevoorbeelden in JavaScript en R, waarin we aan elk element van een serie getallen <code>1, 2, 3, 4, 5)</code> het getal <code>1</code> willen optellen. In JavaScript zou je zoiets kunnen oplossen met behulp van een <code>for</code>-loop over alle elementen van een array. in R kun je de berekening op een directe manier opschrijven.</p>
 <div>
@@ -399,8 +405,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="atomische-vectoren" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="atomische-vectoren"><span class="header-section-number">3.2</span> Atomische vectoren</h2>
+<section id="atomische-vectoren" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="atomische-vectoren"><span class="header-section-number">4.2</span> Atomische vectoren</h2>
 <p>Atomische vectoren zijn de bouwstenen van meer complexe datastructuren in R. Een atomische vector bevat enkelvoudige data-types die slechts één enkele waarde of element bevatten. R kent verschillende typen vectoren, waaronder logische vectoren, numerieke vectoren (onderverdeeld in integers en doubles), complexe vectoren en karakter-vectoren (character).</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -500,8 +506,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="attributen" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="attributen"><span class="header-section-number">3.3</span> Attributen</h2>
+<section id="attributen" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="attributen"><span class="header-section-number">4.3</span> Attributen</h2>
 <p>Aan elk R-object kan <em>meta</em>-data worden toegevoegd via zogeheten <em>attributen</em>. Een R-object kan een willekeurige set van attributen hebben, waaronder dimensies (waardoor vectoren matrices en arrays worden), klasse (gebruikt voor S3 objectgeoriënteerd programmeren), namen (voor het benoemen van elementen van vectoren en lijsten), of andere door gebruikers gedefinieerde metadata.</p>
 <p>Attributen kunnen worden benaderd met de <code>attr()</code> functie om een attribuut direct te krijgen of in te stellen. Zo haalt <code>attr(object, "naam")</code> de waarde van het attribuut van op, en stelt <code>attr(object, "attribute_name") &lt;- waarde</code> de attribuutwaarde in. De <code>attributes()</code> functie geeft een lijst terug van alle attributen van een object, en <code>attributes(object) &lt;- list(attribute_name = waarde, ...)</code> kan worden gebruikt om meerdere attributen tegelijk in te stellen.</p>
 <p>Attributen moeten zorgvuldig worden beheerd, aangezien het wijzigen ervan de manier kan veranderen waarop een object wordt behandeld door functies en kan leiden tot onbedoelde resultaten als ze niet correct worden behandeld.</p>
@@ -540,8 +546,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="matrices" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="matrices"><span class="header-section-number">3.4</span> Matrices</h2>
+<section id="matrices" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="matrices"><span class="header-section-number">4.4</span> Matrices</h2>
 <p>Een matrix is een tweedimensionele datastructuur die gebruikt kan worden om wiskundige berekeningen te vereenvoudigen. Een array is een meerdimensionale generalisatie van een matrix. Matrices en arrays zijn in R niks anders dan atomische vectoren waaraan een zogeheten <em>dimensie</em>-attribuut (<code>dim</code>) is toegevoegd.</p>
 <p>Een matrix kan worden aangemaakt door een vector te voorzien van het dimensie-attribuut <code>dim</code>, door de <code>matrix</code>-functie aan te roepen, of als resultaat van een andere berekening die een matrix retourneert (bijvoorbeeld de functie <code>diag()</code>).</p>
 <p>Zie onderstaande voorbeeld:</p>
@@ -652,11 +658,11 @@ B = \begin{bmatrix}
 </div>
 </div>
 </section>
-<section id="lijsten" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="lijsten"><span class="header-section-number">3.5</span> Lijsten</h2>
+<section id="lijsten" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="lijsten"><span class="header-section-number">4.5</span> Lijsten</h2>
 <p>Lijsten zijn vectoren waarbij de elementen niet van hetzelfde type hoeven te zijn. Een lijst kan op verschillende manieren aangemaakt worden. Gangbare methoden zijn de <code>list()</code> functie uit R, de functie <code>list2()</code> uit het <code>rlang</code>-package, door het combineren van lijsten via de functie <code>c()</code>, of als uitkomst van een functie die een lijst retourneert (bijv. <code>lapply</code>) of <code>as.list()</code>. De functie <code>names()</code> retourneert de namen van een lijst; deze functie kan gebruikt worden in combinatie met de toewijzingsoperator <code>&lt;-</code>.</p>
-<section id="lapply" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="lapply"><span class="header-section-number">3.5.1</span> Lapply</h3>
+<section id="lapply" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="lapply"><span class="header-section-number">4.5.1</span> Lapply</h3>
 <p>Een belangrijke manier om lijsten aan te maken is met het zogeheten <code>lapply(x, FUN)</code> commando. Dit commando voert de functie <code>FUN</code> uit voor elke element uit een lijst (of atomische vector) <code>x</code>.</p>
 <ul>
 <li>Het resultaat van <code>lapply</code> is een lijst met het zelfde aantal elementen als het aantal elementen in <code>x</code>.</li>
@@ -1208,12 +1214,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./mod1_variables.html" class="pagination-link" aria-label="Variablen, operatoren en functies.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./mod1_subsetting.html" class="pagination-link" aria-label="Sets en subsets">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

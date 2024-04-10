@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introductie R en Shiny - 2&nbsp; Variablen, operatoren en functies.</title>
+<title>Introductie R en Shiny - 3&nbsp; Variablen, operatoren en functies.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./mod1_datatypes.html" rel="next">
-<link href="./mod1_basis.html" rel="prev">
+<link href="./mod1_gettingstarted.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -196,20 +196,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./mod1_gettingstarted.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vereisten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mod1_variables.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod1_datatypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data types</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mod1_subsetting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sets en subsets</span></span></a>
   </div>
 </li>
       </ul>
@@ -224,24 +230,24 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#variabelen" id="toc-variabelen" class="nav-link active" data-scroll-target="#variabelen"><span class="header-section-number">2.1</span> Variabelen</a>
+  <li><a href="#variabelen" id="toc-variabelen" class="nav-link active" data-scroll-target="#variabelen"><span class="header-section-number">3.1</span> Variabelen</a>
   <ul>
-  <li><a href="#scopes-en-environments" id="toc-scopes-en-environments" class="nav-link" data-scroll-target="#scopes-en-environments"><span class="header-section-number">2.1.1</span> Scopes en environments</a></li>
-  <li><a href="#mutabiliteit-en-locks" id="toc-mutabiliteit-en-locks" class="nav-link" data-scroll-target="#mutabiliteit-en-locks"><span class="header-section-number">2.1.2</span> Mutabiliteit en locks (*)</a></li>
-  <li><a href="#dynamische-types" id="toc-dynamische-types" class="nav-link" data-scroll-target="#dynamische-types"><span class="header-section-number">2.1.3</span> Dynamische types (*)</a></li>
-  <li><a href="#copy-on-modify-semantiek" id="toc-copy-on-modify-semantiek" class="nav-link" data-scroll-target="#copy-on-modify-semantiek"><span class="header-section-number">2.1.4</span> Copy-on-modify semantiek(*)</a></li>
+  <li><a href="#scopes-en-environments" id="toc-scopes-en-environments" class="nav-link" data-scroll-target="#scopes-en-environments"><span class="header-section-number">3.1.1</span> Scopes en environments</a></li>
+  <li><a href="#mutabiliteit-en-locks" id="toc-mutabiliteit-en-locks" class="nav-link" data-scroll-target="#mutabiliteit-en-locks"><span class="header-section-number">3.1.2</span> Mutabiliteit en locks (*)</a></li>
+  <li><a href="#dynamische-types" id="toc-dynamische-types" class="nav-link" data-scroll-target="#dynamische-types"><span class="header-section-number">3.1.3</span> Dynamische types (*)</a></li>
+  <li><a href="#copy-on-modify-semantiek" id="toc-copy-on-modify-semantiek" class="nav-link" data-scroll-target="#copy-on-modify-semantiek"><span class="header-section-number">3.1.4</span> Copy-on-modify semantiek(*)</a></li>
   </ul></li>
-  <li><a href="#functies" id="toc-functies" class="nav-link" data-scroll-target="#functies"><span class="header-section-number">2.2</span> Functies</a>
+  <li><a href="#functies" id="toc-functies" class="nav-link" data-scroll-target="#functies"><span class="header-section-number">3.2</span> Functies</a>
   <ul>
-  <li><a href="#functie-argumenten" id="toc-functie-argumenten" class="nav-link" data-scroll-target="#functie-argumenten"><span class="header-section-number">2.2.1</span> Functie-argumenten</a></li>
-  <li><a href="#lazy-evaluation" id="toc-lazy-evaluation" class="nav-link" data-scroll-target="#lazy-evaluation"><span class="header-section-number">2.2.2</span> Lazy evaluation</a></li>
-  <li><a href="#controleren-van-argumenten-match.arg" id="toc-controleren-van-argumenten-match.arg" class="nav-link" data-scroll-target="#controleren-van-argumenten-match.arg"><span class="header-section-number">2.2.3</span> Controleren van argumenten: <code>match.arg</code></a></li>
-  <li><a href="#functies-als-argument" id="toc-functies-als-argument" class="nav-link" data-scroll-target="#functies-als-argument"><span class="header-section-number">2.2.4</span> Functies als argument</a></li>
+  <li><a href="#functie-argumenten" id="toc-functie-argumenten" class="nav-link" data-scroll-target="#functie-argumenten"><span class="header-section-number">3.2.1</span> Functie-argumenten</a></li>
+  <li><a href="#lazy-evaluation" id="toc-lazy-evaluation" class="nav-link" data-scroll-target="#lazy-evaluation"><span class="header-section-number">3.2.2</span> Lazy evaluation</a></li>
+  <li><a href="#controleren-van-argumenten-match.arg" id="toc-controleren-van-argumenten-match.arg" class="nav-link" data-scroll-target="#controleren-van-argumenten-match.arg"><span class="header-section-number">3.2.3</span> Controleren van argumenten: <code>match.arg</code></a></li>
+  <li><a href="#functies-als-argument" id="toc-functies-als-argument" class="nav-link" data-scroll-target="#functies-als-argument"><span class="header-section-number">3.2.4</span> Functies als argument</a></li>
   </ul></li>
-  <li><a href="#operatoren" id="toc-operatoren" class="nav-link" data-scroll-target="#operatoren"><span class="header-section-number">2.3</span> Operatoren</a>
+  <li><a href="#operatoren" id="toc-operatoren" class="nav-link" data-scroll-target="#operatoren"><span class="header-section-number">3.3</span> Operatoren</a>
   <ul>
-  <li><a href="#volgorde-van-bewerkingen" id="toc-volgorde-van-bewerkingen" class="nav-link" data-scroll-target="#volgorde-van-bewerkingen"><span class="header-section-number">2.3.1</span> Volgorde van bewerkingen</a></li>
-  <li><a href="#pipe-operatoren" id="toc-pipe-operatoren" class="nav-link" data-scroll-target="#pipe-operatoren"><span class="header-section-number">2.3.2</span> Pipe-operatoren</a></li>
+  <li><a href="#volgorde-van-bewerkingen" id="toc-volgorde-van-bewerkingen" class="nav-link" data-scroll-target="#volgorde-van-bewerkingen"><span class="header-section-number">3.3.1</span> Volgorde van bewerkingen</a></li>
+  <li><a href="#pipe-operatoren" id="toc-pipe-operatoren" class="nav-link" data-scroll-target="#pipe-operatoren"><span class="header-section-number">3.3.2</span> Pipe-operatoren</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -249,9 +255,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mod1_basis.html">Module 1 - Basis R</a></li><li class="breadcrumb-item"><a href="./mod1_variables.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variablen, operatoren en functies.</span></h1>
 </div>
 
 
@@ -269,8 +275,8 @@ window.Quarto = {
 
 
 <p>Dit hoofdstuk bespreekt drie elementaire bouwstenen van R, namelijk <em>variabelen</em>, <em>operatoren</em> en <em>functies</em>.</p>
-<section id="variabelen" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="variabelen"><span class="header-section-number">2.1</span> Variabelen</h2>
+<section id="variabelen" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="variabelen"><span class="header-section-number">3.1</span> Variabelen</h2>
 <p>Een variabele is een verwijzing naar een waarde in het geheugden van de computer. Een variabele in R bestaat uit twee onderdelen, namelijk de <em>naam</em> van de variabele en de <em>waarde</em> van de variabele. De (binaire) operatoren <strong><code>&lt;-</code></strong>, <strong><code>&lt;&lt;-</code></strong>, <strong><code>-&gt;</code></strong> en <strong><code>-&gt;&gt;</code></strong> creëren variabelen door een <em>naam</em> toe te kennen aan een <em>waarde</em>.</p>
 <p><em>Voorbeelden:</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
@@ -288,8 +294,8 @@ window.Quarto = {
 <li>copy-on-modify semantiek (*).</li>
 </ul>
 <p>Dit zijn geen eenvoudige onderwerpen, maar voor een goed begrip van complexe R Scripts en Shiny-dashboards zijn deze onderwerpen essentiëel. We raden aan de onderdelen met een asterisk op een later moment nog eens te bezien.</p>
-<section id="scopes-en-environments" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="scopes-en-environments"><span class="header-section-number">2.1.1</span> Scopes en environments</h3>
+<section id="scopes-en-environments" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="scopes-en-environments"><span class="header-section-number">3.1.1</span> Scopes en environments</h3>
 <p>De scope van een variabele geeft aan in welke context de variabele bestaat. In R heet een dergelijke context ook wel een <code>environment</code>. Dit hoofdstuk beperkt zich tot deze betekenis van het begrip environment; later zullen we zien dat een environment niet enkel een abstract concept is, maar (ook) een datatype waar we handig gebruik van kunnen maken. Twee voorbeelden hiervan zijn zogeheten <code>R6</code>-reference klasses en Shiny reactives.</p>
 <p>Hieronder vatten we de hoofdpunten samen:</p>
 <ul>
@@ -415,8 +421,8 @@ window.Quarto = {
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># x bestaat nu wel. </span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="mutabiliteit-en-locks" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="mutabiliteit-en-locks"><span class="header-section-number">2.1.2</span> Mutabiliteit en locks (*)</h3>
+<section id="mutabiliteit-en-locks" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="mutabiliteit-en-locks"><span class="header-section-number">3.1.2</span> Mutabiliteit en locks (*)</h3>
 <p>Een variabele die in R is gedefinieerd kan worden bewerkt vanuit de eigen <em>scope</em>, of vanuit een ondergelegen <em>scope</em>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veranderen waarde binnen de eigen scope</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
@@ -463,8 +469,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="dynamische-types" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="dynamische-types"><span class="header-section-number">2.1.3</span> Dynamische types (*)</h3>
+<section id="dynamische-types" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="dynamische-types"><span class="header-section-number">3.1.3</span> Dynamische types (*)</h3>
 <p>R behoort tot de zogeheten <em>dynamisch-getypeerde</em> programmeertalen. Dit wil zeggen dat het datatype van variabelen in principe niet à priori vastligt en pas wordt bepaald zodra het betreffende deel van het programma wordt uitgevoerd; ook kan het type gedurende de uitvoer veranderen. Met de functie <code>typeof</code> kan het type van een variabele worden bepaald.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voorbeeld type-conversie</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span></span>
@@ -496,8 +502,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="copy-on-modify-semantiek" class="level3" data-number="2.1.4">
-<h3 data-number="2.1.4" class="anchored" data-anchor-id="copy-on-modify-semantiek"><span class="header-section-number">2.1.4</span> Copy-on-modify semantiek(*)</h3>
+<section id="copy-on-modify-semantiek" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="copy-on-modify-semantiek"><span class="header-section-number">3.1.4</span> Copy-on-modify semantiek(*)</h3>
 <p>Variabelen in R kunnen verwijzen naar andere variabelen. Anders gezegd: meerdere <em>namen</em> kunnen in R verwijzen naar dezelfde <em>waarden</em>. De vraag is hoe R (intern) omgaat met een dergelijke situatie. Er zijn grofweg twee manieren waarop dit zou kunnen:</p>
 <ul>
 <li><p><strong>Copy-on-assignment</strong>. Direct na het toewijzen van het label <code>y</code> aan het label <code>x</code> wordt een kopie van het object gemaakt.</p></li>
@@ -522,8 +528,8 @@ window.Quarto = {
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y) <span class="co"># y = 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="functies" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="functies"><span class="header-section-number">2.2</span> Functies</h2>
+<section id="functies" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="functies"><span class="header-section-number">3.2</span> Functies</h2>
 <p>Een functie is een herbruikbaar blok code dat een specifieke taak uitvoert. Functies zijn essentieel voor het opzetten van nette, herbruikbare en onderhoudbare code: ze maken het immers mogelijk complexe problemen op te splitsen in kleinere deeltaken. Een functie defineert men via de term <code>function</code>; met de toewijzingsoperator <code>&lt;-</code> kan de functie vervolgens worden toegewezen aan een naam.</p>
 <p>Zie onderstaande voorbeeld:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een functie en geef deze de naam 'f'. </span></span>
@@ -535,8 +541,8 @@ window.Quarto = {
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="fu">f</span>(<span class="dv">1</span>)) <span class="co"># Geeft 1 + (1 + 1) = 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>De expressie <code>f(1)</code> retourneert <code>2</code>. De expressie <code>f(f(1))</code> past de functie twee keer toe en retourneert derhalve <code>3</code>.</p>
-<section id="functie-argumenten" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="functie-argumenten"><span class="header-section-number">2.2.1</span> Functie-argumenten</h3>
+<section id="functie-argumenten" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="functie-argumenten"><span class="header-section-number">3.2.1</span> Functie-argumenten</h3>
 <p>De <em>argumenten</em> vormen de input van de functie. Een functie kan 0, 1 of meerdere argumenten hebben. Argumenten kunnen een standaardwaarde hebben (een zogeheten <code>default</code>), maar dit hoeft niet. Argumenten kunnen een <em>naam</em> hebben, maar het is ook mogelijk om naamloze argumenten aan een functie mee te geven. De drie puntjes <code>...</code> geven aan dat de functie nog meer argumenten kan accepteren (met naam of zonder naam).</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">z =</span> <span class="cn">NULL</span>, ...){</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x<span class="sc">+</span>y)</span>
@@ -548,13 +554,11 @@ window.Quarto = {
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>Maak een functie <code>f</code> die drie vectoren <code>x</code>, <code>y</code> en <code>z</code> elementsgewijs bij elkaar optelt en vervolgens het product van de elementen geeft:</p>
-<p>$$f(x,y,z) = _{i = 1}^n [x_i+y_i+z_i]</p>
-<p>$$</p>
+<p><span class="math inline">\(f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]\)</span></p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>Maak een functie <code>f</code> die drie vectoren <code>x</code>, <code>y</code> en <code>z</code> elementsgewijs bij elkaar optelt en vervolgens het product van de elementen geeft:</p>
-<p>$$f(x,y,z) = _{i = 1}^n [x_i+y_i+z_i]</p>
-<p>$$</p>
+<p><span class="math inline">\(f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]\)</span></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, z){</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">prod</span>(x <span class="sc">+</span> y <span class="sc">+</span> z)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -575,12 +579,12 @@ window.Quarto = {
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="at">y =</span> <span class="dv">2</span>) <span class="co"># Deze geeft een foutmelding; de waarde x is namelijk nodig binnen de functie. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="lazy-evaluation" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="lazy-evaluation"><span class="header-section-number">2.2.2</span> Lazy evaluation</h3>
+<section id="lazy-evaluation" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="lazy-evaluation"><span class="header-section-number">3.2.2</span> Lazy evaluation</h3>
 <p>Wellicht vraag je je af hoe je bij het definieren van het argument <code>z</code> kunt verwijzen naar de waarde <code>y</code>, terwijl deze waarde nog niet bekend is. Bedenk dat in R geldt dat functieargumenten pas worden geëvalueerd zodra ze binnen de <em>context</em> van de functie worden gebruikt. Dit heet ook wel lazy-evaluation.</p>
 </section>
-<section id="controleren-van-argumenten-match.arg" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="controleren-van-argumenten-match.arg"><span class="header-section-number">2.2.3</span> Controleren van argumenten: <code>match.arg</code></h3>
+<section id="controleren-van-argumenten-match.arg" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="controleren-van-argumenten-match.arg"><span class="header-section-number">3.2.3</span> Controleren van argumenten: <code>match.arg</code></h3>
 <p>Een veelvoorkomende techniek is om standaardwaarden te controleren aan de hand van een lijst met standaardwaarden. Dit geschiedt met de functie <code>match.arg</code>.</p>
 <p>Zie onderstaande voorbeeld:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>,<span class="st">"b"</span>,<span class="st">"c"</span>){</span>
@@ -591,27 +595,35 @@ window.Quarto = {
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="st">"a"</span>)</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="st">"fout"</span>) <span class="co"># Dit geeft een foutmelding</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="functies-als-argument" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="functies-als-argument"><span class="header-section-number">2.2.4</span> Functies als argument</h3>
+<section id="functies-als-argument" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="functies-als-argument"><span class="header-section-number">3.2.4</span> Functies als argument</h3>
 <p>In R is het mogelijk functies als argument mee te geven aan een andere functie.</p>
-<p>Zie onderstaande voorbeeld:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definieer een lijst van functies 'funcs' toepast over een vector x. </span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>describe <span class="ot">&lt;-</span> <span class="cf">function</span>(x, fs){</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(fs, <span class="cf">function</span>(f){</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f</span>(x)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">m =</span> mean, <span class="at">s =</span> sd)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(x, fs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Antwoord</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Zie onderstaande functie:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>describe <span class="ot">&lt;-</span> <span class="cf">function</span>(x, fu){</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(fs, <span class="cf">function</span>(f){</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">f</span>(x)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">m =</span> mean, <span class="at">s =</span> sd)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">describe</span>(x, fs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+
+</div>
+</div>
+</div>
 <p>Bij het opzetten van Shiny dashboards zullen we handig gebruik maken van deze krachtige mogelijkheid van R.</p>
 </section>
 </section>
-<section id="operatoren" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="operatoren"><span class="header-section-number">2.3</span> Operatoren</h2>
+<section id="operatoren" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="operatoren"><span class="header-section-number">3.3</span> Operatoren</h2>
 <p>Een operator is een bewerking (operatie) op één of twee input-elementen. Operatoren kunnen worden ingedeeld in <em>unaire</em> operatoren (één input) en <em>binaire</em> operatoren (twee inputs). De input van een <em>unaire</em> operator staat aan de rechterhandszijde (RHZ) van de operator:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voorbeeld van een negatie-operator '!'</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
@@ -652,15 +664,15 @@ window.Quarto = {
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y <span class="co"># Optellen</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> x <span class="sc">*</span> y <span class="co"># Vermenigvuldigen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Antwoord</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Antwoord</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>Zie de vector <code>x &lt;- c(1, 2, 3)</code> en <code>y &lt;- c(3, 2, 1)</code>.</p>
 <ul>
 <li>Maak een logische vector <code>p</code> die voor elke paarsgewijze vergelijking tussen x en y aangeeft of het element uit <code>x</code> groter is dan het corresponderende element uit <code>y</code>.</li>
 </ul>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p>Zie de vector <code>x &lt;- c(1, 2, 3)</code> en <code>y &lt;- c(3, 2, 1)</code>.</p>
 <ul>
 <li><p>Maak een logische vector <code>p</code> die voor elke paarsgewijze vergelijking tussen x en y aangeeft of het element uit <code>x</code> groter is dan het corresponderende element uit <code>y</code>.</p>
@@ -671,23 +683,23 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="volgorde-van-bewerkingen" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="volgorde-van-bewerkingen"><span class="header-section-number">2.3.1</span> Volgorde van bewerkingen</h3>
+<section id="volgorde-van-bewerkingen" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="volgorde-van-bewerkingen"><span class="header-section-number">3.3.1</span> Volgorde van bewerkingen</h3>
 <p>Bij complexe berekeningen is het belangrijk om te weten in welke volgorde de programmeertaal bepaalde bewerkingen uitvoert. De berekening <span class="math inline">\(1 + 2 / 3\)</span> is immers niet hetzelfde als <span class="math inline">\(1 + (2 /3)\)</span>.</p>
 <p>Zie de documentatie in <code>?syntax</code> voor een uitgebreide bespreking van de volgorde van bewerkingen in R.</p>
 <p>Probeer na te gaan in welke volgorde onderstaande bewerkingen worden uitgevoerd:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span> <span class="ot">-&gt;</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Antwoord</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Quiz</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Antwoord</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>Zie de expressie <code>y &lt;- (x &lt;- 1) + 3</code>.</p>
 <ul>
 <li><p>Is dit geldige R?</p></li>
 <li><p>Zo ja, wat is het resultaat?</p></li>
 </ul>
 </div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>Zie de expressie <code>y &lt;- (x &lt;- 1) + 3</code>.</p>
 <ul>
 <li>Is dit geldige R?
@@ -703,8 +715,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="pipe-operatoren" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="pipe-operatoren"><span class="header-section-number">2.3.2</span> Pipe-operatoren</h3>
+<section id="pipe-operatoren" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="pipe-operatoren"><span class="header-section-number">3.3.2</span> Pipe-operatoren</h3>
 <p>De zogeheten <em>pipe</em>-operator <code>%&gt;%</code> uit het <code>magrittr</code>-package is een operator waarmee bewerkingen sequentieel uitgevoerd kunnen worden. In <code>tidyverse</code>, <code>plotly</code> en <code>shiny</code> wordt deze operator veelvuldig gebruikt om complexe functie-aanroepen te vereenvoudigen. In Module 4 zullen we hier nader op in gaan.</p>
 
 
@@ -1123,13 +1135,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./mod1_basis.html" class="pagination-link" aria-label="Module 1 - Basis R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 1 - Basis R</span>
+      <a href="./mod1_gettingstarted.html" class="pagination-link" aria-label="Vereisten">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vereisten</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./mod1_datatypes.html" class="pagination-link" aria-label="Data types">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data types</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data types</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

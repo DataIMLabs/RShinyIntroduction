@@ -307,16 +307,14 @@ f(1)
 ### Quiz
 Maak een functie `f` die drie vectoren `x`, `y` en `z` elementsgewijs bij elkaar optelt en vervolgens het product van de elementen geeft: 
 
-$$f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]
-
-$$
+$f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]$
 
 ### Antwoord
 Maak een functie `f` die drie vectoren `x`, `y` en `z` elementsgewijs bij elkaar optelt en vervolgens het product van de elementen geeft: 
 
-$$f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]
+$f(x,y,z) = \prod_{i = 1}^n [x_i+y_i+z_i]$
 
-$$
+ 
 ```r
 f <- function(x, y, z){
     prod(x + y + z)
@@ -377,12 +375,14 @@ f("fout") # Dit geeft een foutmelding
 
 In R is het mogelijk functies als argument mee te geven aan een andere functie.
 
-Zie onderstaande voorbeeld:
+::: {.panel-tabset}
+
+### Quiz
+
+Zie onderstaande functie: 
 
 ```r
-# Definieer een lijst van functies 'funcs' toepast over een vector x. 
-
-describe <- function(x, fs){
+describe <- function(x, fu){
     lapply(fs, function(f){
         f(x)
     })
@@ -393,6 +393,13 @@ fs <- list(m = mean, s = sd)
 
 describe(x, fs)
 ```
+
+
+### Antwoord
+
+:::
+
+
 
 Bij het opzetten van Shiny dashboards zullen we handig gebruik maken van deze krachtige mogelijkheid van R. 
  

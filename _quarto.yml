@@ -8,7 +8,8 @@ book:
     - index.qmd
     - intro.qmd 
     - part: mod1_basis.qmd
-      chapters:  
+      chapters: 
+        - mod1_gettingstarted.qmd  
         - mod1_variables.qmd  
         - mod1_datatypes.qmd  
         - mod1_subsetting.qmd  

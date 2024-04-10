@@ -1,0 +1,29 @@
+# Vereisten 
+
+Dit korte hoofdstuk bespreekt de benodigdheden om met R aan de slag te kunnen.
+
+## R
+
+Download R vanaf één van onderstaande URLs en volg de installatiestappen: 
+
+ - [R voor windows](https://cran.r-project.org/bin/windows/base/)
+ - [R voor macOS](https://cran.r-project.org/bin/macosx/)
+ - [R voor Linux](https://cran.r-project.org/bin/linux/)
+
+## RTools (enkel voor Windows)
+
+- Download R Tools
+
+## RStudio
+
+- Download en installeer RStudio
+ 
+## Packages
+
+- Installeer de volgende packages:
+
+  - `shiny`
+  - `plotly`
+  - `data.table`
+  - `magrittr`
+  - `tidyverse`
